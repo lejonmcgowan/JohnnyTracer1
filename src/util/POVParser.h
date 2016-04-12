@@ -8,26 +8,27 @@
 
 #include <string>
 #include <cameras/Scene.h>
+#include <lights/Light.h>
 
 class POVParser
 {
 private:
-    std::string parseComments(std::string& filepath);
+    static std::string parseComments(std::string& filepath);
 
-    Eigen::Vector3f parseVector(std::string object);
+    static Eigen::Vector3f parseVector(std::string object);
 
-    void parseCamera(std::string object);
-    void parseLight(std::string object);
-    void parseTransform(std::string object);
-    void parseBox(std::string object);
-    void parseSphere(std::string object);
-    void parsePlane(std::string object);
-    void parseTriangle(std::string object);
-    void parsePigment(std::string object);
-    void parseFinish(std::string object);
+    static std::shared_ptr<Camera> parseCamera(std::string object);
+    static std::shared_ptr<Light>  parseLight(std::string object);
+    static void parseTransform(std::string object);
+    static void parseBox(std::string object);
+    static std::shared_ptr<Shape> parseSphere(std::string object);
+    static std::shared_ptr<Shape> parsePlane(std::string object);
+    static void parseTriangle(std::string object);
+    static void parsePigment(std::string object);
+    static void parseFinish(std::string object);
 
 public:
-    Scene parseFile(std::string& filepath);
+    static Scene parseFile(const std::string filepath);
 };
 
 

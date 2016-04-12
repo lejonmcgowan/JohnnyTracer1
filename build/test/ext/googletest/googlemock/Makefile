@@ -33,19 +33,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/local/bin/cmake
+CMAKE_COMMAND = /usr/bin/cmake
 
 # The command to remove a file.
-RM = /usr/local/bin/cmake -E remove -f
+RM = /usr/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473
+CMAKE_SOURCE_DIR = /home/lejonmcgowan/ClionProjects/RayTracer473
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build
+CMAKE_BINARY_DIR = /home/lejonmcgowan/ClionProjects/RayTracer473/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -53,7 +53,7 @@ CMAKE_BINARY_DIR = /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer
 # Special rule for the target install/strip
 install/strip: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/local/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip
 
 # Special rule for the target install/strip
@@ -63,7 +63,7 @@ install/strip/fast: install/strip
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/local/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -73,7 +73,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/local/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -83,13 +83,13 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/local/bin/cmake -P cmake_install.cmake
+	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install
 
 # Special rule for the target install
 install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/local/bin/cmake -P cmake_install.cmake
+	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
 # Special rule for the target list_install_components
@@ -104,7 +104,7 @@ list_install_components/fast: list_install_components
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/local/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local
 
 # Special rule for the target install/local
@@ -113,14 +113,14 @@ install/local/fast: install/local
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/test/ext/googletest/googlemock/CMakeFiles/progress.marks
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build && $(MAKE) -f CMakeFiles/Makefile2 test/ext/googletest/googlemock/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles 0
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/ClionProjects/RayTracer473/build/CMakeFiles /home/lejonmcgowan/ClionProjects/RayTracer473/build/test/ext/googletest/googlemock/CMakeFiles/progress.marks
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build && $(MAKE) -f CMakeFiles/Makefile2 test/ext/googletest/googlemock/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/ClionProjects/RayTracer473/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build && $(MAKE) -f CMakeFiles/Makefile2 test/ext/googletest/googlemock/clean
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build && $(MAKE) -f CMakeFiles/Makefile2 test/ext/googletest/googlemock/clean
 .PHONY : clean
 
 # The main clean target
@@ -129,22 +129,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build && $(MAKE) -f CMakeFiles/Makefile2 test/ext/googletest/googlemock/preinstall
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build && $(MAKE) -f CMakeFiles/Makefile2 test/ext/googletest/googlemock/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build && $(MAKE) -f CMakeFiles/Makefile2 test/ext/googletest/googlemock/preinstall
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build && $(MAKE) -f CMakeFiles/Makefile2 test/ext/googletest/googlemock/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 test/ext/googletest/googlemock/CMakeFiles/gmock.dir/rule:
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build && $(MAKE) -f CMakeFiles/Makefile2 test/ext/googletest/googlemock/CMakeFiles/gmock.dir/rule
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build && $(MAKE) -f CMakeFiles/Makefile2 test/ext/googletest/googlemock/CMakeFiles/gmock.dir/rule
 .PHONY : test/ext/googletest/googlemock/CMakeFiles/gmock.dir/rule
 
 # Convenience name for target.
@@ -153,12 +153,12 @@ gmock: test/ext/googletest/googlemock/CMakeFiles/gmock.dir/rule
 
 # fast build rule for target.
 gmock/fast:
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build && $(MAKE) -f test/ext/googletest/googlemock/CMakeFiles/gmock.dir/build.make test/ext/googletest/googlemock/CMakeFiles/gmock.dir/build
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build && $(MAKE) -f test/ext/googletest/googlemock/CMakeFiles/gmock.dir/build.make test/ext/googletest/googlemock/CMakeFiles/gmock.dir/build
 .PHONY : gmock/fast
 
 # Convenience name for target.
 test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/rule:
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build && $(MAKE) -f CMakeFiles/Makefile2 test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/rule
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build && $(MAKE) -f CMakeFiles/Makefile2 test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/rule
 .PHONY : test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/rule
 
 # Convenience name for target.
@@ -167,7 +167,7 @@ gmock_main: test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/rule
 
 # fast build rule for target.
 gmock_main/fast:
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build && $(MAKE) -f test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/build
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build && $(MAKE) -f test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/build
 .PHONY : gmock_main/fast
 
 __/googletest/src/gtest-all.o: __/googletest/src/gtest-all.cc.o
@@ -175,8 +175,8 @@ __/googletest/src/gtest-all.o: __/googletest/src/gtest-all.cc.o
 
 # target to build an object file
 __/googletest/src/gtest-all.cc.o:
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build && $(MAKE) -f test/ext/googletest/googlemock/CMakeFiles/gmock.dir/build.make test/ext/googletest/googlemock/CMakeFiles/gmock.dir/__/googletest/src/gtest-all.cc.o
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build && $(MAKE) -f test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/__/googletest/src/gtest-all.cc.o
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build && $(MAKE) -f test/ext/googletest/googlemock/CMakeFiles/gmock.dir/build.make test/ext/googletest/googlemock/CMakeFiles/gmock.dir/__/googletest/src/gtest-all.cc.o
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build && $(MAKE) -f test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/__/googletest/src/gtest-all.cc.o
 .PHONY : __/googletest/src/gtest-all.cc.o
 
 __/googletest/src/gtest-all.i: __/googletest/src/gtest-all.cc.i
@@ -184,8 +184,8 @@ __/googletest/src/gtest-all.i: __/googletest/src/gtest-all.cc.i
 
 # target to preprocess a source file
 __/googletest/src/gtest-all.cc.i:
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build && $(MAKE) -f test/ext/googletest/googlemock/CMakeFiles/gmock.dir/build.make test/ext/googletest/googlemock/CMakeFiles/gmock.dir/__/googletest/src/gtest-all.cc.i
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build && $(MAKE) -f test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/__/googletest/src/gtest-all.cc.i
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build && $(MAKE) -f test/ext/googletest/googlemock/CMakeFiles/gmock.dir/build.make test/ext/googletest/googlemock/CMakeFiles/gmock.dir/__/googletest/src/gtest-all.cc.i
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build && $(MAKE) -f test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/__/googletest/src/gtest-all.cc.i
 .PHONY : __/googletest/src/gtest-all.cc.i
 
 __/googletest/src/gtest-all.s: __/googletest/src/gtest-all.cc.s
@@ -193,8 +193,8 @@ __/googletest/src/gtest-all.s: __/googletest/src/gtest-all.cc.s
 
 # target to generate assembly for a file
 __/googletest/src/gtest-all.cc.s:
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build && $(MAKE) -f test/ext/googletest/googlemock/CMakeFiles/gmock.dir/build.make test/ext/googletest/googlemock/CMakeFiles/gmock.dir/__/googletest/src/gtest-all.cc.s
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build && $(MAKE) -f test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/__/googletest/src/gtest-all.cc.s
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build && $(MAKE) -f test/ext/googletest/googlemock/CMakeFiles/gmock.dir/build.make test/ext/googletest/googlemock/CMakeFiles/gmock.dir/__/googletest/src/gtest-all.cc.s
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build && $(MAKE) -f test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/__/googletest/src/gtest-all.cc.s
 .PHONY : __/googletest/src/gtest-all.cc.s
 
 src/gmock-all.o: src/gmock-all.cc.o
@@ -202,8 +202,8 @@ src/gmock-all.o: src/gmock-all.cc.o
 
 # target to build an object file
 src/gmock-all.cc.o:
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build && $(MAKE) -f test/ext/googletest/googlemock/CMakeFiles/gmock.dir/build.make test/ext/googletest/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build && $(MAKE) -f test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock-all.cc.o
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build && $(MAKE) -f test/ext/googletest/googlemock/CMakeFiles/gmock.dir/build.make test/ext/googletest/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build && $(MAKE) -f test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock-all.cc.o
 .PHONY : src/gmock-all.cc.o
 
 src/gmock-all.i: src/gmock-all.cc.i
@@ -211,8 +211,8 @@ src/gmock-all.i: src/gmock-all.cc.i
 
 # target to preprocess a source file
 src/gmock-all.cc.i:
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build && $(MAKE) -f test/ext/googletest/googlemock/CMakeFiles/gmock.dir/build.make test/ext/googletest/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.i
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build && $(MAKE) -f test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock-all.cc.i
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build && $(MAKE) -f test/ext/googletest/googlemock/CMakeFiles/gmock.dir/build.make test/ext/googletest/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.i
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build && $(MAKE) -f test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock-all.cc.i
 .PHONY : src/gmock-all.cc.i
 
 src/gmock-all.s: src/gmock-all.cc.s
@@ -220,8 +220,8 @@ src/gmock-all.s: src/gmock-all.cc.s
 
 # target to generate assembly for a file
 src/gmock-all.cc.s:
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build && $(MAKE) -f test/ext/googletest/googlemock/CMakeFiles/gmock.dir/build.make test/ext/googletest/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.s
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build && $(MAKE) -f test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock-all.cc.s
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build && $(MAKE) -f test/ext/googletest/googlemock/CMakeFiles/gmock.dir/build.make test/ext/googletest/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.s
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build && $(MAKE) -f test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock-all.cc.s
 .PHONY : src/gmock-all.cc.s
 
 src/gmock_main.o: src/gmock_main.cc.o
@@ -229,7 +229,7 @@ src/gmock_main.o: src/gmock_main.cc.o
 
 # target to build an object file
 src/gmock_main.cc.o:
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build && $(MAKE) -f test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build && $(MAKE) -f test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o
 .PHONY : src/gmock_main.cc.o
 
 src/gmock_main.i: src/gmock_main.cc.i
@@ -237,7 +237,7 @@ src/gmock_main.i: src/gmock_main.cc.i
 
 # target to preprocess a source file
 src/gmock_main.cc.i:
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build && $(MAKE) -f test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.i
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build && $(MAKE) -f test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.i
 .PHONY : src/gmock_main.cc.i
 
 src/gmock_main.s: src/gmock_main.cc.s
@@ -245,7 +245,7 @@ src/gmock_main.s: src/gmock_main.cc.s
 
 # target to generate assembly for a file
 src/gmock_main.cc.s:
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build && $(MAKE) -f test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.s
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build && $(MAKE) -f test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.s
 .PHONY : src/gmock_main.cc.s
 
 # Help Target
@@ -282,6 +282,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

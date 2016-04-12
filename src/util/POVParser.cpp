@@ -7,7 +7,57 @@
 using namespace Eigen;
 using namespace std;
 
-std::string parseComments(std::string &fileString);
+Eigen::Vector3f POVParser::parseVector(std::string block)
+{
+    return Vector3f();
+}
+
+shared_ptr<Camera> POVParser::parseCamera(std::string block)
+{
+
+}
+
+std::shared_ptr<Light> POVParser::parseLight(std::string block)
+{
+
+}
+
+void POVParser::parseTransform(std::string block)
+{
+
+}
+
+void POVParser::parseBox(std::string block)
+{
+
+}
+
+shared_ptr<Shape> POVParser::parseSphere(std::string block)
+{
+
+}
+
+shared_ptr<Shape> POVParser::parsePlane(std::string block)
+{
+
+}
+
+void POVParser::parseTriangle(std::string block)
+{
+
+}
+
+void POVParser::parsePigment(std::string block)
+{
+
+}
+
+void POVParser::parseFinish(std::string block)
+{
+
+}
+
+
 /*
  * // comments
 • camera
@@ -31,9 +81,9 @@ std::string parseComments(std::string &fileString);
     o ior
  */
 
-Scene POVParser::parseFile(std::string &filepath)
+Scene POVParser::parseFile(const std::string filepath)
 {
-    Scene* scene = nullptr;
+    Scene* scene = new Scene();
     //opoen the file
     std::ifstream testFile;
     testFile.open(filepath);
@@ -47,13 +97,26 @@ Scene POVParser::parseFile(std::string &filepath)
     //go word by word
     while(fileToParse >> word)
     {
-        //check for current state: parsing object block, parsing vector
-        switch(word)
+        std::string& tag = word;
+        std::string block;
+        fileToParse >> block;
+        assert(block == "{");
+        //extract the next block of code for the right parser to parse
+        while(block.back() != '}')
         {
-            case "camera";
+            fileToParse >> block;
         }
-    }
 
+        //pass block to right parser
+        if(word == "camera")
+            scene->addCamera(parseCamera(block));
+        else if(word == "light_source")
+            scene->addLight(parseLight(block));
+        else if(word == "sphere")
+            scene->addShape(parseSphere(block));
+        else if(word == "plane")
+            scene->addShape(parsePlane(block));
+    }
 
     return *scene;
 }
@@ -94,42 +157,3 @@ std::string POVParser::parseComments(std::string &fileString) {
 }
 
 
-Eigen::Vector3f POVParser::parseVector(std::string object) {
-    return Eigen::Matrix<float, 3, 1, 0, 3, 1>();
-}
-
-void POVParser::parseCamera(std::string object) {
-
-}
-
-void POVParser::parseLight(std::string object) {
-
-}
-
-void POVParser::parseTransform(std::string object) {
-
-}
-
-void POVParser::parseBox(std::string object) {
-
-}
-
-void POVParser::parseSphere(std::string object) {
-
-}
-
-void POVParser::parsePlane(std::string object) {
-
-}
-
-void POVParser::parseTriangle(std::string object) {
-
-}
-
-void POVParser::parsePigment(std::string object) {
-
-}
-
-void POVParser::parseFinish(std::string object) {
-
-}

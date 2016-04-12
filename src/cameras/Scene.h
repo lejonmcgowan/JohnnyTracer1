@@ -8,27 +8,35 @@
 
 #include <string>
 #include <geometry/Shape.h>
+#include <lights/Light.h>
 #include <memory>
+#include "Camera.h"
 
 class Scene
 {
 private:
     std::vector<std::shared_ptr<Shape>> objects;
+    std::vector<std::shared_ptr<Camera>> cameras;
     std::vector<char> pixelBuffer;
-public:
     const int width, height;
     Eigen::Vector3i backgroundColor;
-    Scene(int width, int height, Eigen::Vector3i backgroundColor);
+public:
+    Scene();
     void init(const std::string& sceneDataPath);
-    void addObject(std::shared_ptr<Shape> shape);
+    void render(Camera& camera);
 
+    Camera& getCamera(int index);
     void pushPixel(char r, char g, char b);
     void pushPixelf(float r, float g, float b);
     void pushPixelf(Eigen::Vector3f rgb);
-    void renderImage(const std::string& writePath);
+    void renderImage(const std::string& writePath = "sample.tga");
     HitData castRay(const Ray& ray) const;
 
     void pushPixel(Eigen::Vector3i matrix);
+
+    void addLight(std::shared_ptr<Light> light);
+    void addShape(std::shared_ptr<Shape> shape);
+    void addCamera(std::shared_ptr<Camera> camera);
 };
 
 

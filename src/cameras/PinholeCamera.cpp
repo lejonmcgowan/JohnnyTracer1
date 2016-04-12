@@ -3,6 +3,7 @@
 //
 
 #include <geometry/Ray.h>
+#include <util/SceneContext.h>
 #include "PinholeCamera.h"
 #include "Scene.h"
 
@@ -12,8 +13,8 @@ void PinholeCamera::renderScene(Scene& scene)
 
     ray.origin = position;
 
-    for (int r = 0; r < scene.width; r++)
-        for (int c = 0; c < scene.height; c++)
+    for (int r = 0; r < SceneContext::windowDims[0]; r++)
+        for (int c = 0; c < SceneContext::windowDims[1]; c++)
         {
             Eigen::Vector3i color;
 
@@ -21,7 +22,7 @@ void PinholeCamera::renderScene(Scene& scene)
             if(data.hit)
                 color = 255 * data.color.cast<int>();
             else
-                color = scene.backgroundColor;
+                color = SceneContext::backgroundColor;
 
             scene.pushPixel(color);
         }

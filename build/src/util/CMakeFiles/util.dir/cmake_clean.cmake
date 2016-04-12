@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/util.dir/Constants.cpp.o"
+  "CMakeFiles/util.dir/POVParser.cpp.o"
   "../../lib/libutil.pdb"
   "../../lib/libutil.a"
 )

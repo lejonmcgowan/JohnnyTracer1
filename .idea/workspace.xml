@@ -6,6 +6,7 @@
       <config projectName="RayTracer473" targetName="gtest" />
       <config projectName="RayTracer473" targetName="gmock_main" />
       <config projectName="RayTracer473" targetName="fileparsing" />
+      <config projectName="RayTracer473" targetName="lights" />
       <config projectName="RayTracer473" targetName="BaseTest" />
       <config projectName="RayTracer473" targetName="cameras" />
       <config projectName="RayTracer473" targetName="util" />
@@ -23,7 +24,165 @@
     </ADDITIONAL_GENERATION_ENVIRONMENT>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d93748ee-ba68-45d8-94f4-d3971541759f" name="Default" comment="" />
+    <list default="true" id="d93748ee-ba68-45d8-94f4-d3971541759f" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/geometry/Plane.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/geometry/Plane.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/lights/CMakeLists.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/lights/Light.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/lights/Light.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/util/SceneContext.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/util/SceneContext.h" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/bin/BaseTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/bin/RayTracer473" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/lib/libgtest_main.a" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/lib/libutil.a" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/src/CMakeFiles/RayTracer473.dir/CXX.includecache" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/src/CMakeFiles/RayTracer473.dir/depend.internal" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/src/CMakeFiles/RayTracer473.dir/main.cpp.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/src/RayTracer473" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/src/fileparsing/libfileparsing.a" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/CMakeFiles/BaseTest.dir/BaseTest.cpp.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/CMakeFiles/BaseTest.dir/CXX.includecache" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/CMakeFiles/BaseTest.dir/depend.internal" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/gtest/CMakeFiles/gtest_main.dir/CXX.includecache" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/gtest/CMakeFiles/gtest_main.dir/depend.internal" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/gtest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeFiles/3.2.2/CMakeDetermineCompilerABI_C.bin" afterPath="$PROJECT_DIR$/build/CMakeFiles/3.2.2/CMakeDetermineCompilerABI_C.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeFiles/3.2.2/CMakeDetermineCompilerABI_CXX.bin" afterPath="$PROJECT_DIR$/build/CMakeFiles/3.2.2/CMakeDetermineCompilerABI_CXX.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeFiles/3.2.2/CompilerIdC/a.out" afterPath="$PROJECT_DIR$/build/CMakeFiles/3.2.2/CompilerIdC/a.out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeFiles/3.2.2/CompilerIdCXX/a.out" afterPath="$PROJECT_DIR$/build/CMakeFiles/3.2.2/CompilerIdCXX/a.out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeFiles/feature_tests.bin" afterPath="$PROJECT_DIR$/build/CMakeFiles/feature_tests.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/lib/libcameras.a" afterPath="$PROJECT_DIR$/build/lib/libcameras.a" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/lib/libfileparsing.a" afterPath="$PROJECT_DIR$/build/lib/libfileparsing.a" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/lib/libgeometry.a" afterPath="$PROJECT_DIR$/build/lib/libgeometry.a" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/lib/libgmock.a" afterPath="$PROJECT_DIR$/build/lib/libgmock.a" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/lib/libgmock_main.a" afterPath="$PROJECT_DIR$/build/lib/libgmock_main.a" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/lib/libgtest.a" afterPath="$PROJECT_DIR$/build/lib/libgtest.a" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/cameras/CMakeFiles/cameras.dir/Camera.cpp.o" afterPath="$PROJECT_DIR$/build/src/cameras/CMakeFiles/cameras.dir/Camera.cpp.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/cameras/CMakeFiles/cameras.dir/PinholeCamera.cpp.o" afterPath="$PROJECT_DIR$/build/src/cameras/CMakeFiles/cameras.dir/PinholeCamera.cpp.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/cameras/CMakeFiles/cameras.dir/Scene.cpp.o" afterPath="$PROJECT_DIR$/build/src/cameras/CMakeFiles/cameras.dir/Scene.cpp.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/fileparsing/CMakeFiles/fileparsing.dir/POVObject.cpp.o" afterPath="$PROJECT_DIR$/build/src/fileparsing/CMakeFiles/fileparsing.dir/POVObject.cpp.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/geometry/CMakeFiles/geometry.dir/Ray.cpp.o" afterPath="$PROJECT_DIR$/build/src/geometry/CMakeFiles/geometry.dir/Ray.cpp.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/geometry/CMakeFiles/geometry.dir/Shape.cpp.o" afterPath="$PROJECT_DIR$/build/src/geometry/CMakeFiles/geometry.dir/Shape.cpp.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/geometry/CMakeFiles/geometry.dir/Sphere.cpp.o" afterPath="$PROJECT_DIR$/build/src/geometry/CMakeFiles/geometry.dir/Sphere.cpp.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/util/CMakeFiles/util.dir/Constants.cpp.o" afterPath="$PROJECT_DIR$/build/src/util/CMakeFiles/util.dir/Constants.cpp.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/CMakeFiles/gmock.dir/__/googletest/src/gtest-all.cc.o" afterPath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/CMakeFiles/gmock.dir/__/googletest/src/gtest-all.cc.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o" afterPath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/__/googletest/src/gtest-all.cc.o" afterPath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/__/googletest/src/gtest-all.cc.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock-all.cc.o" afterPath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock-all.cc.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o" afterPath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/gtest/CMakeFiles/gtest.dir/src/gtest-all.cc.o" afterPath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/gtest/CMakeFiles/gtest.dir/src/gtest-all.cc.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/RayTracer473.iml" afterPath="$PROJECT_DIR$/.idea/RayTracer473.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeCache.txt" afterPath="$PROJECT_DIR$/build/CMakeCache.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeFiles/3.2.2/CMakeCCompiler.cmake" afterPath="$PROJECT_DIR$/build/CMakeFiles/3.2.2/CMakeCCompiler.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeFiles/3.2.2/CMakeCXXCompiler.cmake" afterPath="$PROJECT_DIR$/build/CMakeFiles/3.2.2/CMakeCXXCompiler.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeFiles/3.2.2/CMakeSystem.cmake" afterPath="$PROJECT_DIR$/build/CMakeFiles/3.2.2/CMakeSystem.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeFiles/CMakeDirectoryInformation.cmake" afterPath="$PROJECT_DIR$/build/CMakeFiles/CMakeDirectoryInformation.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeFiles/CMakeError.log" afterPath="$PROJECT_DIR$/build/CMakeFiles/CMakeError.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeFiles/CMakeOutput.log" afterPath="$PROJECT_DIR$/build/CMakeFiles/CMakeOutput.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeFiles/Makefile.cmake" afterPath="$PROJECT_DIR$/build/CMakeFiles/Makefile.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeFiles/Makefile2" afterPath="$PROJECT_DIR$/build/CMakeFiles/Makefile2" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeFiles/TargetDirectories.txt" afterPath="$PROJECT_DIR$/build/CMakeFiles/TargetDirectories.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeFiles/progress.marks" afterPath="$PROJECT_DIR$/build/CMakeFiles/progress.marks" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/Makefile" afterPath="$PROJECT_DIR$/build/Makefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/cmake_install.cmake" afterPath="$PROJECT_DIR$/build/cmake_install.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/CMakeFiles/CMakeDirectoryInformation.cmake" afterPath="$PROJECT_DIR$/build/src/CMakeFiles/CMakeDirectoryInformation.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/CMakeFiles/RayTracer473.dir/DependInfo.cmake" afterPath="$PROJECT_DIR$/build/src/CMakeFiles/RayTracer473.dir/DependInfo.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/CMakeFiles/RayTracer473.dir/build.make" afterPath="$PROJECT_DIR$/build/src/CMakeFiles/RayTracer473.dir/build.make" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/CMakeFiles/RayTracer473.dir/depend.make" afterPath="$PROJECT_DIR$/build/src/CMakeFiles/RayTracer473.dir/depend.make" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/CMakeFiles/RayTracer473.dir/flags.make" afterPath="$PROJECT_DIR$/build/src/CMakeFiles/RayTracer473.dir/flags.make" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/CMakeFiles/RayTracer473.dir/link.txt" afterPath="$PROJECT_DIR$/build/src/CMakeFiles/RayTracer473.dir/link.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/CMakeFiles/progress.marks" afterPath="$PROJECT_DIR$/build/src/CMakeFiles/progress.marks" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/Makefile" afterPath="$PROJECT_DIR$/build/src/Makefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/cameras/CMakeFiles/CMakeDirectoryInformation.cmake" afterPath="$PROJECT_DIR$/build/src/cameras/CMakeFiles/CMakeDirectoryInformation.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/cameras/CMakeFiles/cameras.dir/CXX.includecache" afterPath="$PROJECT_DIR$/build/src/cameras/CMakeFiles/cameras.dir/CXX.includecache" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/cameras/CMakeFiles/cameras.dir/DependInfo.cmake" afterPath="$PROJECT_DIR$/build/src/cameras/CMakeFiles/cameras.dir/DependInfo.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/cameras/CMakeFiles/cameras.dir/build.make" afterPath="$PROJECT_DIR$/build/src/cameras/CMakeFiles/cameras.dir/build.make" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/cameras/CMakeFiles/cameras.dir/depend.internal" afterPath="$PROJECT_DIR$/build/src/cameras/CMakeFiles/cameras.dir/depend.internal" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/cameras/CMakeFiles/cameras.dir/depend.make" afterPath="$PROJECT_DIR$/build/src/cameras/CMakeFiles/cameras.dir/depend.make" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/cameras/CMakeFiles/cameras.dir/flags.make" afterPath="$PROJECT_DIR$/build/src/cameras/CMakeFiles/cameras.dir/flags.make" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/cameras/Makefile" afterPath="$PROJECT_DIR$/build/src/cameras/Makefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/cameras/cmake_install.cmake" afterPath="$PROJECT_DIR$/build/src/cameras/cmake_install.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/cmake_install.cmake" afterPath="$PROJECT_DIR$/build/src/cmake_install.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/fileparsing/CMakeFiles/CMakeDirectoryInformation.cmake" afterPath="$PROJECT_DIR$/build/src/fileparsing/CMakeFiles/CMakeDirectoryInformation.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/fileparsing/CMakeFiles/fileparsing.dir/CXX.includecache" afterPath="$PROJECT_DIR$/build/src/fileparsing/CMakeFiles/fileparsing.dir/CXX.includecache" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/fileparsing/CMakeFiles/fileparsing.dir/DependInfo.cmake" afterPath="$PROJECT_DIR$/build/src/fileparsing/CMakeFiles/fileparsing.dir/DependInfo.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/fileparsing/CMakeFiles/fileparsing.dir/build.make" afterPath="$PROJECT_DIR$/build/src/fileparsing/CMakeFiles/fileparsing.dir/build.make" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/fileparsing/CMakeFiles/fileparsing.dir/depend.internal" afterPath="$PROJECT_DIR$/build/src/fileparsing/CMakeFiles/fileparsing.dir/depend.internal" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/fileparsing/CMakeFiles/fileparsing.dir/flags.make" afterPath="$PROJECT_DIR$/build/src/fileparsing/CMakeFiles/fileparsing.dir/flags.make" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/fileparsing/Makefile" afterPath="$PROJECT_DIR$/build/src/fileparsing/Makefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/fileparsing/cmake_install.cmake" afterPath="$PROJECT_DIR$/build/src/fileparsing/cmake_install.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/geometry/CMakeFiles/CMakeDirectoryInformation.cmake" afterPath="$PROJECT_DIR$/build/src/geometry/CMakeFiles/CMakeDirectoryInformation.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/geometry/CMakeFiles/geometry.dir/CXX.includecache" afterPath="$PROJECT_DIR$/build/src/geometry/CMakeFiles/geometry.dir/CXX.includecache" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/geometry/CMakeFiles/geometry.dir/DependInfo.cmake" afterPath="$PROJECT_DIR$/build/src/geometry/CMakeFiles/geometry.dir/DependInfo.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/geometry/CMakeFiles/geometry.dir/build.make" afterPath="$PROJECT_DIR$/build/src/geometry/CMakeFiles/geometry.dir/build.make" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/geometry/CMakeFiles/geometry.dir/depend.internal" afterPath="$PROJECT_DIR$/build/src/geometry/CMakeFiles/geometry.dir/depend.internal" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/geometry/CMakeFiles/geometry.dir/depend.make" afterPath="$PROJECT_DIR$/build/src/geometry/CMakeFiles/geometry.dir/depend.make" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/geometry/CMakeFiles/geometry.dir/flags.make" afterPath="$PROJECT_DIR$/build/src/geometry/CMakeFiles/geometry.dir/flags.make" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/geometry/Makefile" afterPath="$PROJECT_DIR$/build/src/geometry/Makefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/geometry/cmake_install.cmake" afterPath="$PROJECT_DIR$/build/src/geometry/cmake_install.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/util/CMakeFiles/CMakeDirectoryInformation.cmake" afterPath="$PROJECT_DIR$/build/src/util/CMakeFiles/CMakeDirectoryInformation.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/util/CMakeFiles/progress.marks" afterPath="$PROJECT_DIR$/build/src/util/CMakeFiles/progress.marks" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/util/CMakeFiles/util.dir/CXX.includecache" afterPath="$PROJECT_DIR$/build/src/util/CMakeFiles/util.dir/CXX.includecache" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/util/CMakeFiles/util.dir/DependInfo.cmake" afterPath="$PROJECT_DIR$/build/src/util/CMakeFiles/util.dir/DependInfo.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/util/CMakeFiles/util.dir/build.make" afterPath="$PROJECT_DIR$/build/src/util/CMakeFiles/util.dir/build.make" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/util/CMakeFiles/util.dir/cmake_clean.cmake" afterPath="$PROJECT_DIR$/build/src/util/CMakeFiles/util.dir/cmake_clean.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/util/CMakeFiles/util.dir/depend.internal" afterPath="$PROJECT_DIR$/build/src/util/CMakeFiles/util.dir/depend.internal" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/util/CMakeFiles/util.dir/depend.make" afterPath="$PROJECT_DIR$/build/src/util/CMakeFiles/util.dir/depend.make" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/util/CMakeFiles/util.dir/flags.make" afterPath="$PROJECT_DIR$/build/src/util/CMakeFiles/util.dir/flags.make" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/util/CMakeFiles/util.dir/link.txt" afterPath="$PROJECT_DIR$/build/src/util/CMakeFiles/util.dir/link.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/util/CMakeFiles/util.dir/progress.make" afterPath="$PROJECT_DIR$/build/src/util/CMakeFiles/util.dir/progress.make" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/util/Makefile" afterPath="$PROJECT_DIR$/build/src/util/Makefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/util/cmake_install.cmake" afterPath="$PROJECT_DIR$/build/src/util/cmake_install.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/CMakeFiles/BaseTest.dir/DependInfo.cmake" afterPath="$PROJECT_DIR$/build/test/CMakeFiles/BaseTest.dir/DependInfo.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/CMakeFiles/BaseTest.dir/build.make" afterPath="$PROJECT_DIR$/build/test/CMakeFiles/BaseTest.dir/build.make" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/CMakeFiles/BaseTest.dir/depend.make" afterPath="$PROJECT_DIR$/build/test/CMakeFiles/BaseTest.dir/depend.make" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/CMakeFiles/BaseTest.dir/flags.make" afterPath="$PROJECT_DIR$/build/test/CMakeFiles/BaseTest.dir/flags.make" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/CMakeFiles/CMakeDirectoryInformation.cmake" afterPath="$PROJECT_DIR$/build/test/CMakeFiles/CMakeDirectoryInformation.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/CMakeFiles/progress.marks" afterPath="$PROJECT_DIR$/build/test/CMakeFiles/progress.marks" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/Makefile" afterPath="$PROJECT_DIR$/build/test/Makefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/cmake_install.cmake" afterPath="$PROJECT_DIR$/build/test/cmake_install.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/ext/googletest/CMakeFiles/CMakeDirectoryInformation.cmake" afterPath="$PROJECT_DIR$/build/test/ext/googletest/CMakeFiles/CMakeDirectoryInformation.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/ext/googletest/CTestTestfile.cmake" afterPath="$PROJECT_DIR$/build/test/ext/googletest/CTestTestfile.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/ext/googletest/Makefile" afterPath="$PROJECT_DIR$/build/test/ext/googletest/Makefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/ext/googletest/cmake_install.cmake" afterPath="$PROJECT_DIR$/build/test/ext/googletest/cmake_install.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/CMakeFiles/CMakeDirectoryInformation.cmake" afterPath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/CMakeFiles/CMakeDirectoryInformation.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/CMakeFiles/gmock.dir/CXX.includecache" afterPath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/CMakeFiles/gmock.dir/CXX.includecache" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/CMakeFiles/gmock.dir/DependInfo.cmake" afterPath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/CMakeFiles/gmock.dir/DependInfo.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/CMakeFiles/gmock.dir/build.make" afterPath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/CMakeFiles/gmock.dir/build.make" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/CMakeFiles/gmock.dir/depend.internal" afterPath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/CMakeFiles/gmock.dir/depend.internal" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/CMakeFiles/gmock.dir/flags.make" afterPath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/CMakeFiles/gmock.dir/flags.make" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/CXX.includecache" afterPath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/CXX.includecache" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/DependInfo.cmake" afterPath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/DependInfo.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make" afterPath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/depend.internal" afterPath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/depend.internal" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/flags.make" afterPath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/flags.make" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/CTestTestfile.cmake" afterPath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/CTestTestfile.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/Makefile" afterPath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/Makefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/cmake_install.cmake" afterPath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/cmake_install.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/gtest/CMakeFiles/CMakeDirectoryInformation.cmake" afterPath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/gtest/CMakeFiles/CMakeDirectoryInformation.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/gtest/CMakeFiles/gtest.dir/CXX.includecache" afterPath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/gtest/CMakeFiles/gtest.dir/CXX.includecache" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/gtest/CMakeFiles/gtest.dir/DependInfo.cmake" afterPath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/gtest/CMakeFiles/gtest.dir/DependInfo.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/gtest/CMakeFiles/gtest.dir/build.make" afterPath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/gtest/CMakeFiles/gtest.dir/build.make" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/gtest/CMakeFiles/gtest.dir/depend.internal" afterPath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/gtest/CMakeFiles/gtest.dir/depend.internal" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/gtest/CMakeFiles/gtest.dir/flags.make" afterPath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/gtest/CMakeFiles/gtest.dir/flags.make" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/gtest/CMakeFiles/gtest_main.dir/DependInfo.cmake" afterPath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/gtest/CMakeFiles/gtest_main.dir/DependInfo.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/gtest/CMakeFiles/gtest_main.dir/build.make" afterPath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/gtest/CMakeFiles/gtest_main.dir/build.make" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/gtest/CMakeFiles/gtest_main.dir/depend.make" afterPath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/gtest/CMakeFiles/gtest_main.dir/depend.make" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/gtest/CMakeFiles/gtest_main.dir/flags.make" afterPath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/gtest/CMakeFiles/gtest_main.dir/flags.make" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/gtest/CTestTestfile.cmake" afterPath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/gtest/CTestTestfile.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/gtest/Makefile" afterPath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/gtest/Makefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/gtest/cmake_install.cmake" afterPath="$PROJECT_DIR$/build/test/ext/googletest/googlemock/gtest/cmake_install.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cameras/PinholeCamera.cpp" afterPath="$PROJECT_DIR$/src/cameras/PinholeCamera.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cameras/Scene.cpp" afterPath="$PROJECT_DIR$/src/cameras/Scene.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cameras/Scene.h" afterPath="$PROJECT_DIR$/src/cameras/Scene.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/geometry/CMakeLists.txt" afterPath="$PROJECT_DIR$/src/geometry/CMakeLists.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main.cpp" afterPath="$PROJECT_DIR$/src/main.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/CMakeLists.txt" afterPath="$PROJECT_DIR$/src/util/CMakeLists.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/POVParser.cpp" afterPath="$PROJECT_DIR$/src/util/POVParser.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/POVParser.h" afterPath="$PROJECT_DIR$/src/util/POVParser.h" />
+    </list>
     <ignored path="RayTracer473.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,61 +196,29 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file leaf-file-name="POVParser.cpp" pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/src/util/POVParser.cpp">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="483">
-                    <caret line="52" column="26" selection-start-line="52" selection-start-column="26" selection-end-line="52" selection-end-column="26" />
-                    <folding>
-                      <element signature="e#46#64#0" expanded="true" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="RayTracer473" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="simple.pov" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/res/simple.pov">
+      <file leaf-file-name="POVParser.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/util/POVParser.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="42">
-              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+            <state relative-caret-position="74">
+              <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main.cpp">
+      <file leaf-file-name="Scene.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cameras/Scene.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="6" column="42" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="POVParser.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/util/POVParser.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+            <state relative-caret-position="198">
+              <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
               <folding>
-                <element signature="e#114#131#0" expanded="true" />
+                <element signature="e#46#71#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -100,8 +227,8 @@
       <file leaf-file-name="PinholeCamera.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cameras/PinholeCamera.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="395">
+              <caret line="24" column="42" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
               <folding>
                 <element signature="e#46#71#0" expanded="true" />
               </folding>
@@ -109,17 +236,62 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Ray.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/geometry/Ray.h">
+      <file leaf-file-name="SceneContext.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/util/SceneContext.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+            <state relative-caret-position="154">
+              <caret line="7" column="45" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BaseTest.cpp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test/BaseTest.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="646">
+              <caret line="189" column="0" selection-start-line="189" selection-start-column="0" selection-end-line="189" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Plane.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/geometry/Plane.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="312">
+              <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+              <folding>
+                <element signature="e#46#73#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Plane.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/geometry/Plane.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="114">
+              <caret line="8" column="15" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Shape.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/geometry/Shape.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="308">
+              <caret line="17" column="67" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="67" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -141,26 +313,37 @@
         <option value="$PROJECT_DIR$/test/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/src/geometry/Ray.h" />
         <option value="$PROJECT_DIR$/src/cameras/CMakeLists.txt" />
-        <option value="$PROJECT_DIR$/src/cameras/Scene.h" />
         <option value="$PROJECT_DIR$/src/cameras/PinholeCamera.h" />
         <option value="$PROJECT_DIR$/test/BaseTest.cpp" />
-        <option value="$PROJECT_DIR$/src/cameras/Scene.cpp" />
         <option value="$PROJECT_DIR$/src/cameras/Camera.h" />
         <option value="$PROJECT_DIR$/src/cameras/Camera.cpp" />
         <option value="$PROJECT_DIR$/res/simple.pov" />
-        <option value="$PROJECT_DIR$/src/cameras/PinholeCamera.cpp" />
         <option value="$PROJECT_DIR$/src/util/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/src/main.cpp" />
+        <option value="$PROJECT_DIR$/src/lights/Light.h" />
+        <option value="$PROJECT_DIR$/src/lights/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/src/util/POVParser.h" />
         <option value="$PROJECT_DIR$/src/util/POVParser.cpp" />
+        <option value="$PROJECT_DIR$/src/cameras/Scene.h" />
+        <option value="$PROJECT_DIR$/src/cameras/Scene.cpp" />
+        <option value="$PROJECT_DIR$/src/cameras/PinholeCamera.cpp" />
+        <option value="$PROJECT_DIR$/src/util/SceneContext.h" />
+        <option value="$PROJECT_DIR$/src/util/SceneContext.cpp" />
+        <option value="$PROJECT_DIR$/src/geometry/Plane.h" />
+        <option value="$PROJECT_DIR$/src/geometry/Plane.cpp" />
       </list>
     </option>
   </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" />
+  <component name="JsBuildToolPackageJson" detection-done="true" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+  </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-910" />
-    <option name="y" value="65" />
-    <option name="width" value="909" />
-    <option name="height" value="1135" />
+    <option name="x" value="-1855" />
+    <option name="y" value="24" />
+    <option name="width" value="1855" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -188,7 +371,70 @@
     </navigator>
     <panes>
       <pane id="ProjectPane">
-        <subPane />
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RayTracer473" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RayTracer473" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RayTracer473" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RayTracer473" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RayTracer473" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RayTracer473" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RayTracer473" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RayTracer473" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RayTracer473" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="geometry" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
       </pane>
     </panes>
   </component>
@@ -196,13 +442,14 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Build All">
+  <component name="RunManager" selected="Google Test.BaseTest">
     <configuration default="true" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" PASS_PARENT_ENVS_2="true" PROJECT_NAME="RayTracer473" TARGET_NAME="RayTracer473" CONFIG_NAME="Debug" TEST_MODE="SUITE_TEST">
       <envs />
       <method />
@@ -211,24 +458,7 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
-      <module name="" />
-      <working_directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <kind value="FILE" />
-      <method />
-    </configuration>
-    <configuration default="true" type="GoRunFileConfiguration" factoryName="Go Single File">
-      <module name="" />
-      <working_directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <method />
-    </configuration>
-    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
-      <module name="" />
-      <working_directory value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <kind value="DIRECTORY" />
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
       <method />
     </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
@@ -258,6 +488,16 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="RayTracer473" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run-script" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Attests">
@@ -365,47 +605,11 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="RayTracer473" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="RayTracer473" TARGET_NAME="RayTracer473" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="RayTracer473" RUN_TARGET_NAME="RayTracer473">
-      <envs />
-      <method />
-    </configuration>
     <configuration default="false" name="Build All" type="CMakeRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="RayTracer473" RUN_TARGET_NAME="RayTracer473" EXPLICIT_BUILD_TARGET_NAME="all">
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="fileparsing" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="RayTracer473" TARGET_NAME="fileparsing" CONFIG_NAME="Debug">
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="resources" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="RayTracer473" TARGET_NAME="resources" CONFIG_NAME="Debug">
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="test.txt" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="RayTracer473" TARGET_NAME="test.txt" CONFIG_NAME="Debug">
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="geometry" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="RayTracer473" TARGET_NAME="geometry" CONFIG_NAME="Debug">
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="util" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="RayTracer473" TARGET_NAME="util" CONFIG_NAME="Debug">
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="gmock" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="RayTracer473" TARGET_NAME="gmock" CONFIG_NAME="Debug">
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="gmock_main" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="RayTracer473" TARGET_NAME="gmock_main" CONFIG_NAME="Debug">
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="gtest" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="RayTracer473" TARGET_NAME="gtest" CONFIG_NAME="Debug">
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="gtest_main" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="RayTracer473" TARGET_NAME="gtest_main" CONFIG_NAME="Debug">
+    <configuration default="false" name="RayTracer473" type="CMakeRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS_2="true" PROJECT_NAME="RayTracer473" TARGET_NAME="RayTracer473" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="RayTracer473" RUN_TARGET_NAME="RayTracer473">
       <envs />
       <method />
     </configuration>
@@ -413,34 +617,15 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="LogMessageTest" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" PASS_PARENT_ENVS_2="true" PROJECT_NAME="RayTracer473" TARGET_NAME="LogMessageTest" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="RayTracer473" RUN_TARGET_NAME="LogMessageTest" TEST_MODE="SUITE_TEST">
+    <configuration default="false" name="BaseTest" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" WORKING_DIR="" PASS_PARENT_ENVS_2="true" PROJECT_NAME="RayTracer473" TARGET_NAME="BaseTest" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="RayTracer473" RUN_TARGET_NAME="BaseTest" TEST_MODE="SUITE_TEST">
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="BaseTest" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" PASS_PARENT_ENVS_2="true" PROJECT_NAME="RayTracer473" TARGET_NAME="BaseTest" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="RayTracer473" RUN_TARGET_NAME="BaseTest" TEST_MODE="SUITE_TEST">
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="cameras" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="RayTracer473" TARGET_NAME="cameras" CONFIG_NAME="Debug">
-      <envs />
-      <method />
-    </configuration>
-    <list size="15">
-      <item index="0" class="java.lang.String" itemvalue="Application.RayTracer473" />
-      <item index="1" class="java.lang.String" itemvalue="Application.Build All" />
-      <item index="2" class="java.lang.String" itemvalue="Application.fileparsing" />
-      <item index="3" class="java.lang.String" itemvalue="Application.resources" />
-      <item index="4" class="java.lang.String" itemvalue="Application.test.txt" />
-      <item index="5" class="java.lang.String" itemvalue="Application.geometry" />
-      <item index="6" class="java.lang.String" itemvalue="Application.util" />
-      <item index="7" class="java.lang.String" itemvalue="Application.gmock" />
-      <item index="8" class="java.lang.String" itemvalue="Application.gmock_main" />
-      <item index="9" class="java.lang.String" itemvalue="Application.gtest" />
-      <item index="10" class="java.lang.String" itemvalue="Application.gtest_main" />
-      <item index="11" class="java.lang.String" itemvalue="Google Test.Test all" />
-      <item index="12" class="java.lang.String" itemvalue="Google Test.LogMessageTest" />
-      <item index="13" class="java.lang.String" itemvalue="Google Test.BaseTest" />
-      <item index="14" class="java.lang.String" itemvalue="Application.cameras" />
+    <list size="4">
+      <item index="0" class="java.lang.String" itemvalue="Application.Build All" />
+      <item index="1" class="java.lang.String" itemvalue="Application.RayTracer473" />
+      <item index="2" class="java.lang.String" itemvalue="Google Test.Test all" />
+      <item index="3" class="java.lang.String" itemvalue="Google Test.BaseTest" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
@@ -460,9 +645,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="BaseTest - 2016.04.07 at 14h 56m 03s.xml">
-      <configuration name="BaseTest" configurationId="CMakeGoogleTestRunConfigurationType" />
-    </history-entry>
     <history-entry file="BaseTest - 2016.04.07 at 14h 56m 20s.xml">
       <configuration name="BaseTest" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
@@ -484,6 +666,9 @@
     <history-entry file="BaseTest - 2016.04.10 at 03h 19m 46s.xml">
       <configuration name="BaseTest" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
+    <history-entry file="BaseTest - 2016.04.12 at 11h 22m 10s.xml">
+      <configuration name="BaseTest" configurationId="CMakeGoogleTestRunConfigurationType" />
+    </history-entry>
     <history-entry file="Test_all - 2016.04.07 at 12h 39m 42s.xml">
       <configuration name="Test all" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
@@ -501,19 +686,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-910" y="65" width="909" height="1135" extended-state="4" />
+    <frame x="-1855" y="24" width="1855" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.557358" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26754385" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991612" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991612" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10500963" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="LuaJ" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36651585" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26131222" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48748842" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27828056" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991612" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991612" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3998136" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -521,6 +705,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="LuaJ" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -549,55 +734,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/geometry/Shape.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/Constants.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/Constants.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/geometry/Sphere.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="21" column="27" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="882">
-          <caret line="42" column="9" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/geometry/Sphere.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="21" column="19" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/geometry/Ray.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -747,13 +883,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/geometry/Shape.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="24" column="29" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ext/googletest/googletest/include/gtest/gtest.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="229">
@@ -789,45 +918,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cameras/Camera.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="609">
-          <caret line="29" column="6" selection-start-line="29" selection-start-column="6" selection-end-line="29" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cameras/PinholeCamera.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cameras/Scene.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1113">
-          <caret line="53" column="1" selection-start-line="53" selection-start-column="1" selection-end-line="53" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cameras/Scene.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="28" column="41" selection-start-line="28" selection-start-column="41" selection-end-line="28" selection-end-column="41" />
-          <folding>
-            <element signature="e#106#123#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cameras/stb_image_write.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="714">
           <caret line="34" column="19" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -835,17 +929,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="9" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/BaseTest.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="891">
-          <caret line="123" column="0" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#32#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -853,13 +936,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="693">
           <caret line="33" column="10" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/geometry/Ray.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
+        <state relative-caret-position="176">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
         </state>
@@ -869,53 +951,163 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="69" selection-start-line="0" selection-start-column="69" selection-end-line="0" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/simple.pov">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cameras/PinholeCamera.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="6" column="42" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
+        <state relative-caret-position="440">
+          <caret line="20" column="27" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
+          <folding>
+            <marker date="1460481396632" expanded="true" signature="9:105" placeholder="..." />
+            <marker date="1460481396632" expanded="true" signature="139:628" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lights/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="19" selection-start-line="0" selection-start-column="19" selection-end-line="0" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cameras/PinholeCamera.cpp">
+    <entry file="file://$PROJECT_DIR$/src/lights/Light.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#46#71#0" expanded="true" />
-          </folding>
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lights/Light.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cameras/Camera.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/util/POVParser.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        <state relative-caret-position="396">
+          <caret line="20" column="22" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
           <folding>
             <element signature="e#114#131#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/simple.pov">
+    <entry file="file://$PROJECT_DIR$/src/util/POVParser.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        <state relative-caret-position="74">
+          <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/POVParser.cpp">
+    <entry file="file://$PROJECT_DIR$/src/cameras/Scene.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="52" column="26" selection-start-line="52" selection-start-column="26" selection-end-line="52" selection-end-column="26" />
+        <state relative-caret-position="198">
+          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
           <folding>
-            <element signature="e#46#64#0" expanded="true" />
+            <element signature="e#46#71#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cameras/Scene.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding>
+            <element signature="e#106#123#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cameras/PinholeCamera.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="24" column="42" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
+          <folding>
+            <element signature="e#46#71#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/SceneContext.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="14" column="27" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/SceneContext.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="45" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/geometry/Shape.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="17" column="67" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/geometry/Plane.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="8" column="15" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/geometry/Plane.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+          <folding>
+            <element signature="e#46#73#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/BaseTest.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="189" column="0" selection-start-line="189" selection-start-column="0" selection-end-line="189" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

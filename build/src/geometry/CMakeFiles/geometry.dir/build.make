@@ -26,19 +26,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/local/bin/cmake
+CMAKE_COMMAND = /usr/bin/cmake
 
 # The command to remove a file.
-RM = /usr/local/bin/cmake -E remove -f
+RM = /usr/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473
+CMAKE_SOURCE_DIR = /home/lejonmcgowan/ClionProjects/RayTracer473
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build
+CMAKE_BINARY_DIR = /home/lejonmcgowan/ClionProjects/RayTracer473/build
 
 # Include any dependencies generated for this target.
 include src/geometry/CMakeFiles/geometry.dir/depend.make
@@ -51,17 +51,17 @@ include src/geometry/CMakeFiles/geometry.dir/flags.make
 
 src/geometry/CMakeFiles/geometry.dir/Sphere.cpp.o: src/geometry/CMakeFiles/geometry.dir/flags.make
 src/geometry/CMakeFiles/geometry.dir/Sphere.cpp.o: ../src/geometry/Sphere.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lejonmcgowan/ClionProjects/RayTracer473/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/geometry/CMakeFiles/geometry.dir/Sphere.cpp.o"
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/geometry && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/geometry.dir/Sphere.cpp.o -c /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/src/geometry/Sphere.cpp
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build/src/geometry && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/geometry.dir/Sphere.cpp.o -c /home/lejonmcgowan/ClionProjects/RayTracer473/src/geometry/Sphere.cpp
 
 src/geometry/CMakeFiles/geometry.dir/Sphere.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/geometry.dir/Sphere.cpp.i"
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/geometry && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/src/geometry/Sphere.cpp > CMakeFiles/geometry.dir/Sphere.cpp.i
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build/src/geometry && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lejonmcgowan/ClionProjects/RayTracer473/src/geometry/Sphere.cpp > CMakeFiles/geometry.dir/Sphere.cpp.i
 
 src/geometry/CMakeFiles/geometry.dir/Sphere.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/geometry.dir/Sphere.cpp.s"
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/geometry && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/src/geometry/Sphere.cpp -o CMakeFiles/geometry.dir/Sphere.cpp.s
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build/src/geometry && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lejonmcgowan/ClionProjects/RayTracer473/src/geometry/Sphere.cpp -o CMakeFiles/geometry.dir/Sphere.cpp.s
 
 src/geometry/CMakeFiles/geometry.dir/Sphere.cpp.o.requires:
 .PHONY : src/geometry/CMakeFiles/geometry.dir/Sphere.cpp.o.requires
@@ -74,17 +74,17 @@ src/geometry/CMakeFiles/geometry.dir/Sphere.cpp.o.provides.build: src/geometry/C
 
 src/geometry/CMakeFiles/geometry.dir/Ray.cpp.o: src/geometry/CMakeFiles/geometry.dir/flags.make
 src/geometry/CMakeFiles/geometry.dir/Ray.cpp.o: ../src/geometry/Ray.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lejonmcgowan/ClionProjects/RayTracer473/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/geometry/CMakeFiles/geometry.dir/Ray.cpp.o"
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/geometry && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/geometry.dir/Ray.cpp.o -c /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/src/geometry/Ray.cpp
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build/src/geometry && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/geometry.dir/Ray.cpp.o -c /home/lejonmcgowan/ClionProjects/RayTracer473/src/geometry/Ray.cpp
 
 src/geometry/CMakeFiles/geometry.dir/Ray.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/geometry.dir/Ray.cpp.i"
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/geometry && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/src/geometry/Ray.cpp > CMakeFiles/geometry.dir/Ray.cpp.i
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build/src/geometry && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lejonmcgowan/ClionProjects/RayTracer473/src/geometry/Ray.cpp > CMakeFiles/geometry.dir/Ray.cpp.i
 
 src/geometry/CMakeFiles/geometry.dir/Ray.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/geometry.dir/Ray.cpp.s"
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/geometry && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/src/geometry/Ray.cpp -o CMakeFiles/geometry.dir/Ray.cpp.s
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build/src/geometry && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lejonmcgowan/ClionProjects/RayTracer473/src/geometry/Ray.cpp -o CMakeFiles/geometry.dir/Ray.cpp.s
 
 src/geometry/CMakeFiles/geometry.dir/Ray.cpp.o.requires:
 .PHONY : src/geometry/CMakeFiles/geometry.dir/Ray.cpp.o.requires
@@ -97,17 +97,17 @@ src/geometry/CMakeFiles/geometry.dir/Ray.cpp.o.provides.build: src/geometry/CMak
 
 src/geometry/CMakeFiles/geometry.dir/Shape.cpp.o: src/geometry/CMakeFiles/geometry.dir/flags.make
 src/geometry/CMakeFiles/geometry.dir/Shape.cpp.o: ../src/geometry/Shape.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lejonmcgowan/ClionProjects/RayTracer473/build/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/geometry/CMakeFiles/geometry.dir/Shape.cpp.o"
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/geometry && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/geometry.dir/Shape.cpp.o -c /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/src/geometry/Shape.cpp
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build/src/geometry && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/geometry.dir/Shape.cpp.o -c /home/lejonmcgowan/ClionProjects/RayTracer473/src/geometry/Shape.cpp
 
 src/geometry/CMakeFiles/geometry.dir/Shape.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/geometry.dir/Shape.cpp.i"
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/geometry && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/src/geometry/Shape.cpp > CMakeFiles/geometry.dir/Shape.cpp.i
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build/src/geometry && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lejonmcgowan/ClionProjects/RayTracer473/src/geometry/Shape.cpp > CMakeFiles/geometry.dir/Shape.cpp.i
 
 src/geometry/CMakeFiles/geometry.dir/Shape.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/geometry.dir/Shape.cpp.s"
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/geometry && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/src/geometry/Shape.cpp -o CMakeFiles/geometry.dir/Shape.cpp.s
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build/src/geometry && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lejonmcgowan/ClionProjects/RayTracer473/src/geometry/Shape.cpp -o CMakeFiles/geometry.dir/Shape.cpp.s
 
 src/geometry/CMakeFiles/geometry.dir/Shape.cpp.o.requires:
 .PHONY : src/geometry/CMakeFiles/geometry.dir/Shape.cpp.o.requires
@@ -133,8 +133,8 @@ lib/libgeometry.a: src/geometry/CMakeFiles/geometry.dir/Shape.cpp.o
 lib/libgeometry.a: src/geometry/CMakeFiles/geometry.dir/build.make
 lib/libgeometry.a: src/geometry/CMakeFiles/geometry.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX static library ../../lib/libgeometry.a"
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/geometry && $(CMAKE_COMMAND) -P CMakeFiles/geometry.dir/cmake_clean_target.cmake
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/geometry && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/geometry.dir/link.txt --verbose=$(VERBOSE)
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build/src/geometry && $(CMAKE_COMMAND) -P CMakeFiles/geometry.dir/cmake_clean_target.cmake
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build/src/geometry && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/geometry.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 src/geometry/CMakeFiles/geometry.dir/build: lib/libgeometry.a
@@ -146,10 +146,10 @@ src/geometry/CMakeFiles/geometry.dir/requires: src/geometry/CMakeFiles/geometry.
 .PHONY : src/geometry/CMakeFiles/geometry.dir/requires
 
 src/geometry/CMakeFiles/geometry.dir/clean:
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/geometry && $(CMAKE_COMMAND) -P CMakeFiles/geometry.dir/cmake_clean.cmake
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build/src/geometry && $(CMAKE_COMMAND) -P CMakeFiles/geometry.dir/cmake_clean.cmake
 .PHONY : src/geometry/CMakeFiles/geometry.dir/clean
 
 src/geometry/CMakeFiles/geometry.dir/depend:
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473 /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/src/geometry /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/geometry /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/geometry/CMakeFiles/geometry.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/lejonmcgowan/ClionProjects/RayTracer473 /home/lejonmcgowan/ClionProjects/RayTracer473/src/geometry /home/lejonmcgowan/ClionProjects/RayTracer473/build /home/lejonmcgowan/ClionProjects/RayTracer473/build/src/geometry /home/lejonmcgowan/ClionProjects/RayTracer473/build/src/geometry/CMakeFiles/geometry.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : src/geometry/CMakeFiles/geometry.dir/depend
 
