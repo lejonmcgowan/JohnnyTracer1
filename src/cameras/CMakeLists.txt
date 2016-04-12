@@ -1,0 +1,1 @@
+add_library(cameras Camera.cpp Camera.h PinholeCamera.cpp PinholeCamera.h Scene.cpp Scene.h)

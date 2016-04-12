@@ -1,0 +1,1 @@
+add_library(geometry Shape.h Sphere.cpp Sphere.h Ray.cpp Ray.h HitData.h Shape.cpp)

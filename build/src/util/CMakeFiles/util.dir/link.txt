@@ -1,0 +1,2 @@
+/usr/bin/ar cq ../../lib/libutil.a  CMakeFiles/util.dir/Constants.cpp.o
+/usr/bin/ranlib ../../lib/libutil.a
