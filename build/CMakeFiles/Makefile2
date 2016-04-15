@@ -38,57 +38,61 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/bin/cmake
+CMAKE_COMMAND = /usr/local/bin/cmake
 
 # The command to remove a file.
-RM = /usr/bin/cmake -E remove -f
+RM = /usr/local/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/lejonmcgowan/ClionProjects/RayTracer473
+CMAKE_SOURCE_DIR = /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/lejonmcgowan/ClionProjects/RayTracer473/build
+CMAKE_BINARY_DIR = /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build
 
 #=============================================================================
 # Directory level rules for directory src
 
 # Convenience name for "all" pass in the directory.
 src/all: src/CMakeFiles/RayTracer473.dir/all
-src/all: src/fileparsing/all
-src/all: src/geometry/all
-src/all: src/util/all
 src/all: src/cameras/all
+src/all: src/lights/all
+src/all: src/geometry/all
+src/all: src/fileparsing/all
+src/all: src/util/all
 .PHONY : src/all
 
 # Convenience name for "clean" pass in the directory.
 src/clean: src/CMakeFiles/RayTracer473.dir/clean
-src/clean: src/fileparsing/clean
-src/clean: src/geometry/clean
-src/clean: src/util/clean
 src/clean: src/cameras/clean
+src/clean: src/lights/clean
+src/clean: src/geometry/clean
+src/clean: src/fileparsing/clean
+src/clean: src/util/clean
 .PHONY : src/clean
 
 # Convenience name for "preinstall" pass in the directory.
-src/preinstall: src/fileparsing/preinstall
-src/preinstall: src/geometry/preinstall
-src/preinstall: src/util/preinstall
 src/preinstall: src/cameras/preinstall
+src/preinstall: src/lights/preinstall
+src/preinstall: src/geometry/preinstall
+src/preinstall: src/fileparsing/preinstall
+src/preinstall: src/util/preinstall
 .PHONY : src/preinstall
 
 #=============================================================================
 # Target rules for target src/CMakeFiles/RayTracer473.dir
 
 # All Build rule for target.
-src/CMakeFiles/RayTracer473.dir/all: src/fileparsing/CMakeFiles/fileparsing.dir/all
-src/CMakeFiles/RayTracer473.dir/all: src/geometry/CMakeFiles/geometry.dir/all
-src/CMakeFiles/RayTracer473.dir/all: src/util/CMakeFiles/util.dir/all
 src/CMakeFiles/RayTracer473.dir/all: src/cameras/CMakeFiles/cameras.dir/all
+src/CMakeFiles/RayTracer473.dir/all: src/lights/CMakeFiles/lights.dir/all
+src/CMakeFiles/RayTracer473.dir/all: src/geometry/CMakeFiles/geometry.dir/all
+src/CMakeFiles/RayTracer473.dir/all: src/fileparsing/CMakeFiles/fileparsing.dir/all
+src/CMakeFiles/RayTracer473.dir/all: src/util/CMakeFiles/util.dir/all
 	$(MAKE) -f src/CMakeFiles/RayTracer473.dir/build.make src/CMakeFiles/RayTracer473.dir/depend
 	$(MAKE) -f src/CMakeFiles/RayTracer473.dir/build.make src/CMakeFiles/RayTracer473.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lejonmcgowan/ClionProjects/RayTracer473/build/CMakeFiles  2
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles  2
 	@echo "Built target RayTracer473"
 .PHONY : src/CMakeFiles/RayTracer473.dir/all
 
@@ -98,9 +102,9 @@ all: src/CMakeFiles/RayTracer473.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/RayTracer473.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/ClionProjects/RayTracer473/build/CMakeFiles 10
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles 13
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/RayTracer473.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/ClionProjects/RayTracer473/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles 0
 .PHONY : src/CMakeFiles/RayTracer473.dir/rule
 
 # Convenience name for target.
@@ -114,156 +118,6 @@ src/CMakeFiles/RayTracer473.dir/clean:
 
 # clean rule for target.
 clean: src/CMakeFiles/RayTracer473.dir/clean
-.PHONY : clean
-
-#=============================================================================
-# Directory level rules for directory src/fileparsing
-
-# Convenience name for "all" pass in the directory.
-src/fileparsing/all: src/fileparsing/CMakeFiles/fileparsing.dir/all
-.PHONY : src/fileparsing/all
-
-# Convenience name for "clean" pass in the directory.
-src/fileparsing/clean: src/fileparsing/CMakeFiles/fileparsing.dir/clean
-.PHONY : src/fileparsing/clean
-
-# Convenience name for "preinstall" pass in the directory.
-src/fileparsing/preinstall:
-.PHONY : src/fileparsing/preinstall
-
-#=============================================================================
-# Target rules for target src/fileparsing/CMakeFiles/fileparsing.dir
-
-# All Build rule for target.
-src/fileparsing/CMakeFiles/fileparsing.dir/all:
-	$(MAKE) -f src/fileparsing/CMakeFiles/fileparsing.dir/build.make src/fileparsing/CMakeFiles/fileparsing.dir/depend
-	$(MAKE) -f src/fileparsing/CMakeFiles/fileparsing.dir/build.make src/fileparsing/CMakeFiles/fileparsing.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lejonmcgowan/ClionProjects/RayTracer473/build/CMakeFiles  6
-	@echo "Built target fileparsing"
-.PHONY : src/fileparsing/CMakeFiles/fileparsing.dir/all
-
-# Include target in all.
-all: src/fileparsing/CMakeFiles/fileparsing.dir/all
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-src/fileparsing/CMakeFiles/fileparsing.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/ClionProjects/RayTracer473/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 src/fileparsing/CMakeFiles/fileparsing.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/ClionProjects/RayTracer473/build/CMakeFiles 0
-.PHONY : src/fileparsing/CMakeFiles/fileparsing.dir/rule
-
-# Convenience name for target.
-fileparsing: src/fileparsing/CMakeFiles/fileparsing.dir/rule
-.PHONY : fileparsing
-
-# clean rule for target.
-src/fileparsing/CMakeFiles/fileparsing.dir/clean:
-	$(MAKE) -f src/fileparsing/CMakeFiles/fileparsing.dir/build.make src/fileparsing/CMakeFiles/fileparsing.dir/clean
-.PHONY : src/fileparsing/CMakeFiles/fileparsing.dir/clean
-
-# clean rule for target.
-clean: src/fileparsing/CMakeFiles/fileparsing.dir/clean
-.PHONY : clean
-
-#=============================================================================
-# Directory level rules for directory src/geometry
-
-# Convenience name for "all" pass in the directory.
-src/geometry/all: src/geometry/CMakeFiles/geometry.dir/all
-.PHONY : src/geometry/all
-
-# Convenience name for "clean" pass in the directory.
-src/geometry/clean: src/geometry/CMakeFiles/geometry.dir/clean
-.PHONY : src/geometry/clean
-
-# Convenience name for "preinstall" pass in the directory.
-src/geometry/preinstall:
-.PHONY : src/geometry/preinstall
-
-#=============================================================================
-# Target rules for target src/geometry/CMakeFiles/geometry.dir
-
-# All Build rule for target.
-src/geometry/CMakeFiles/geometry.dir/all:
-	$(MAKE) -f src/geometry/CMakeFiles/geometry.dir/build.make src/geometry/CMakeFiles/geometry.dir/depend
-	$(MAKE) -f src/geometry/CMakeFiles/geometry.dir/build.make src/geometry/CMakeFiles/geometry.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lejonmcgowan/ClionProjects/RayTracer473/build/CMakeFiles  7 8 9
-	@echo "Built target geometry"
-.PHONY : src/geometry/CMakeFiles/geometry.dir/all
-
-# Include target in all.
-all: src/geometry/CMakeFiles/geometry.dir/all
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-src/geometry/CMakeFiles/geometry.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/ClionProjects/RayTracer473/build/CMakeFiles 3
-	$(MAKE) -f CMakeFiles/Makefile2 src/geometry/CMakeFiles/geometry.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/ClionProjects/RayTracer473/build/CMakeFiles 0
-.PHONY : src/geometry/CMakeFiles/geometry.dir/rule
-
-# Convenience name for target.
-geometry: src/geometry/CMakeFiles/geometry.dir/rule
-.PHONY : geometry
-
-# clean rule for target.
-src/geometry/CMakeFiles/geometry.dir/clean:
-	$(MAKE) -f src/geometry/CMakeFiles/geometry.dir/build.make src/geometry/CMakeFiles/geometry.dir/clean
-.PHONY : src/geometry/CMakeFiles/geometry.dir/clean
-
-# clean rule for target.
-clean: src/geometry/CMakeFiles/geometry.dir/clean
-.PHONY : clean
-
-#=============================================================================
-# Directory level rules for directory src/util
-
-# Convenience name for "all" pass in the directory.
-src/util/all: src/util/CMakeFiles/util.dir/all
-.PHONY : src/util/all
-
-# Convenience name for "clean" pass in the directory.
-src/util/clean: src/util/CMakeFiles/util.dir/clean
-.PHONY : src/util/clean
-
-# Convenience name for "preinstall" pass in the directory.
-src/util/preinstall:
-.PHONY : src/util/preinstall
-
-#=============================================================================
-# Target rules for target src/util/CMakeFiles/util.dir
-
-# All Build rule for target.
-src/util/CMakeFiles/util.dir/all:
-	$(MAKE) -f src/util/CMakeFiles/util.dir/build.make src/util/CMakeFiles/util.dir/depend
-	$(MAKE) -f src/util/CMakeFiles/util.dir/build.make src/util/CMakeFiles/util.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lejonmcgowan/ClionProjects/RayTracer473/build/CMakeFiles  17 18
-	@echo "Built target util"
-.PHONY : src/util/CMakeFiles/util.dir/all
-
-# Include target in all.
-all: src/util/CMakeFiles/util.dir/all
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-src/util/CMakeFiles/util.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/ClionProjects/RayTracer473/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 src/util/CMakeFiles/util.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/ClionProjects/RayTracer473/build/CMakeFiles 0
-.PHONY : src/util/CMakeFiles/util.dir/rule
-
-# Convenience name for target.
-util: src/util/CMakeFiles/util.dir/rule
-.PHONY : util
-
-# clean rule for target.
-src/util/CMakeFiles/util.dir/clean:
-	$(MAKE) -f src/util/CMakeFiles/util.dir/build.make src/util/CMakeFiles/util.dir/clean
-.PHONY : src/util/CMakeFiles/util.dir/clean
-
-# clean rule for target.
-clean: src/util/CMakeFiles/util.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -288,7 +142,7 @@ src/cameras/preinstall:
 src/cameras/CMakeFiles/cameras.dir/all:
 	$(MAKE) -f src/cameras/CMakeFiles/cameras.dir/build.make src/cameras/CMakeFiles/cameras.dir/depend
 	$(MAKE) -f src/cameras/CMakeFiles/cameras.dir/build.make src/cameras/CMakeFiles/cameras.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lejonmcgowan/ClionProjects/RayTracer473/build/CMakeFiles  3 4 5
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles  3 4 5
 	@echo "Built target cameras"
 .PHONY : src/cameras/CMakeFiles/cameras.dir/all
 
@@ -298,9 +152,9 @@ all: src/cameras/CMakeFiles/cameras.dir/all
 
 # Build rule for subdir invocation for target.
 src/cameras/CMakeFiles/cameras.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/ClionProjects/RayTracer473/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 src/cameras/CMakeFiles/cameras.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/ClionProjects/RayTracer473/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles 0
 .PHONY : src/cameras/CMakeFiles/cameras.dir/rule
 
 # Convenience name for target.
@@ -314,6 +168,206 @@ src/cameras/CMakeFiles/cameras.dir/clean:
 
 # clean rule for target.
 clean: src/cameras/CMakeFiles/cameras.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory src/lights
+
+# Convenience name for "all" pass in the directory.
+src/lights/all: src/lights/CMakeFiles/lights.dir/all
+.PHONY : src/lights/all
+
+# Convenience name for "clean" pass in the directory.
+src/lights/clean: src/lights/CMakeFiles/lights.dir/clean
+.PHONY : src/lights/clean
+
+# Convenience name for "preinstall" pass in the directory.
+src/lights/preinstall:
+.PHONY : src/lights/preinstall
+
+#=============================================================================
+# Target rules for target src/lights/CMakeFiles/lights.dir
+
+# All Build rule for target.
+src/lights/CMakeFiles/lights.dir/all:
+	$(MAKE) -f src/lights/CMakeFiles/lights.dir/build.make src/lights/CMakeFiles/lights.dir/depend
+	$(MAKE) -f src/lights/CMakeFiles/lights.dir/build.make src/lights/CMakeFiles/lights.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles  18
+	@echo "Built target lights"
+.PHONY : src/lights/CMakeFiles/lights.dir/all
+
+# Include target in all.
+all: src/lights/CMakeFiles/lights.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+src/lights/CMakeFiles/lights.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 src/lights/CMakeFiles/lights.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles 0
+.PHONY : src/lights/CMakeFiles/lights.dir/rule
+
+# Convenience name for target.
+lights: src/lights/CMakeFiles/lights.dir/rule
+.PHONY : lights
+
+# clean rule for target.
+src/lights/CMakeFiles/lights.dir/clean:
+	$(MAKE) -f src/lights/CMakeFiles/lights.dir/build.make src/lights/CMakeFiles/lights.dir/clean
+.PHONY : src/lights/CMakeFiles/lights.dir/clean
+
+# clean rule for target.
+clean: src/lights/CMakeFiles/lights.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory src/geometry
+
+# Convenience name for "all" pass in the directory.
+src/geometry/all: src/geometry/CMakeFiles/geometry.dir/all
+.PHONY : src/geometry/all
+
+# Convenience name for "clean" pass in the directory.
+src/geometry/clean: src/geometry/CMakeFiles/geometry.dir/clean
+.PHONY : src/geometry/clean
+
+# Convenience name for "preinstall" pass in the directory.
+src/geometry/preinstall:
+.PHONY : src/geometry/preinstall
+
+#=============================================================================
+# Target rules for target src/geometry/CMakeFiles/geometry.dir
+
+# All Build rule for target.
+src/geometry/CMakeFiles/geometry.dir/all:
+	$(MAKE) -f src/geometry/CMakeFiles/geometry.dir/build.make src/geometry/CMakeFiles/geometry.dir/depend
+	$(MAKE) -f src/geometry/CMakeFiles/geometry.dir/build.make src/geometry/CMakeFiles/geometry.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles  7 8 9 10
+	@echo "Built target geometry"
+.PHONY : src/geometry/CMakeFiles/geometry.dir/all
+
+# Include target in all.
+all: src/geometry/CMakeFiles/geometry.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+src/geometry/CMakeFiles/geometry.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles 4
+	$(MAKE) -f CMakeFiles/Makefile2 src/geometry/CMakeFiles/geometry.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles 0
+.PHONY : src/geometry/CMakeFiles/geometry.dir/rule
+
+# Convenience name for target.
+geometry: src/geometry/CMakeFiles/geometry.dir/rule
+.PHONY : geometry
+
+# clean rule for target.
+src/geometry/CMakeFiles/geometry.dir/clean:
+	$(MAKE) -f src/geometry/CMakeFiles/geometry.dir/build.make src/geometry/CMakeFiles/geometry.dir/clean
+.PHONY : src/geometry/CMakeFiles/geometry.dir/clean
+
+# clean rule for target.
+clean: src/geometry/CMakeFiles/geometry.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory src/fileparsing
+
+# Convenience name for "all" pass in the directory.
+src/fileparsing/all: src/fileparsing/CMakeFiles/fileparsing.dir/all
+.PHONY : src/fileparsing/all
+
+# Convenience name for "clean" pass in the directory.
+src/fileparsing/clean: src/fileparsing/CMakeFiles/fileparsing.dir/clean
+.PHONY : src/fileparsing/clean
+
+# Convenience name for "preinstall" pass in the directory.
+src/fileparsing/preinstall:
+.PHONY : src/fileparsing/preinstall
+
+#=============================================================================
+# Target rules for target src/fileparsing/CMakeFiles/fileparsing.dir
+
+# All Build rule for target.
+src/fileparsing/CMakeFiles/fileparsing.dir/all:
+	$(MAKE) -f src/fileparsing/CMakeFiles/fileparsing.dir/build.make src/fileparsing/CMakeFiles/fileparsing.dir/depend
+	$(MAKE) -f src/fileparsing/CMakeFiles/fileparsing.dir/build.make src/fileparsing/CMakeFiles/fileparsing.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles  6
+	@echo "Built target fileparsing"
+.PHONY : src/fileparsing/CMakeFiles/fileparsing.dir/all
+
+# Include target in all.
+all: src/fileparsing/CMakeFiles/fileparsing.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+src/fileparsing/CMakeFiles/fileparsing.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 src/fileparsing/CMakeFiles/fileparsing.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles 0
+.PHONY : src/fileparsing/CMakeFiles/fileparsing.dir/rule
+
+# Convenience name for target.
+fileparsing: src/fileparsing/CMakeFiles/fileparsing.dir/rule
+.PHONY : fileparsing
+
+# clean rule for target.
+src/fileparsing/CMakeFiles/fileparsing.dir/clean:
+	$(MAKE) -f src/fileparsing/CMakeFiles/fileparsing.dir/build.make src/fileparsing/CMakeFiles/fileparsing.dir/clean
+.PHONY : src/fileparsing/CMakeFiles/fileparsing.dir/clean
+
+# clean rule for target.
+clean: src/fileparsing/CMakeFiles/fileparsing.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory src/util
+
+# Convenience name for "all" pass in the directory.
+src/util/all: src/util/CMakeFiles/util.dir/all
+.PHONY : src/util/all
+
+# Convenience name for "clean" pass in the directory.
+src/util/clean: src/util/CMakeFiles/util.dir/clean
+.PHONY : src/util/clean
+
+# Convenience name for "preinstall" pass in the directory.
+src/util/preinstall:
+.PHONY : src/util/preinstall
+
+#=============================================================================
+# Target rules for target src/util/CMakeFiles/util.dir
+
+# All Build rule for target.
+src/util/CMakeFiles/util.dir/all:
+	$(MAKE) -f src/util/CMakeFiles/util.dir/build.make src/util/CMakeFiles/util.dir/depend
+	$(MAKE) -f src/util/CMakeFiles/util.dir/build.make src/util/CMakeFiles/util.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles  19 20 21
+	@echo "Built target util"
+.PHONY : src/util/CMakeFiles/util.dir/all
+
+# Include target in all.
+all: src/util/CMakeFiles/util.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+src/util/CMakeFiles/util.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles 3
+	$(MAKE) -f CMakeFiles/Makefile2 src/util/CMakeFiles/util.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles 0
+.PHONY : src/util/CMakeFiles/util.dir/rule
+
+# Convenience name for target.
+util: src/util/CMakeFiles/util.dir/rule
+.PHONY : util
+
+# clean rule for target.
+src/util/CMakeFiles/util.dir/clean:
+	$(MAKE) -f src/util/CMakeFiles/util.dir/build.make src/util/CMakeFiles/util.dir/clean
+.PHONY : src/util/CMakeFiles/util.dir/clean
+
+# clean rule for target.
+clean: src/util/CMakeFiles/util.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -337,13 +391,13 @@ test/preinstall: test/ext/googletest/preinstall
 # Target rules for target test/CMakeFiles/BaseTest.dir
 
 # All Build rule for target.
+test/CMakeFiles/BaseTest.dir/all: test/ext/googletest/googlemock/gtest/CMakeFiles/gtest.dir/all
 test/CMakeFiles/BaseTest.dir/all: src/geometry/CMakeFiles/geometry.dir/all
 test/CMakeFiles/BaseTest.dir/all: src/util/CMakeFiles/util.dir/all
-test/CMakeFiles/BaseTest.dir/all: test/ext/googletest/googlemock/gtest/CMakeFiles/gtest.dir/all
 test/CMakeFiles/BaseTest.dir/all: test/ext/googletest/googlemock/gtest/CMakeFiles/gtest_main.dir/all
 	$(MAKE) -f test/CMakeFiles/BaseTest.dir/build.make test/CMakeFiles/BaseTest.dir/depend
 	$(MAKE) -f test/CMakeFiles/BaseTest.dir/build.make test/CMakeFiles/BaseTest.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lejonmcgowan/ClionProjects/RayTracer473/build/CMakeFiles  1
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles  1
 	@echo "Built target BaseTest"
 .PHONY : test/CMakeFiles/BaseTest.dir/all
 
@@ -353,9 +407,9 @@ all: test/CMakeFiles/BaseTest.dir/all
 
 # Build rule for subdir invocation for target.
 test/CMakeFiles/BaseTest.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/ClionProjects/RayTracer473/build/CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles 10
 	$(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/BaseTest.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/ClionProjects/RayTracer473/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles 0
 .PHONY : test/CMakeFiles/BaseTest.dir/rule
 
 # Convenience name for target.
@@ -412,7 +466,7 @@ test/ext/googletest/googlemock/preinstall: test/ext/googletest/googlemock/gtest/
 test/ext/googletest/googlemock/CMakeFiles/gmock.dir/all:
 	$(MAKE) -f test/ext/googletest/googlemock/CMakeFiles/gmock.dir/build.make test/ext/googletest/googlemock/CMakeFiles/gmock.dir/depend
 	$(MAKE) -f test/ext/googletest/googlemock/CMakeFiles/gmock.dir/build.make test/ext/googletest/googlemock/CMakeFiles/gmock.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lejonmcgowan/ClionProjects/RayTracer473/build/CMakeFiles  10 11
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles  11 12
 	@echo "Built target gmock"
 .PHONY : test/ext/googletest/googlemock/CMakeFiles/gmock.dir/all
 
@@ -422,9 +476,9 @@ all: test/ext/googletest/googlemock/CMakeFiles/gmock.dir/all
 
 # Build rule for subdir invocation for target.
 test/ext/googletest/googlemock/CMakeFiles/gmock.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/ClionProjects/RayTracer473/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 test/ext/googletest/googlemock/CMakeFiles/gmock.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/ClionProjects/RayTracer473/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles 0
 .PHONY : test/ext/googletest/googlemock/CMakeFiles/gmock.dir/rule
 
 # Convenience name for target.
@@ -447,7 +501,7 @@ clean: test/ext/googletest/googlemock/CMakeFiles/gmock.dir/clean
 test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/all:
 	$(MAKE) -f test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/depend
 	$(MAKE) -f test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lejonmcgowan/ClionProjects/RayTracer473/build/CMakeFiles  12 13 14
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles  13 14 15
 	@echo "Built target gmock_main"
 .PHONY : test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/all
 
@@ -457,9 +511,9 @@ all: test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/all
 
 # Build rule for subdir invocation for target.
 test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/ClionProjects/RayTracer473/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/ClionProjects/RayTracer473/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles 0
 .PHONY : test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/rule
 
 # Convenience name for target.
@@ -499,7 +553,7 @@ test/ext/googletest/googlemock/gtest/preinstall:
 test/ext/googletest/googlemock/gtest/CMakeFiles/gtest.dir/all:
 	$(MAKE) -f test/ext/googletest/googlemock/gtest/CMakeFiles/gtest.dir/build.make test/ext/googletest/googlemock/gtest/CMakeFiles/gtest.dir/depend
 	$(MAKE) -f test/ext/googletest/googlemock/gtest/CMakeFiles/gtest.dir/build.make test/ext/googletest/googlemock/gtest/CMakeFiles/gtest.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lejonmcgowan/ClionProjects/RayTracer473/build/CMakeFiles  15
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles  16
 	@echo "Built target gtest"
 .PHONY : test/ext/googletest/googlemock/gtest/CMakeFiles/gtest.dir/all
 
@@ -509,9 +563,9 @@ all: test/ext/googletest/googlemock/gtest/CMakeFiles/gtest.dir/all
 
 # Build rule for subdir invocation for target.
 test/ext/googletest/googlemock/gtest/CMakeFiles/gtest.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/ClionProjects/RayTracer473/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 test/ext/googletest/googlemock/gtest/CMakeFiles/gtest.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/ClionProjects/RayTracer473/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles 0
 .PHONY : test/ext/googletest/googlemock/gtest/CMakeFiles/gtest.dir/rule
 
 # Convenience name for target.
@@ -534,7 +588,7 @@ clean: test/ext/googletest/googlemock/gtest/CMakeFiles/gtest.dir/clean
 test/ext/googletest/googlemock/gtest/CMakeFiles/gtest_main.dir/all: test/ext/googletest/googlemock/gtest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f test/ext/googletest/googlemock/gtest/CMakeFiles/gtest_main.dir/build.make test/ext/googletest/googlemock/gtest/CMakeFiles/gtest_main.dir/depend
 	$(MAKE) -f test/ext/googletest/googlemock/gtest/CMakeFiles/gtest_main.dir/build.make test/ext/googletest/googlemock/gtest/CMakeFiles/gtest_main.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lejonmcgowan/ClionProjects/RayTracer473/build/CMakeFiles  16
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles  17
 	@echo "Built target gtest_main"
 .PHONY : test/ext/googletest/googlemock/gtest/CMakeFiles/gtest_main.dir/all
 
@@ -544,9 +598,9 @@ all: test/ext/googletest/googlemock/gtest/CMakeFiles/gtest_main.dir/all
 
 # Build rule for subdir invocation for target.
 test/ext/googletest/googlemock/gtest/CMakeFiles/gtest_main.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/ClionProjects/RayTracer473/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 test/ext/googletest/googlemock/gtest/CMakeFiles/gtest_main.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/ClionProjects/RayTracer473/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles 0
 .PHONY : test/ext/googletest/googlemock/gtest/CMakeFiles/gtest_main.dir/rule
 
 # Convenience name for target.

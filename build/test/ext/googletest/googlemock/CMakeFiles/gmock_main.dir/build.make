@@ -26,19 +26,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/bin/cmake
+CMAKE_COMMAND = /usr/local/bin/cmake
 
 # The command to remove a file.
-RM = /usr/bin/cmake -E remove -f
+RM = /usr/local/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/lejonmcgowan/ClionProjects/RayTracer473
+CMAKE_SOURCE_DIR = /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/lejonmcgowan/ClionProjects/RayTracer473/build
+CMAKE_BINARY_DIR = /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build
 
 # Include any dependencies generated for this target.
 include test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/depend.make
@@ -51,17 +51,17 @@ include test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/flags.make
 
 test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/__/googletest/src/gtest-all.cc.o: test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/flags.make
 test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/__/googletest/src/gtest-all.cc.o: ../ext/googletest/googletest/src/gtest-all.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lejonmcgowan/ClionProjects/RayTracer473/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/__/googletest/src/gtest-all.cc.o"
-	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build/test/ext/googletest/googlemock && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/gmock_main.dir/__/googletest/src/gtest-all.cc.o -c /home/lejonmcgowan/ClionProjects/RayTracer473/ext/googletest/googletest/src/gtest-all.cc
+	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/test/ext/googletest/googlemock && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/gmock_main.dir/__/googletest/src/gtest-all.cc.o -c /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/ext/googletest/googletest/src/gtest-all.cc
 
 test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/__/googletest/src/gtest-all.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gmock_main.dir/__/googletest/src/gtest-all.cc.i"
-	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build/test/ext/googletest/googlemock && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lejonmcgowan/ClionProjects/RayTracer473/ext/googletest/googletest/src/gtest-all.cc > CMakeFiles/gmock_main.dir/__/googletest/src/gtest-all.cc.i
+	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/test/ext/googletest/googlemock && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/ext/googletest/googletest/src/gtest-all.cc > CMakeFiles/gmock_main.dir/__/googletest/src/gtest-all.cc.i
 
 test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/__/googletest/src/gtest-all.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gmock_main.dir/__/googletest/src/gtest-all.cc.s"
-	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build/test/ext/googletest/googlemock && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lejonmcgowan/ClionProjects/RayTracer473/ext/googletest/googletest/src/gtest-all.cc -o CMakeFiles/gmock_main.dir/__/googletest/src/gtest-all.cc.s
+	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/test/ext/googletest/googlemock && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/ext/googletest/googletest/src/gtest-all.cc -o CMakeFiles/gmock_main.dir/__/googletest/src/gtest-all.cc.s
 
 test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/__/googletest/src/gtest-all.cc.o.requires:
 .PHONY : test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/__/googletest/src/gtest-all.cc.o.requires
@@ -74,17 +74,17 @@ test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/__/googletest/src/gtest
 
 test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock-all.cc.o: test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/flags.make
 test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock-all.cc.o: ../ext/googletest/googlemock/src/gmock-all.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lejonmcgowan/ClionProjects/RayTracer473/build/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock-all.cc.o"
-	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build/test/ext/googletest/googlemock && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/gmock_main.dir/src/gmock-all.cc.o -c /home/lejonmcgowan/ClionProjects/RayTracer473/ext/googletest/googlemock/src/gmock-all.cc
+	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/test/ext/googletest/googlemock && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/gmock_main.dir/src/gmock-all.cc.o -c /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/ext/googletest/googlemock/src/gmock-all.cc
 
 test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock-all.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gmock_main.dir/src/gmock-all.cc.i"
-	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build/test/ext/googletest/googlemock && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lejonmcgowan/ClionProjects/RayTracer473/ext/googletest/googlemock/src/gmock-all.cc > CMakeFiles/gmock_main.dir/src/gmock-all.cc.i
+	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/test/ext/googletest/googlemock && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/ext/googletest/googlemock/src/gmock-all.cc > CMakeFiles/gmock_main.dir/src/gmock-all.cc.i
 
 test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock-all.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gmock_main.dir/src/gmock-all.cc.s"
-	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build/test/ext/googletest/googlemock && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lejonmcgowan/ClionProjects/RayTracer473/ext/googletest/googlemock/src/gmock-all.cc -o CMakeFiles/gmock_main.dir/src/gmock-all.cc.s
+	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/test/ext/googletest/googlemock && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/ext/googletest/googlemock/src/gmock-all.cc -o CMakeFiles/gmock_main.dir/src/gmock-all.cc.s
 
 test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock-all.cc.o.requires:
 .PHONY : test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock-all.cc.o.requires
@@ -97,17 +97,17 @@ test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock-all.cc.o.prov
 
 test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o: test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/flags.make
 test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o: ../ext/googletest/googlemock/src/gmock_main.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lejonmcgowan/ClionProjects/RayTracer473/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o"
-	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build/test/ext/googletest/googlemock && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/gmock_main.dir/src/gmock_main.cc.o -c /home/lejonmcgowan/ClionProjects/RayTracer473/ext/googletest/googlemock/src/gmock_main.cc
+	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/test/ext/googletest/googlemock && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/gmock_main.dir/src/gmock_main.cc.o -c /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/ext/googletest/googlemock/src/gmock_main.cc
 
 test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gmock_main.dir/src/gmock_main.cc.i"
-	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build/test/ext/googletest/googlemock && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lejonmcgowan/ClionProjects/RayTracer473/ext/googletest/googlemock/src/gmock_main.cc > CMakeFiles/gmock_main.dir/src/gmock_main.cc.i
+	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/test/ext/googletest/googlemock && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/ext/googletest/googlemock/src/gmock_main.cc > CMakeFiles/gmock_main.dir/src/gmock_main.cc.i
 
 test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gmock_main.dir/src/gmock_main.cc.s"
-	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build/test/ext/googletest/googlemock && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lejonmcgowan/ClionProjects/RayTracer473/ext/googletest/googlemock/src/gmock_main.cc -o CMakeFiles/gmock_main.dir/src/gmock_main.cc.s
+	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/test/ext/googletest/googlemock && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/ext/googletest/googlemock/src/gmock_main.cc -o CMakeFiles/gmock_main.dir/src/gmock_main.cc.s
 
 test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o.requires:
 .PHONY : test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o.requires
@@ -133,8 +133,8 @@ lib/libgmock_main.a: test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/sr
 lib/libgmock_main.a: test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make
 lib/libgmock_main.a: test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX static library ../../../../lib/libgmock_main.a"
-	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build/test/ext/googletest/googlemock && $(CMAKE_COMMAND) -P CMakeFiles/gmock_main.dir/cmake_clean_target.cmake
-	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build/test/ext/googletest/googlemock && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/gmock_main.dir/link.txt --verbose=$(VERBOSE)
+	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/test/ext/googletest/googlemock && $(CMAKE_COMMAND) -P CMakeFiles/gmock_main.dir/cmake_clean_target.cmake
+	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/test/ext/googletest/googlemock && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/gmock_main.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/build: lib/libgmock_main.a
@@ -146,10 +146,10 @@ test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/requires: test/ext/goog
 .PHONY : test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/requires
 
 test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/clean:
-	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build/test/ext/googletest/googlemock && $(CMAKE_COMMAND) -P CMakeFiles/gmock_main.dir/cmake_clean.cmake
+	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/test/ext/googletest/googlemock && $(CMAKE_COMMAND) -P CMakeFiles/gmock_main.dir/cmake_clean.cmake
 .PHONY : test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/clean
 
 test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/depend:
-	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/lejonmcgowan/ClionProjects/RayTracer473 /home/lejonmcgowan/ClionProjects/RayTracer473/ext/googletest/googlemock /home/lejonmcgowan/ClionProjects/RayTracer473/build /home/lejonmcgowan/ClionProjects/RayTracer473/build/test/ext/googletest/googlemock /home/lejonmcgowan/ClionProjects/RayTracer473/build/test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473 /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/ext/googletest/googlemock /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/test/ext/googletest/googlemock /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : test/ext/googletest/googlemock/CMakeFiles/gmock_main.dir/depend
 

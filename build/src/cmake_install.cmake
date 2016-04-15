@@ -1,4 +1,4 @@
-# Install script for directory: /home/lejonmcgowan/ClionProjects/RayTracer473/src
+# Install script for directory: /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,10 +34,11 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/lejonmcgowan/ClionProjects/RayTracer473/build/src/fileparsing/cmake_install.cmake")
-  include("/home/lejonmcgowan/ClionProjects/RayTracer473/build/src/geometry/cmake_install.cmake")
-  include("/home/lejonmcgowan/ClionProjects/RayTracer473/build/src/util/cmake_install.cmake")
-  include("/home/lejonmcgowan/ClionProjects/RayTracer473/build/src/cameras/cmake_install.cmake")
+  include("/home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/cameras/cmake_install.cmake")
+  include("/home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/lights/cmake_install.cmake")
+  include("/home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/geometry/cmake_install.cmake")
+  include("/home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/fileparsing/cmake_install.cmake")
+  include("/home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/util/cmake_install.cmake")
 
 endif()
 

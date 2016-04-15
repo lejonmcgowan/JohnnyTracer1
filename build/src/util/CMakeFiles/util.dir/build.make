@@ -26,19 +26,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/bin/cmake
+CMAKE_COMMAND = /usr/local/bin/cmake
 
 # The command to remove a file.
-RM = /usr/bin/cmake -E remove -f
+RM = /usr/local/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/lejonmcgowan/ClionProjects/RayTracer473
+CMAKE_SOURCE_DIR = /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/lejonmcgowan/ClionProjects/RayTracer473/build
+CMAKE_BINARY_DIR = /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build
 
 # Include any dependencies generated for this target.
 include src/util/CMakeFiles/util.dir/depend.make
@@ -51,17 +51,17 @@ include src/util/CMakeFiles/util.dir/flags.make
 
 src/util/CMakeFiles/util.dir/Constants.cpp.o: src/util/CMakeFiles/util.dir/flags.make
 src/util/CMakeFiles/util.dir/Constants.cpp.o: ../src/util/Constants.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lejonmcgowan/ClionProjects/RayTracer473/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/util/CMakeFiles/util.dir/Constants.cpp.o"
-	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build/src/util && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/util.dir/Constants.cpp.o -c /home/lejonmcgowan/ClionProjects/RayTracer473/src/util/Constants.cpp
+	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/util && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/util.dir/Constants.cpp.o -c /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/src/util/Constants.cpp
 
 src/util/CMakeFiles/util.dir/Constants.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/util.dir/Constants.cpp.i"
-	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build/src/util && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lejonmcgowan/ClionProjects/RayTracer473/src/util/Constants.cpp > CMakeFiles/util.dir/Constants.cpp.i
+	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/util && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/src/util/Constants.cpp > CMakeFiles/util.dir/Constants.cpp.i
 
 src/util/CMakeFiles/util.dir/Constants.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/util.dir/Constants.cpp.s"
-	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build/src/util && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lejonmcgowan/ClionProjects/RayTracer473/src/util/Constants.cpp -o CMakeFiles/util.dir/Constants.cpp.s
+	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/util && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/src/util/Constants.cpp -o CMakeFiles/util.dir/Constants.cpp.s
 
 src/util/CMakeFiles/util.dir/Constants.cpp.o.requires:
 .PHONY : src/util/CMakeFiles/util.dir/Constants.cpp.o.requires
@@ -72,58 +72,84 @@ src/util/CMakeFiles/util.dir/Constants.cpp.o.provides: src/util/CMakeFiles/util.
 
 src/util/CMakeFiles/util.dir/Constants.cpp.o.provides.build: src/util/CMakeFiles/util.dir/Constants.cpp.o
 
-src/util/CMakeFiles/util.dir/POVParser.cpp.o: src/util/CMakeFiles/util.dir/flags.make
-src/util/CMakeFiles/util.dir/POVParser.cpp.o: ../src/util/POVParser.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lejonmcgowan/ClionProjects/RayTracer473/build/CMakeFiles $(CMAKE_PROGRESS_2)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/util/CMakeFiles/util.dir/POVParser.cpp.o"
-	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build/src/util && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/util.dir/POVParser.cpp.o -c /home/lejonmcgowan/ClionProjects/RayTracer473/src/util/POVParser.cpp
+src/util/CMakeFiles/util.dir/__/fileparsing/POVParser.cpp.o: src/util/CMakeFiles/util.dir/flags.make
+src/util/CMakeFiles/util.dir/__/fileparsing/POVParser.cpp.o: ../src/fileparsing/POVParser.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles $(CMAKE_PROGRESS_2)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/util/CMakeFiles/util.dir/__/fileparsing/POVParser.cpp.o"
+	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/util && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/util.dir/__/fileparsing/POVParser.cpp.o -c /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/src/fileparsing/POVParser.cpp
 
-src/util/CMakeFiles/util.dir/POVParser.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/util.dir/POVParser.cpp.i"
-	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build/src/util && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lejonmcgowan/ClionProjects/RayTracer473/src/util/POVParser.cpp > CMakeFiles/util.dir/POVParser.cpp.i
+src/util/CMakeFiles/util.dir/__/fileparsing/POVParser.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/util.dir/__/fileparsing/POVParser.cpp.i"
+	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/util && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/src/fileparsing/POVParser.cpp > CMakeFiles/util.dir/__/fileparsing/POVParser.cpp.i
 
-src/util/CMakeFiles/util.dir/POVParser.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/util.dir/POVParser.cpp.s"
-	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build/src/util && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lejonmcgowan/ClionProjects/RayTracer473/src/util/POVParser.cpp -o CMakeFiles/util.dir/POVParser.cpp.s
+src/util/CMakeFiles/util.dir/__/fileparsing/POVParser.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/util.dir/__/fileparsing/POVParser.cpp.s"
+	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/util && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/src/fileparsing/POVParser.cpp -o CMakeFiles/util.dir/__/fileparsing/POVParser.cpp.s
 
-src/util/CMakeFiles/util.dir/POVParser.cpp.o.requires:
-.PHONY : src/util/CMakeFiles/util.dir/POVParser.cpp.o.requires
+src/util/CMakeFiles/util.dir/__/fileparsing/POVParser.cpp.o.requires:
+.PHONY : src/util/CMakeFiles/util.dir/__/fileparsing/POVParser.cpp.o.requires
 
-src/util/CMakeFiles/util.dir/POVParser.cpp.o.provides: src/util/CMakeFiles/util.dir/POVParser.cpp.o.requires
-	$(MAKE) -f src/util/CMakeFiles/util.dir/build.make src/util/CMakeFiles/util.dir/POVParser.cpp.o.provides.build
-.PHONY : src/util/CMakeFiles/util.dir/POVParser.cpp.o.provides
+src/util/CMakeFiles/util.dir/__/fileparsing/POVParser.cpp.o.provides: src/util/CMakeFiles/util.dir/__/fileparsing/POVParser.cpp.o.requires
+	$(MAKE) -f src/util/CMakeFiles/util.dir/build.make src/util/CMakeFiles/util.dir/__/fileparsing/POVParser.cpp.o.provides.build
+.PHONY : src/util/CMakeFiles/util.dir/__/fileparsing/POVParser.cpp.o.provides
 
-src/util/CMakeFiles/util.dir/POVParser.cpp.o.provides.build: src/util/CMakeFiles/util.dir/POVParser.cpp.o
+src/util/CMakeFiles/util.dir/__/fileparsing/POVParser.cpp.o.provides.build: src/util/CMakeFiles/util.dir/__/fileparsing/POVParser.cpp.o
+
+src/util/CMakeFiles/util.dir/SceneContext.cpp.o: src/util/CMakeFiles/util.dir/flags.make
+src/util/CMakeFiles/util.dir/SceneContext.cpp.o: ../src/util/SceneContext.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/util/CMakeFiles/util.dir/SceneContext.cpp.o"
+	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/util && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/util.dir/SceneContext.cpp.o -c /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/src/util/SceneContext.cpp
+
+src/util/CMakeFiles/util.dir/SceneContext.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/util.dir/SceneContext.cpp.i"
+	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/util && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/src/util/SceneContext.cpp > CMakeFiles/util.dir/SceneContext.cpp.i
+
+src/util/CMakeFiles/util.dir/SceneContext.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/util.dir/SceneContext.cpp.s"
+	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/util && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/src/util/SceneContext.cpp -o CMakeFiles/util.dir/SceneContext.cpp.s
+
+src/util/CMakeFiles/util.dir/SceneContext.cpp.o.requires:
+.PHONY : src/util/CMakeFiles/util.dir/SceneContext.cpp.o.requires
+
+src/util/CMakeFiles/util.dir/SceneContext.cpp.o.provides: src/util/CMakeFiles/util.dir/SceneContext.cpp.o.requires
+	$(MAKE) -f src/util/CMakeFiles/util.dir/build.make src/util/CMakeFiles/util.dir/SceneContext.cpp.o.provides.build
+.PHONY : src/util/CMakeFiles/util.dir/SceneContext.cpp.o.provides
+
+src/util/CMakeFiles/util.dir/SceneContext.cpp.o.provides.build: src/util/CMakeFiles/util.dir/SceneContext.cpp.o
 
 # Object files for target util
 util_OBJECTS = \
 "CMakeFiles/util.dir/Constants.cpp.o" \
-"CMakeFiles/util.dir/POVParser.cpp.o"
+"CMakeFiles/util.dir/__/fileparsing/POVParser.cpp.o" \
+"CMakeFiles/util.dir/SceneContext.cpp.o"
 
 # External object files for target util
 util_EXTERNAL_OBJECTS =
 
 lib/libutil.a: src/util/CMakeFiles/util.dir/Constants.cpp.o
-lib/libutil.a: src/util/CMakeFiles/util.dir/POVParser.cpp.o
+lib/libutil.a: src/util/CMakeFiles/util.dir/__/fileparsing/POVParser.cpp.o
+lib/libutil.a: src/util/CMakeFiles/util.dir/SceneContext.cpp.o
 lib/libutil.a: src/util/CMakeFiles/util.dir/build.make
 lib/libutil.a: src/util/CMakeFiles/util.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX static library ../../lib/libutil.a"
-	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build/src/util && $(CMAKE_COMMAND) -P CMakeFiles/util.dir/cmake_clean_target.cmake
-	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build/src/util && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/util.dir/link.txt --verbose=$(VERBOSE)
+	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/util && $(CMAKE_COMMAND) -P CMakeFiles/util.dir/cmake_clean_target.cmake
+	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/util && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/util.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 src/util/CMakeFiles/util.dir/build: lib/libutil.a
 .PHONY : src/util/CMakeFiles/util.dir/build
 
 src/util/CMakeFiles/util.dir/requires: src/util/CMakeFiles/util.dir/Constants.cpp.o.requires
-src/util/CMakeFiles/util.dir/requires: src/util/CMakeFiles/util.dir/POVParser.cpp.o.requires
+src/util/CMakeFiles/util.dir/requires: src/util/CMakeFiles/util.dir/__/fileparsing/POVParser.cpp.o.requires
+src/util/CMakeFiles/util.dir/requires: src/util/CMakeFiles/util.dir/SceneContext.cpp.o.requires
 .PHONY : src/util/CMakeFiles/util.dir/requires
 
 src/util/CMakeFiles/util.dir/clean:
-	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build/src/util && $(CMAKE_COMMAND) -P CMakeFiles/util.dir/cmake_clean.cmake
+	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/util && $(CMAKE_COMMAND) -P CMakeFiles/util.dir/cmake_clean.cmake
 .PHONY : src/util/CMakeFiles/util.dir/clean
 
 src/util/CMakeFiles/util.dir/depend:
-	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/lejonmcgowan/ClionProjects/RayTracer473 /home/lejonmcgowan/ClionProjects/RayTracer473/src/util /home/lejonmcgowan/ClionProjects/RayTracer473/build /home/lejonmcgowan/ClionProjects/RayTracer473/build/src/util /home/lejonmcgowan/ClionProjects/RayTracer473/build/src/util/CMakeFiles/util.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473 /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/src/util /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/util /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/util/CMakeFiles/util.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : src/util/CMakeFiles/util.dir/depend
 

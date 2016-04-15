@@ -1,4 +1,4 @@
-# Install script for directory: /home/lejonmcgowan/ClionProjects/RayTracer473/src/geometry
+# Install script for directory: /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/src/geometry
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -1,4 +1,4 @@
-# Install script for directory: /home/lejonmcgowan/ClionProjects/RayTracer473/test
+# Install script for directory: /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/test
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,7 +34,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/lejonmcgowan/ClionProjects/RayTracer473/build/test/ext/googletest/cmake_install.cmake")
+  include("/home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/test/ext/googletest/cmake_install.cmake")
 
 endif()
 

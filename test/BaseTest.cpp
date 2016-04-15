@@ -1,7 +1,10 @@
 #include <include/gtest/gtest.h>
+#include <Eigen/Dense>
 #include "../src/geometry/Ray.h"
 #include "../src/geometry/Sphere.h"
+#include "../src/util/MathUtils.h"
 
+using namespace Eigen;
 //globals I'll fix later
 Sphere sphere1(1.01f,Eigen::Vector3f(0,0,0)),
        sphere2(2.25f,Eigen::Vector3f(0,0,-1.5)),
@@ -9,6 +12,10 @@ Sphere sphere1(1.01f,Eigen::Vector3f(0,0,0)),
        sphere4(1.1f,Eigen::Vector3f(-5.5,3,0));
 
 Eigen::Vector2f resolution(640,480);
+
+Eigen::Vector3f u(0,1,0),
+                v(1.33333,0,0),
+                w(u.cross(v));
 
 //so I (and GoogleTest) can verify the contents of vectors
 std::ostream& operator<<(std::ostream& ostream, const Eigen::Vector3f vec3)
@@ -118,10 +125,20 @@ struct RayTraceUnitTest1: public RayTraceTest
         HitData shadeData;
         double tmin = -1;
         bool firstTime;
+        Eigen::Vector3f vp = w + w.normalized();
+        Ray myRay;
+        myRay.origin = traceState.ray.origin;
+        float su,sv;
 
+        su = traceState.pixel[0]  / resolution[0] + 0.5f;
+        sv = traceState.pixel[1] / resolution[1] + 0.5f;
+        su *= resolution[0] / resolution[1];
+
+        myRay.direction = -w + su * u + sv * v;
+        EXPECT_EQ(myRay.direction.normalized(),traceState.ray.direction);
         for(auto shape: objects)
         {
-            if(shape->hit(traceState.ray,shadeData) && (shadeData.timeCollided < tmin || firstTime))
+            if(shape->hit(myRay,shadeData) && (shadeData.timeCollided < tmin || firstTime))
             {
                 tmin = shadeData.timeCollided;
                 shadeData.color = shape->getColor();
@@ -137,34 +154,36 @@ TEST_F(RayTraceUnitTest1, Testsuite)
 {
     RayTraceState test1,test2,test3,test4,test5;
 
+    std::cout << w << std::endl;
+
     test1.pixel = Eigen::Vector2f(320,239);
     test1.ray.origin = Eigen::Vector3f(0,0,14);
-    test1.ray.direction = Eigen::Vector3f(0.00104165,-0.00104168,-0.999999);
+    test1.ray.direction = Eigen::Vector3f(0.00104165, -0.00104168, -0.999999);
     test1.timeHit = 12.9902f;
     test1.color = Eigen::Vector3f(255,255,255);
 
-    test2.pixel = Eigen::Vector2f(320,239);
+    test2.pixel = Eigen::Vector2f(360,219);
     test2.ray.origin = Eigen::Vector3f(0,0,14);
-    test2.ray.direction = Eigen::Vector3f(0.084,-0.0425186,-0.995558);
-    test2.timeHit = 12.9902f;
+    test1.ray.direction = Eigen::Vector3f(0.084,-0.0425186,-0.995558);
+    test2.timeHit = 13.71856f;
     test2.color = Eigen::Vector3f(255,255,255);
 
-    test3.pixel = Eigen::Vector2f(320,239);
+    test3.pixel = Eigen::Vector2f(230,239);
     test3.ray.origin = Eigen::Vector3f(0,0,14);
-    test3.ray.direction = Eigen::Vector3f(0.00104165,-0.00104168,-0.999999);
-    test3.timeHit = 12.9902f;
+    test1.ray.direction = Eigen::Vector3f(-0.183299,-0.00102403, -0.983057);
+    test3.timeHit = 16.58557f;
     test3.color = Eigen::Vector3f(255,255,255);
 
-    test4.pixel = Eigen::Vector2f(320,239);
+    test4.pixel = Eigen::Vector2f(120,349);
     test4.ray.origin = Eigen::Vector3f(0,0,14);
-    test4.ray.direction = Eigen::Vector3f(0.00104165,-0.00104168,-0.999999);
-    test4.timeHit = 12.9902f;
+    test1.ray.direction = Eigen::Vector3f(-0.375553,0.206131,-0.903587);
+    test4.timeHit = 14.28708f;
     test4.color = Eigen::Vector3f(255,255,255);
 
-    test5.pixel = Eigen::Vector2f(320,239);
+    test5.pixel = Eigen::Vector2f(490,119);
     test5.ray.origin = Eigen::Vector3f(0,0,14);
-    test5.ray.direction = Eigen::Vector3f(0.00104165,-0.00104168,-0.999999);
-    test5.timeHit = 12.9902f;
+    test1.ray.direction = Eigen::Vector3f(-0.325728,0.230207,-0.917009);
+    test5.timeHit = -1;
     test5.color = Eigen::Vector3f(255,255,255);
 
     std::vector<RayTraceState> tests;
@@ -188,6 +207,17 @@ TEST_F(RayTraceUnitTest1, Testsuite)
     }
 
 
+}
+
+TEST_F(RayTraceUnitTest1, MyTestsuite)
+{
+    Vector2f mappedCoords = MathHelper::mapCoords(Vector2f(320.5,239.5),
+                          Vector4f(0,resolution[0],0,resolution[1]),
+                          Vector4f(-1.3333 / 2,1.3333 / 2,-0.5,0.5));
+
+    Vector3f finalResult = -1 * (-w + mappedCoords[0] * u + mappedCoords[1] * v);
+    finalResult.normalize();
+    EXPECT_EQ(Vector3f(0.00104165,-0.00104168,-0.999999),finalResult);
 }
 
 /*

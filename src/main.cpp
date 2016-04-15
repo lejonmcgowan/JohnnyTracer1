@@ -1,7 +1,7 @@
 #include <util/SceneContext.h>
 #include <iostream>
 #include <cameras/Scene.h>
-#include <util/POVParser.h>
+#include <fileparsing/POVParser.h>
 
 int main(int argc, char **argv)
 {
