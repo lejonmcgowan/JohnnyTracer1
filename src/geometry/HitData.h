@@ -8,6 +8,7 @@
 
 #include <Eigen/Dense>
 #include "Color.h"
+#include "Material.h"
 
 struct HitData
 {
@@ -16,6 +17,7 @@ struct HitData
     Eigen::Vector3f hitPoint;
     Eigen::Vector3f normal;
     Color color;
+    Material *material = nullptr;
 };
 
 

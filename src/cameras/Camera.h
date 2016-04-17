@@ -16,7 +16,7 @@ class Camera
 protected:
     typedef Eigen::Vector3f vec3;
     // orthonormal basis vectors
-    vec3 upBasis, rightBasis, forwardBasis;
+    vec3 uBasis, vBasis, wBasis;
     vec3 position;
     vec3 lookat;
     vec3 up;

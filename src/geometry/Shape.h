@@ -24,7 +24,7 @@ protected:
     Material material;
     Transform transform;
 public:
-    virtual bool hit(const Ray& ray, HitData& shadeData) const = 0;
+    virtual bool hit(const Ray& ray, HitData& shadeData) = 0;
 
     Material& getMaterial();
     const Transform& getTransform();

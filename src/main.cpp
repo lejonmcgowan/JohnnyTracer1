@@ -14,12 +14,12 @@ int main(int argc, char **argv)
     {
         SceneContext::windowDims[0] = atoi(argv[1]);
         SceneContext::windowDims[1] = atoi(argv[2]);
-        SceneContext::aspect = SceneContext::width() / SceneContext::height();
+        SceneContext::aspect = SceneContext::width() / (float) SceneContext::height();
 
         auto arg3 = argv[3];
         Scene scene = POVParser::parseFile(std::string(arg3));
         scene.render(scene.getCamera(0));
-        scene.renderImage("sample.tga");
+        scene.renderImage("/home/lejonmcgowan/ClionProjects/RayTracer473/sample.tga");
     }
     return 0;
 }

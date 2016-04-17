@@ -14,7 +14,7 @@ public:
     Plane();
     Plane(Eigen::Vector3f center, Eigen::Vector3f normal);
 
-    virtual bool hit(const Ray& ray, HitData& shadeData) const override;
+    virtual bool hit(const Ray& ray, HitData& shadeData) override;
 
     //todo implement rule of three for plane class
 private:

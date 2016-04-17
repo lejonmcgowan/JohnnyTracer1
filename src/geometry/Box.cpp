@@ -9,7 +9,7 @@ Box::Box(float legnth, float width, float depth)
 
 }
 
-bool Box::hit(const Ray &ray, HitData &hitData) const
+bool Box::hit(const Ray& ray, HitData& hitData)
 {
     return false;
 }

@@ -12,6 +12,7 @@ using namespace Eigen;
 
 void PinholeCamera::renderScene(Scene& scene)
 {
+    computeBasis();
     Ray	ray;
 
     ray.origin = position;
@@ -20,13 +21,15 @@ void PinholeCamera::renderScene(Scene& scene)
         for (int c = 0; c < SceneContext::windowDims[1]; c++)
         {
             //calc direction
-            Vector2f mappedCoords = MathHelper::mapCoords(Vector2f(r,c),
+            Vector2f mappedCoords = MathHelper::mapCoords(Vector2f(c + 0.5f, r + 0.5f),
                                                           Vector4f(0,SceneContext::width(),
                                                                    0,SceneContext::height()),
-                                                          Vector4f(-SceneContext::aspect / 2,SceneContext::aspect / 2,
-                                                                   -0.5,0.5));
+                                                          Vector4f(-SceneContext::aspect / 2.0f,
+                                                                   SceneContext::aspect / 2.0f,
+                                                                   -0.5, 0.5));
 
-            Vector3f finalResult = -focalLength * forwardBasis + mappedCoords[0] * upBasis + mappedCoords[1] * rightBasis;
+            Vector3f finalResult =
+                -focalLength * wBasis + mappedCoords[0] * uBasis + mappedCoords[1] * vBasis;
             finalResult.normalize();
             ray.direction = finalResult;
 

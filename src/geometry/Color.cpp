@@ -64,6 +64,7 @@ Color::Color(const Color& otherColor)
     t = otherColor.t;
 }
 Color::Color()
+    : r(0), g(0), b(0), f(0), t(0)
 {
 
 }

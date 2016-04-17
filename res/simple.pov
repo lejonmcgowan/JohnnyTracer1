@@ -15,7 +15,7 @@ light_source
 
 sphere
 {
-   <0, 0, 0>, 2
+   <0, 0, 0>, 4
   pigment
    {
     color rgb <1.0, 0.0, 1.0>
@@ -29,7 +29,7 @@ sphere
 
 plane
 {
-    <0, 1, 0>, -4
+    <1, 1, 0>, 4
     pigment {color rgb <0.2, 0.2, 0.8>}
       finish {ambient 0.4 diffuse 0.8}
 }

@@ -16,7 +16,7 @@ Plane::Plane(Eigen::Vector3f center, Eigen::Vector3f normal):center(center),norm
 
 }
 
-bool Plane::hit(const Ray& ray, HitData& shadeData) const
+bool Plane::hit(const Ray& ray, HitData& shadeData)
 {
     float t = (center - ray.origin).dot(normal) / ray.direction.dot(normal);
     if(t > Constants::EPSILON)
@@ -24,7 +24,7 @@ bool Plane::hit(const Ray& ray, HitData& shadeData) const
         shadeData.timeCollided = t;
         shadeData.normal = normal;
         shadeData.hitPoint = ray.origin * t + ray.direction;
-
+        shadeData.material = &material;
         return true;
     }
 

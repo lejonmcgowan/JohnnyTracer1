@@ -7,9 +7,12 @@
 #include <geometry/Transform.h>
 #include <geometry/Color.h>
 #include <Eigen/Dense>
+#include <geometry/HitData.h>
 
 /**
  * http://www.povray.org/documentation/view/3.6.0/308/
+ * Point light implementation (Since that's the default type in POVRAY).
+ * todo abstract this and make a proper point light implementation
  */
 class Light
 {
@@ -27,6 +30,8 @@ public:
 
     void setTransform(Transform& transform);
     void setColor(Color& color);
+
+    Eigen::Vector3f getDirection(const HitData& hitdata);
 };
 
 

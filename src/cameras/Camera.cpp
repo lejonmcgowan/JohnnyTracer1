@@ -31,8 +31,9 @@ Camera::Camera(Camera::vec3 position, Camera::vec3 lookat, Camera::vec3 up):
 
 void Camera::computeBasis()
 {
-    forwardBasis = (lookat - position).normalized();
-    upBasis = up.cross(forwardBasis);
-    rightBasis = upBasis.cross(forwardBasis);
+    wBasis = (position - lookat).normalized();
+    uBasis = up.cross(wBasis).normalized();
+    vBasis = wBasis.cross(uBasis);
+    vBasis *= -1;
 }
 

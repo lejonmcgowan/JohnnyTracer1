@@ -56,20 +56,24 @@ void Scene::renderImage(const std::string& writePath)
 
 HitData Scene::castRay(const Ray &ray)  const
 {
+    HitData finalData;
     HitData shadeData;
-    double tmin = -1;
-    bool firstTime;
+    bool firstTime = true;
 
     for(auto shape: objects)
     {
-        if(shape->hit(ray,shadeData) && (shadeData.timeCollided < tmin || firstTime))
+        if (shape->hit(ray, shadeData)
+            && (shadeData.timeCollided < finalData.timeCollided || firstTime))
         {
-            tmin = shadeData.timeCollided;
-            shadeData.color = shape->getColor();
+            finalData.color = shape->getColor();
+            finalData.timeCollided = shadeData.timeCollided;
+            finalData.hit = true;
+            finalData.hitPoint = shadeData.hitPoint;
+            finalData.material = shadeData.material;
             firstTime = false;
         }
     }
-    return shadeData;
+    return finalData;
 }
 
 void Scene::pushPixel(Color rgb)
@@ -94,8 +98,20 @@ Camera &Scene::getCamera(int index)
 
 void Scene::addLight(std::shared_ptr<Light> light)
 {
-    //coming up. add a light to the scene. Light Data Structure TBD
+    lights.push_back(light);
 }
+Shape& Scene::getShape(int index)
+{
+    return *objects[index];
+}
+Light& Scene::getLight(int index)
+{
+    return *lights[index];
+}
+
+
+
+
 
 
 

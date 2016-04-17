@@ -19,7 +19,7 @@ public:
     Sphere(float radius):radius(radius){}
     Sphere(float radius, Eigen::Vector3f center):radius(radius),center(center){};
 
-    virtual bool hit(const Ray& ray, HitData& shadeData) const override;
+    virtual bool hit(const Ray& ray, HitData& shadeData) override;
 
     float getRadius() const {return radius;}
     void setRadius(float radius) {Sphere::radius = radius;}

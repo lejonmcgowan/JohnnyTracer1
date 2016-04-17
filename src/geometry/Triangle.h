@@ -15,7 +15,7 @@ class Triangle: public Shape
 public:
     Triangle(Eigen::Vector3f a, Eigen::Vector3f b, Eigen::Vector3f c);
 
-    virtual bool hit(const Ray& ray, HitData& hitData) const;
+    virtual bool hit(const Ray& ray, HitData& hitData);
 
 };
 

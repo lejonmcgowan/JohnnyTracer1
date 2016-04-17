@@ -34,4 +34,10 @@ Light::Light():transform(Transform()),color(Color())
 {
 
 }
+Eigen::Vector3f Light::getDirection(const HitData& hitdata)
+{
+    return (transform.getTranslate() - hitdata.hitPoint).normalized();
+}
+
+
 

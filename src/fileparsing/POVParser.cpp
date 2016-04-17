@@ -26,6 +26,7 @@ Eigen::VectorXf POVParser::parseVector(std::string block, int size)
     std::string num;
     bool scanNumber = false;
     int numDecs = 0;
+    int numNeg = 0;
     for(int i = 1; block[i] != '>'; i++)
     {
         if(block[i] == '.')
@@ -33,16 +34,24 @@ Eigen::VectorXf POVParser::parseVector(std::string block, int size)
             numDecs++;
             assert(numDecs == 1);
         }
-        if(block[i] == '.' || isdigit(block[i]))
+        if (block[i] == '-')
+        {
+            numNeg++;
+            assert(numNeg == 1);
+        }
+        if (block[i] == '.' || block[i] == '-' || isdigit(block[i]))
             scanNumber = true;
 
-        if(block[i] == ',')
+        if (block[i] == ',' || (block[i] == ' ' && scanNumber))
         {
             vec[veciter++] = stof(num);
             scanNumber = false;
             num.clear();
             if(numDecs > 0)
+            {
                 numDecs--;
+                numNeg--;
+            }
         }
 
         if(scanNumber)
@@ -416,10 +425,16 @@ Shape &POVParser::parseObjectModifiers(Shape &shape, std::string block)
             string colortype = word;
             string block;
             //parse color value
-            while(block.empty() || block.back() != '>')
+            while (block.size() < 2 || (block[block.size() - 2] != '>' &&
+                block[block.size() - 3] != '>'))
             {
                 input >> word;
-                block += word;
+                block += word + " ";
+            }
+            //take off } (second to last, because space) if it's there
+            if (block[block.size() - 3] == '>')
+            {
+                block.erase(block.length() - 2, block.length() - 2);
             }
             VectorXf vec(colortype.size());
             vec = parseVector(block,colortype.size());
@@ -441,8 +456,9 @@ Shape &POVParser::parseObjectModifiers(Shape &shape, std::string block)
                 else
                     cout << "warning: " << letter << " no a recognized param. ignoring...";
             }
-            input >> word;
-            assert(word == "}");
+            if (word.back() != '}')
+                input >> word;
+            assert(word.back() == '}');
             pigmentParse = false;
         }
 
@@ -450,7 +466,6 @@ Shape &POVParser::parseObjectModifiers(Shape &shape, std::string block)
         {
             while(word != "}")
             {
-                input >> word;
                 if(word == "ambient")
                 {
                     Vector3f vec;
@@ -489,6 +504,7 @@ Shape &POVParser::parseObjectModifiers(Shape &shape, std::string block)
                     input >> word;
                     shape.getMaterial().roughness = stof(word);
                 }
+                input >> word;
             }
             finishParse = false;
         }
@@ -540,8 +556,10 @@ Scene POVParser::parseFile(const std::string filepath)
         std::string& tag = word;
         std::string block;
         fileToParse >> block;
-        assert(block == "{");
+        assert(block.front() == '{');
         block += " ";
+        if (block[1] != ' ')
+            block.insert(1, " ");
         int innerBlocks = 0;
         //extract the next block of code for the right parser to parse
         do
@@ -563,7 +581,10 @@ Scene POVParser::parseFile(const std::string filepath)
         while(block.at(block.length() - 2) != '}' || innerBlocks > 0);
 
         assert(block.at(block.length() - 2) == '}');
-
+        if (block.at(block.length() - 3) != ' ')
+        {
+            block.insert(block.length() - 2, " ");
+        }
         //pass block to right parser
         if(word == "camera")
             scene->addCamera(parseCamera(block));

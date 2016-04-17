@@ -4,7 +4,8 @@
 
 #include "Triangle.h"
 
-bool Triangle::hit(const Ray& ray, HitData& hitData) const {
+bool Triangle::hit(const Ray& ray, HitData& hitData)
+{
     return false;
 }
 

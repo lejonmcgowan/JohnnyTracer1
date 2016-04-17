@@ -17,6 +17,7 @@ class Scene
 private:
     std::vector<std::shared_ptr<Shape>> objects;
     std::vector<std::shared_ptr<Camera>> cameras;
+    std::vector<std::shared_ptr<Light>> lights;
     std::vector<char> pixelBuffer;
     const int width, height;
     Eigen::Vector3i backgroundColor;
@@ -26,6 +27,8 @@ public:
     void render(Camera& camera);
 
     Camera& getCamera(int index);
+    Shape& getShape(int index);
+    Light& getLight(int index);
     void pushPixel(char r, char g, char b);
     void pushPixelf(float r, float g, float b);
     void pushPixelf(Eigen::Vector3f rgb);
@@ -37,6 +40,7 @@ public:
     void addLight(std::shared_ptr<Light> light);
     void addShape(std::shared_ptr<Shape> shape);
     void addCamera(std::shared_ptr<Camera> camera);
+
 };
 
 
