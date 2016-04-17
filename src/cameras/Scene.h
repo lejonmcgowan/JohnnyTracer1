@@ -32,7 +32,7 @@ public:
     void renderImage(const std::string& writePath = "sample.tga");
     HitData castRay(const Ray& ray) const;
 
-    void pushPixel(Eigen::Vector3i matrix);
+    void pushPixel(Color matrix);
 
     void addLight(std::shared_ptr<Light> light);
     void addShape(std::shared_ptr<Shape> shape);

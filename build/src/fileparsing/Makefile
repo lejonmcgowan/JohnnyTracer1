@@ -33,19 +33,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/local/bin/cmake
+CMAKE_COMMAND = /usr/bin/cmake
 
 # The command to remove a file.
-RM = /usr/local/bin/cmake -E remove -f
+RM = /usr/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473
+CMAKE_SOURCE_DIR = /home/lejonmcgowan/ClionProjects/RayTracer473
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build
+CMAKE_BINARY_DIR = /home/lejonmcgowan/ClionProjects/RayTracer473/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -53,7 +53,7 @@ CMAKE_BINARY_DIR = /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer
 # Special rule for the target install/strip
 install/strip: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/local/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip
 
 # Special rule for the target install/strip
@@ -63,7 +63,7 @@ install/strip/fast: install/strip
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/local/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -73,7 +73,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/local/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -83,13 +83,13 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/local/bin/cmake -P cmake_install.cmake
+	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install
 
 # Special rule for the target install
 install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/local/bin/cmake -P cmake_install.cmake
+	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
 # Special rule for the target list_install_components
@@ -104,7 +104,7 @@ list_install_components/fast: list_install_components
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/local/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local
 
 # Special rule for the target install/local
@@ -113,14 +113,14 @@ install/local/fast: install/local
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/fileparsing/CMakeFiles/progress.marks
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build && $(MAKE) -f CMakeFiles/Makefile2 src/fileparsing/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles 0
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/ClionProjects/RayTracer473/build/CMakeFiles /home/lejonmcgowan/ClionProjects/RayTracer473/build/src/fileparsing/CMakeFiles/progress.marks
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build && $(MAKE) -f CMakeFiles/Makefile2 src/fileparsing/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lejonmcgowan/ClionProjects/RayTracer473/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build && $(MAKE) -f CMakeFiles/Makefile2 src/fileparsing/clean
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build && $(MAKE) -f CMakeFiles/Makefile2 src/fileparsing/clean
 .PHONY : clean
 
 # The main clean target
@@ -129,22 +129,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build && $(MAKE) -f CMakeFiles/Makefile2 src/fileparsing/preinstall
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build && $(MAKE) -f CMakeFiles/Makefile2 src/fileparsing/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build && $(MAKE) -f CMakeFiles/Makefile2 src/fileparsing/preinstall
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build && $(MAKE) -f CMakeFiles/Makefile2 src/fileparsing/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/fileparsing/CMakeFiles/fileparsing.dir/rule:
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build && $(MAKE) -f CMakeFiles/Makefile2 src/fileparsing/CMakeFiles/fileparsing.dir/rule
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build && $(MAKE) -f CMakeFiles/Makefile2 src/fileparsing/CMakeFiles/fileparsing.dir/rule
 .PHONY : src/fileparsing/CMakeFiles/fileparsing.dir/rule
 
 # Convenience name for target.
@@ -153,7 +153,7 @@ fileparsing: src/fileparsing/CMakeFiles/fileparsing.dir/rule
 
 # fast build rule for target.
 fileparsing/fast:
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build && $(MAKE) -f src/fileparsing/CMakeFiles/fileparsing.dir/build.make src/fileparsing/CMakeFiles/fileparsing.dir/build
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build && $(MAKE) -f src/fileparsing/CMakeFiles/fileparsing.dir/build.make src/fileparsing/CMakeFiles/fileparsing.dir/build
 .PHONY : fileparsing/fast
 
 POVObject.o: POVObject.cpp.o
@@ -161,7 +161,7 @@ POVObject.o: POVObject.cpp.o
 
 # target to build an object file
 POVObject.cpp.o:
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build && $(MAKE) -f src/fileparsing/CMakeFiles/fileparsing.dir/build.make src/fileparsing/CMakeFiles/fileparsing.dir/POVObject.cpp.o
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build && $(MAKE) -f src/fileparsing/CMakeFiles/fileparsing.dir/build.make src/fileparsing/CMakeFiles/fileparsing.dir/POVObject.cpp.o
 .PHONY : POVObject.cpp.o
 
 POVObject.i: POVObject.cpp.i
@@ -169,7 +169,7 @@ POVObject.i: POVObject.cpp.i
 
 # target to preprocess a source file
 POVObject.cpp.i:
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build && $(MAKE) -f src/fileparsing/CMakeFiles/fileparsing.dir/build.make src/fileparsing/CMakeFiles/fileparsing.dir/POVObject.cpp.i
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build && $(MAKE) -f src/fileparsing/CMakeFiles/fileparsing.dir/build.make src/fileparsing/CMakeFiles/fileparsing.dir/POVObject.cpp.i
 .PHONY : POVObject.cpp.i
 
 POVObject.s: POVObject.cpp.s
@@ -177,8 +177,32 @@ POVObject.s: POVObject.cpp.s
 
 # target to generate assembly for a file
 POVObject.cpp.s:
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build && $(MAKE) -f src/fileparsing/CMakeFiles/fileparsing.dir/build.make src/fileparsing/CMakeFiles/fileparsing.dir/POVObject.cpp.s
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build && $(MAKE) -f src/fileparsing/CMakeFiles/fileparsing.dir/build.make src/fileparsing/CMakeFiles/fileparsing.dir/POVObject.cpp.s
 .PHONY : POVObject.cpp.s
+
+POVParser.o: POVParser.cpp.o
+.PHONY : POVParser.o
+
+# target to build an object file
+POVParser.cpp.o:
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build && $(MAKE) -f src/fileparsing/CMakeFiles/fileparsing.dir/build.make src/fileparsing/CMakeFiles/fileparsing.dir/POVParser.cpp.o
+.PHONY : POVParser.cpp.o
+
+POVParser.i: POVParser.cpp.i
+.PHONY : POVParser.i
+
+# target to preprocess a source file
+POVParser.cpp.i:
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build && $(MAKE) -f src/fileparsing/CMakeFiles/fileparsing.dir/build.make src/fileparsing/CMakeFiles/fileparsing.dir/POVParser.cpp.i
+.PHONY : POVParser.cpp.i
+
+POVParser.s: POVParser.cpp.s
+.PHONY : POVParser.s
+
+# target to generate assembly for a file
+POVParser.cpp.s:
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build && $(MAKE) -f src/fileparsing/CMakeFiles/fileparsing.dir/build.make src/fileparsing/CMakeFiles/fileparsing.dir/POVParser.cpp.s
+.PHONY : POVParser.cpp.s
 
 # Help Target
 help:
@@ -196,6 +220,9 @@ help:
 	@echo "... POVObject.o"
 	@echo "... POVObject.i"
 	@echo "... POVObject.s"
+	@echo "... POVParser.o"
+	@echo "... POVParser.i"
+	@echo "... POVParser.s"
 .PHONY : help
 
 
@@ -207,6 +234,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

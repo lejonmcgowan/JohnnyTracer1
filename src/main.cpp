@@ -14,6 +14,7 @@ int main(int argc, char **argv)
     {
         SceneContext::windowDims[0] = atoi(argv[1]);
         SceneContext::windowDims[1] = atoi(argv[2]);
+        SceneContext::aspect = SceneContext::width() / SceneContext::height();
 
         auto arg3 = argv[3];
         Scene scene = POVParser::parseFile(std::string(arg3));

@@ -31,8 +31,7 @@ Camera::Camera(Camera::vec3 position, Camera::vec3 lookat, Camera::vec3 up):
 
 void Camera::computeBasis()
 {
-    const Eigen::Vector3f& result = lookat - position;
-    forwardBasis = result.normalized();
+    forwardBasis = (lookat - position).normalized();
     upBasis = up.cross(forwardBasis);
     rightBasis = upBasis.cross(forwardBasis);
 }

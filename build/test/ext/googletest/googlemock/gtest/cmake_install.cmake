@@ -1,4 +1,4 @@
-# Install script for directory: /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/ext/googletest/googletest
+# Install script for directory: /home/lejonmcgowan/ClionProjects/RayTracer473/ext/googletest/googletest
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -33,14 +33,14 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/lib/libgtest.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/lejonmcgowan/ClionProjects/RayTracer473/build/lib/libgtest.a")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/lib/libgtest_main.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/lejonmcgowan/ClionProjects/RayTracer473/build/lib/libgtest_main.a")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/ext/googletest/googletest/include/gtest")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/lejonmcgowan/ClionProjects/RayTracer473/ext/googletest/googletest/include/gtest")
 endif()
 

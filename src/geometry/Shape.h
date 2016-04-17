@@ -7,18 +7,32 @@
 
 #include "Ray.h"
 #include "HitData.h"
+#include "Material.h"
+#include "Transform.h"
+#include "Color.h"
 #include <Eigen/Dense>
 #include <Eigen/src/Core/Matrix.h>
 
 class Shape
 {
 protected:
-    Eigen::Vector3f color;
+    Color color;
+public:
+
+
+protected:
+    Material material;
+    Transform transform;
 public:
     virtual bool hit(const Ray& ray, HitData& shadeData) const = 0;
-    void setColor(Eigen::Vector3f color){this-> color = color;}
-    Eigen::Vector3f& getColor(){return color;}
-    virtual ~Shape(){}
+
+    Material& getMaterial();
+    const Transform& getTransform();
+    Color& getColor();
+    void setMaterial(const Material& material);
+    void setTransform(const Transform& transform);
+    void setColor(Color color);
+    virtual ~Shape();
 };
 
 

@@ -1,1 +1,3 @@
-add_library(util Constants.h Constants.cpp Constants.cpp Constants.h ../fileparsing/POVParser.h ../fileparsing/POVParser.cpp ../fileparsing/POVParser.h SceneContext.cpp SceneContext.h MathUtils.h)
+add_library(util    Constants.h Constants.cpp
+                    SceneContext.cpp SceneContext.h
+                    MathUtils.h)

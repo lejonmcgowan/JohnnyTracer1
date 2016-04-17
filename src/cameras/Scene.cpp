@@ -72,9 +72,9 @@ HitData Scene::castRay(const Ray &ray)  const
     return shadeData;
 }
 
-void Scene::pushPixel(Eigen::Vector3i rgb)
+void Scene::pushPixel(Color rgb)
 {
-    pushPixelf(rgb[0],rgb[1],rgb[2]);
+    pushPixelf(rgb.r,rgb.g,rgb.b);
 }
 
 void Scene::addCamera(std::shared_ptr<Camera> camera)

@@ -26,19 +26,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/local/bin/cmake
+CMAKE_COMMAND = /usr/bin/cmake
 
 # The command to remove a file.
-RM = /usr/local/bin/cmake -E remove -f
+RM = /usr/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473
+CMAKE_SOURCE_DIR = /home/lejonmcgowan/ClionProjects/RayTracer473
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build
+CMAKE_BINARY_DIR = /home/lejonmcgowan/ClionProjects/RayTracer473/build
 
 # Include any dependencies generated for this target.
 include src/cameras/CMakeFiles/cameras.dir/depend.make
@@ -51,17 +51,17 @@ include src/cameras/CMakeFiles/cameras.dir/flags.make
 
 src/cameras/CMakeFiles/cameras.dir/Camera.cpp.o: src/cameras/CMakeFiles/cameras.dir/flags.make
 src/cameras/CMakeFiles/cameras.dir/Camera.cpp.o: ../src/cameras/Camera.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lejonmcgowan/ClionProjects/RayTracer473/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/cameras/CMakeFiles/cameras.dir/Camera.cpp.o"
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/cameras && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/cameras.dir/Camera.cpp.o -c /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/src/cameras/Camera.cpp
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build/src/cameras && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/cameras.dir/Camera.cpp.o -c /home/lejonmcgowan/ClionProjects/RayTracer473/src/cameras/Camera.cpp
 
 src/cameras/CMakeFiles/cameras.dir/Camera.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cameras.dir/Camera.cpp.i"
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/cameras && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/src/cameras/Camera.cpp > CMakeFiles/cameras.dir/Camera.cpp.i
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build/src/cameras && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lejonmcgowan/ClionProjects/RayTracer473/src/cameras/Camera.cpp > CMakeFiles/cameras.dir/Camera.cpp.i
 
 src/cameras/CMakeFiles/cameras.dir/Camera.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cameras.dir/Camera.cpp.s"
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/cameras && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/src/cameras/Camera.cpp -o CMakeFiles/cameras.dir/Camera.cpp.s
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build/src/cameras && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lejonmcgowan/ClionProjects/RayTracer473/src/cameras/Camera.cpp -o CMakeFiles/cameras.dir/Camera.cpp.s
 
 src/cameras/CMakeFiles/cameras.dir/Camera.cpp.o.requires:
 .PHONY : src/cameras/CMakeFiles/cameras.dir/Camera.cpp.o.requires
@@ -74,17 +74,17 @@ src/cameras/CMakeFiles/cameras.dir/Camera.cpp.o.provides.build: src/cameras/CMak
 
 src/cameras/CMakeFiles/cameras.dir/PinholeCamera.cpp.o: src/cameras/CMakeFiles/cameras.dir/flags.make
 src/cameras/CMakeFiles/cameras.dir/PinholeCamera.cpp.o: ../src/cameras/PinholeCamera.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lejonmcgowan/ClionProjects/RayTracer473/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/cameras/CMakeFiles/cameras.dir/PinholeCamera.cpp.o"
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/cameras && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/cameras.dir/PinholeCamera.cpp.o -c /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/src/cameras/PinholeCamera.cpp
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build/src/cameras && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/cameras.dir/PinholeCamera.cpp.o -c /home/lejonmcgowan/ClionProjects/RayTracer473/src/cameras/PinholeCamera.cpp
 
 src/cameras/CMakeFiles/cameras.dir/PinholeCamera.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cameras.dir/PinholeCamera.cpp.i"
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/cameras && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/src/cameras/PinholeCamera.cpp > CMakeFiles/cameras.dir/PinholeCamera.cpp.i
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build/src/cameras && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lejonmcgowan/ClionProjects/RayTracer473/src/cameras/PinholeCamera.cpp > CMakeFiles/cameras.dir/PinholeCamera.cpp.i
 
 src/cameras/CMakeFiles/cameras.dir/PinholeCamera.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cameras.dir/PinholeCamera.cpp.s"
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/cameras && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/src/cameras/PinholeCamera.cpp -o CMakeFiles/cameras.dir/PinholeCamera.cpp.s
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build/src/cameras && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lejonmcgowan/ClionProjects/RayTracer473/src/cameras/PinholeCamera.cpp -o CMakeFiles/cameras.dir/PinholeCamera.cpp.s
 
 src/cameras/CMakeFiles/cameras.dir/PinholeCamera.cpp.o.requires:
 .PHONY : src/cameras/CMakeFiles/cameras.dir/PinholeCamera.cpp.o.requires
@@ -97,17 +97,17 @@ src/cameras/CMakeFiles/cameras.dir/PinholeCamera.cpp.o.provides.build: src/camer
 
 src/cameras/CMakeFiles/cameras.dir/Scene.cpp.o: src/cameras/CMakeFiles/cameras.dir/flags.make
 src/cameras/CMakeFiles/cameras.dir/Scene.cpp.o: ../src/cameras/Scene.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lejonmcgowan/ClionProjects/RayTracer473/build/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/cameras/CMakeFiles/cameras.dir/Scene.cpp.o"
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/cameras && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/cameras.dir/Scene.cpp.o -c /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/src/cameras/Scene.cpp
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build/src/cameras && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/cameras.dir/Scene.cpp.o -c /home/lejonmcgowan/ClionProjects/RayTracer473/src/cameras/Scene.cpp
 
 src/cameras/CMakeFiles/cameras.dir/Scene.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cameras.dir/Scene.cpp.i"
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/cameras && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/src/cameras/Scene.cpp > CMakeFiles/cameras.dir/Scene.cpp.i
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build/src/cameras && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lejonmcgowan/ClionProjects/RayTracer473/src/cameras/Scene.cpp > CMakeFiles/cameras.dir/Scene.cpp.i
 
 src/cameras/CMakeFiles/cameras.dir/Scene.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cameras.dir/Scene.cpp.s"
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/cameras && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/src/cameras/Scene.cpp -o CMakeFiles/cameras.dir/Scene.cpp.s
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build/src/cameras && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lejonmcgowan/ClionProjects/RayTracer473/src/cameras/Scene.cpp -o CMakeFiles/cameras.dir/Scene.cpp.s
 
 src/cameras/CMakeFiles/cameras.dir/Scene.cpp.o.requires:
 .PHONY : src/cameras/CMakeFiles/cameras.dir/Scene.cpp.o.requires
@@ -133,8 +133,8 @@ lib/libcameras.a: src/cameras/CMakeFiles/cameras.dir/Scene.cpp.o
 lib/libcameras.a: src/cameras/CMakeFiles/cameras.dir/build.make
 lib/libcameras.a: src/cameras/CMakeFiles/cameras.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX static library ../../lib/libcameras.a"
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/cameras && $(CMAKE_COMMAND) -P CMakeFiles/cameras.dir/cmake_clean_target.cmake
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/cameras && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/cameras.dir/link.txt --verbose=$(VERBOSE)
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build/src/cameras && $(CMAKE_COMMAND) -P CMakeFiles/cameras.dir/cmake_clean_target.cmake
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build/src/cameras && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/cameras.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 src/cameras/CMakeFiles/cameras.dir/build: lib/libcameras.a
@@ -146,10 +146,10 @@ src/cameras/CMakeFiles/cameras.dir/requires: src/cameras/CMakeFiles/cameras.dir/
 .PHONY : src/cameras/CMakeFiles/cameras.dir/requires
 
 src/cameras/CMakeFiles/cameras.dir/clean:
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/cameras && $(CMAKE_COMMAND) -P CMakeFiles/cameras.dir/cmake_clean.cmake
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build/src/cameras && $(CMAKE_COMMAND) -P CMakeFiles/cameras.dir/cmake_clean.cmake
 .PHONY : src/cameras/CMakeFiles/cameras.dir/clean
 
 src/cameras/CMakeFiles/cameras.dir/depend:
-	cd /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473 /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/src/cameras /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/cameras /home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/cameras/CMakeFiles/cameras.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/lejonmcgowan/ClionProjects/RayTracer473/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/lejonmcgowan/ClionProjects/RayTracer473 /home/lejonmcgowan/ClionProjects/RayTracer473/src/cameras /home/lejonmcgowan/ClionProjects/RayTracer473/build /home/lejonmcgowan/ClionProjects/RayTracer473/build/src/cameras /home/lejonmcgowan/ClionProjects/RayTracer473/build/src/cameras/CMakeFiles/cameras.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : src/cameras/CMakeFiles/cameras.dir/depend
 

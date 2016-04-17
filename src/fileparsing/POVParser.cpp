@@ -3,123 +3,333 @@
 //
 
 #include <fstream>
+#include <cameras/PinholeCamera.h>
+#include <geometry/Box.h>
+#include <geometry/Sphere.h>
+#include <geometry/Plane.h>
+#include <geometry/Triangle.h>
+#include <iostream>
 #include "POVParser.h"
+
 using namespace Eigen;
 using namespace std;
 
-Eigen::Vector3f POVParser::parseVector(std::string block)
+//example parsing:  <1.33333, 0,  0>
+Eigen::VectorXf POVParser::parseVector(std::string block, int size)
 {
-    return Vector3f();
+    //validation
+    assert(block.front() == '<');
+    assert(block.back() == '>');
+
+    VectorXf vec(size);
+    int veciter = 0;
+    std::string num;
+    bool scanNumber = false;
+    int numDecs = 0;
+    for(int i = 1; block[i] != '>'; i++)
+    {
+        if(block[i] == '.')
+        {
+            numDecs++;
+            assert(numDecs == 1);
+        }
+        if(block[i] == '.' || isdigit(block[i]))
+            scanNumber = true;
+
+        if(block[i] == ',')
+        {
+            vec[veciter++] = stof(num);
+            scanNumber = false;
+            num.clear();
+            if(numDecs > 0)
+                numDecs--;
+        }
+
+        if(scanNumber)
+            num += block[i];
+
+    }
+    //parseLastNum
+    assert(scanNumber);
+    vec[veciter++] = stof(num);
+    return vec;
 }
 
+Eigen::Vector3f POVParser::parseMultVec(std::string parseNum)
+{
+    Vector3f vec;
+    float num = 1;
+    bool vecSet = false;
+    bool divide = false;
+    for(int i = 0; i < parseNum.length(); i++)
+    {
+        if(parseNum[i] == '<')
+        {
+            string vecstr;
+            do
+            {
+                vecstr += parseNum[i];
+            }while(parseNum[i++] != '>');
+            vec = parseVector(vecstr);
+            vecSet = true;
+        }
+        else if(parseNum[i] == 'x')
+        {
+            vec = Vector3f(1,0,0);
+            vecSet = true;
+        }
+        else if(parseNum[i] == 'y')
+        {
+            vec = Vector3f(0,1,0);
+            vecSet = true;
+        }
+        else if(parseNum[i] == 'z')
+        {
+            vec = Vector3f(0,0,1);
+            vecSet = true;
+        }
+        else if(parseNum[i] == '.' || isdigit(parseNum[i]))
+        {
+            string numstr;
+            do
+            {
+                numstr += parseNum[i];
+            }while(parseNum[i] == '.' || isdigit(parseNum[i]));
+            num = stof(numstr);
+            if(divide)
+                num = 1 / num;
+        }
+        else if(parseNum[i] == '/')
+        {
+            assert(vecSet); //ensure that is is divided by a scalar, not vice versa
+            divide = true;
+        }
+    }
+    assert(vecSet);
+    vec *= num;
+    return vec;
+}
+
+/*
+ example format:
+
+ {
+  location  <0, 0, 14>
+  up        <0,  1,  0>
+  right     <1.33333, 0,  0>
+  look_at   <0, 0, 0>
+ }
+*/
 shared_ptr<Camera> POVParser::parseCamera(std::string block)
 {
+    std::istringstream input(block);
+    cout << block << endl;
 
+    std::string word;
+    input >> word;
+    assert(word == "{");
+
+    Vector3f position,lookat,up, right, dummy;
+    Vector3f* currentItem = &dummy;
+    shared_ptr<PinholeCamera> camera;
+
+    while(input >> word)
+    {
+        if(word == "location")
+            currentItem = &position;
+        else if(word == "up")
+            currentItem = &up;
+        else if(word == "right")
+            currentItem = &right;
+        else if(word == "look_at")
+            currentItem = &lookat;
+        else if(word.back() == 'x' || word.back() == 'y' || word.back() == 'z'
+                || word.back() == '>' || isdigit(word.back()))
+        {
+            string numParse = word;
+            *currentItem = parseMultVec(numParse);
+        }
+        else if(word.front() == '<')
+        {
+            string vecstr;
+            vecstr += word;
+            while(word.back() != '>')
+            {
+                input >> word;
+                vecstr += word;
+            }
+           *currentItem = parseVector(vecstr);
+        }
+        else if(word.front() == '}')
+            break;
+        else
+            cout << "WARNING: " << word << "is not a recognize keyword for camera. Discarding..." << endl;
+    }
+    camera.reset(new PinholeCamera(position,lookat,up));
+    return camera;
 }
-
+/**
+ * example input:
+    {
+        <-100, 100, 100> color rgb <1.5, 1.5, 1.5>
+    }
+ */
 std::shared_ptr<Light> POVParser::parseLight(std::string block)
 {
+    std::istringstream input(block);
+    cout << block << endl;
+    std::string word;
+    input >> word;
+    assert(word == "{");
+    Vector3f location;
+    Color color;
+    //parse location
+    string currentblock;
+    while(currentblock.empty() || currentblock.back() != '>')
+    {
+        input >> word;
+        currentblock += word;
+    }
+    location = parseVector(currentblock);
+    //parse color
 
+    //for now, will get full color support later
+    input >> word;
+    assert(word == "color");
+    //make sure its rgb. light has no need for ft
+    input >> word;
+    assert(word == "rgb");
+
+    //parse color
+    currentblock.clear();
+    while(currentblock.empty() || currentblock.back() != '>')
+    {
+        input >> word;
+        currentblock += word;
+    }
+    Vector3f tmp;
+    tmp = parseVector(currentblock);
+    color.r = tmp[0];
+    color.g = tmp[1];
+    color.b = tmp[2];
+
+    //todo make a parseLightModifiers(Light,block)
+    return std::make_shared<Light>(location,color);
 }
 
 void POVParser::parseTransform(std::string block)
 {
-
+    std::istringstream input(block);
+    std::string word;
+    input >> word;
+    assert(word == "{");
 }
 
-void POVParser::parseBox(std::string block)
+shared_ptr<Shape> POVParser::parseBox(std::string block)
 {
+    std::istringstream input(block);
+    std::string word;
+    input >> word;
+    assert(word == "{");
 
+    float length,width,height;
+    shared_ptr<Box> box;
+    box.reset(new Box(length, width, height));
+    return box;
 }
 
 shared_ptr<Shape> POVParser::parseSphere(std::string block)
 {
+    std::istringstream input(block);
+    cout << block << endl;
+    std::string word;
+    input >> word;
+    assert(word == "{");
 
+    Eigen::Vector3f center;
+    float radius;
+    //parse center
+    string currentBlock;
+    while(currentBlock.length() < 2 || currentBlock.at(currentBlock.length() - 2) != '>')
+    {
+        input >> word;
+        currentBlock += word;
+    }
+    currentBlock.pop_back();
+    center = parseVector(currentBlock);
+
+    currentBlock.clear();
+    //get radius
+    input >> word;
+    radius = stof(word);
+
+    shared_ptr<Sphere> sphere = std::make_shared<Sphere>(radius,center);
+    //get the rest for the modifiers
+    while(getline(input,word))
+        currentBlock += word;
+    parseObjectModifiers(*sphere,currentBlock);
+    return sphere;
 }
-
+/**
+ http://www.povray.org/documentation/view/3.6.1/297/
+ * example input:
+    {
+    <0, 1, 0>, -4
+      pigment {color rgb <0.2, 0.2, 0.8>}
+      finish {ambient 0.4 diffuse 0.8}
+    }
+ */
 shared_ptr<Shape> POVParser::parsePlane(std::string block)
 {
-
-}
-
-void POVParser::parseTriangle(std::string block)
-{
-
-}
-
-void POVParser::parsePigment(std::string block)
-{
-
-}
-
-void POVParser::parseFinish(std::string block)
-{
-
-}
-
-
-/*
- * // comments
-• camera
-• light_source
-• translate, scale, rotate *
-• box *
-• sphere
-• plane
-• triangle *
-• pigment
-    o color
-        § rgb
-        § rgbf
-• finish *
-    o ambient
-    o diffuse
-    o specular
-    o roughness
-    o reflection
-    o refraction
-    o ior
- */
-
-Scene POVParser::parseFile(const std::string filepath)
-{
-    Scene* scene = new Scene();
-    //opoen the file
-    std::ifstream testFile;
-    testFile.open(filepath);
-    std::string content( (std::istreambuf_iterator<char>(testFile) ),
-                         (std::istreambuf_iterator<char>()));
-    //parse out the comments
-    content = parseComments(content);
-
-    std::istringstream fileToParse(content);
+    std::istringstream input(block);
+    cout << block << endl;
     std::string word;
-    //go word by word
-    while(fileToParse >> word)
-    {
-        std::string& tag = word;
-        std::string block;
-        fileToParse >> block;
-        assert(block == "{");
-        //extract the next block of code for the right parser to parse
-        while(block.back() != '}')
-        {
-            fileToParse >> block;
-        }
+    input >> word;
+    assert(word == "{");
 
-        //pass block to right parser
-        if(word == "camera")
-            scene->addCamera(parseCamera(block));
-        else if(word == "light_source")
-            scene->addLight(parseLight(block));
-        else if(word == "sphere")
-            scene->addShape(parseSphere(block));
-        else if(word == "plane")
-            scene->addShape(parsePlane(block));
+    Eigen::Vector3f center,normal;
+    //parse normal
+    string currentBlock;
+    while(currentBlock.length() < 2 || currentBlock.at(currentBlock.length() - 2) != '>')
+    {
+        input >> word;
+        currentBlock += word;
+    }
+    currentBlock.pop_back();
+    normal = parseVector(currentBlock);
+    //todo normalized?
+    normal.normalize();
+    currentBlock.clear();
+    //get distance
+    input >> word;
+    center = normal * stof(word);
+    shared_ptr<Plane> plane;
+    plane.reset(new Plane(center, normal));
+    //get the rest for the modifiers
+    while(getline(input,word))
+    {
+        currentBlock += word;
+        currentBlock += '\n';
     }
 
-    return *scene;
+    parseObjectModifiers(*plane,currentBlock);
+    return plane;
 }
+
+shared_ptr<Shape> POVParser::parseTriangle(std::string block)
+{
+    std::istringstream input(block);
+    std::string word;
+    input >> word;
+    assert(word == "{");
+    Eigen::Vector3f a,b,c;
+
+    shared_ptr<Triangle> triangle;
+    triangle.reset(new Triangle(a, b, c));
+    return triangle;
+}
+
+
 
 std::string POVParser::parseComments(std::string &fileString) {
 
@@ -155,5 +365,219 @@ std::string POVParser::parseComments(std::string &fileString) {
     }
     return finalString;
 }
+/**
+ * http://www.povray.org/documentation/view/3.6.2/321/
+ * 11 total obect modifiers to parse, not including TRANSFORMATION, discussed at
+ * http://www.povray.org/documentation/view/3.6.1/49/
+ *
+ * for now, this will parse out finish (ambient specular diffuse. maybe roughness?), and
+ * solod color pigments
+ *
+ * sample input:
+ * pigment
+   {
+    color rgb <1.0, 0.0, 1.0>
+   }
+  finish
+  {
+    ambient 0.2 diffuse 0.4
+  }
+ */
+Shape &POVParser::parseObjectModifiers(Shape &shape, std::string block)
+{
+    istringstream input(block);
+    string word;
+    bool pigmentParse = false,finishParse = false;
+    while(input >> word)
+    {
+        if(word == "pigment")
+        {
+            pigmentParse = true;
+            input >> word;
+            assert(word.front() == '{');
+            word.erase(0,1);
+        }
+        if(word == "finish")
+        {
+            finishParse = true;
+            input >> word;
+            assert(word.front() == '{');
+            //pop off { and move on if there's stuff to inp
+            word.erase(0,1);
+        }
+
+        if(!word.empty() && pigmentParse)
+        {
+            //add full color support soon
+            assert(word == "color");
+            //parse color type
+            input >> word;
+            //todo assert if this is the right color
+            string colortype = word;
+            string block;
+            //parse color value
+            while(block.empty() || block.back() != '>')
+            {
+                input >> word;
+                block += word;
+            }
+            VectorXf vec(colortype.size());
+            vec = parseVector(block,colortype.size());
+            //put color in
+            std::transform(colortype.begin(), colortype.end(), colortype.begin(), ::tolower);
+            for(int i = 0; i < colortype.size(); i++)
+            {
+                char letter = colortype[i];
+                if(letter == 'r')
+                    shape.getColor().r = vec[i];
+                else if(letter == 'g')
+                    shape.getColor().g = vec[i];
+                else if(letter == 'b')
+                    shape.getColor().b = vec[i];
+                else if(letter == 'f')
+                    shape.getColor().f = vec[i];
+                else if(letter == 't')
+                    shape.getColor().t = vec[i];
+                else
+                    cout << "warning: " << letter << " no a recognized param. ignoring...";
+            }
+            input >> word;
+            assert(word == "}");
+            pigmentParse = false;
+        }
+
+        if(!word.empty() && finishParse)
+        {
+            while(word != "}")
+            {
+                input >> word;
+                if(word == "ambient")
+                {
+                    Vector3f vec;
+                    input >> word;
+                    //proper rgb style. Ambient doesn't use ft
+                    if(word == "rgb")
+                    {
+                        string block;
+                        while(block.empty() || block.back() != '>')
+                        {
+                            input >> word;
+                            block += word;
+                        }
+                        vec = parseVector(block);
+                    }
+                    //short hand num statement
+                    else
+                    {
+                        float num = stof(word);
+                        vec << num,num,num;
+                    }
+                    shape.getMaterial().ambient = vec;
+                }
+                else if(word == "diffuse")
+                {
+                    input >> word;
+                    shape.getMaterial().diffusePercent = stof(word);
+                }
+                else if(word == "specular")
+                {
+                    input >> word;
+                    shape.getMaterial().specular = stof(word);
+                }
+                else if(word == "roughness")
+                {
+                    input >> word;
+                    shape.getMaterial().roughness = stof(word);
+                }
+            }
+            finishParse = false;
+        }
+    }
+    return shape;
+}
+
+
+
+/*
+ * // comments
+• camera
+• light_source
+• translate, scale, rotate *
+• box *
+• sphere
+• plane
+• triangle *
+• pigment
+    o color
+        § rgb
+        § rgbf
+• finish *
+    o ambient
+    o diffuse
+    o specular
+    o roughness
+    o reflection
+    o refraction
+    o ior
+ */
+
+Scene POVParser::parseFile(const std::string filepath)
+{
+    Scene* scene = new Scene();
+    //open the file
+    std::ifstream testFile;
+    testFile.open(filepath);
+    std::string content( (std::istreambuf_iterator<char>(testFile) ),
+                         (std::istreambuf_iterator<char>()));
+    //parse out the comments
+    content = parseComments(content);
+
+    std::istringstream fileToParse(content);
+    std::string word;
+    //go word by word
+    while(fileToParse >> word)
+    {
+        std::string& tag = word;
+        std::string block;
+        fileToParse >> block;
+        assert(block == "{");
+        block += " ";
+        int innerBlocks = 0;
+        //extract the next block of code for the right parser to parse
+        do
+        {
+            if(innerBlocks > 0 && block.at(block.length() - 2) == '}')
+                innerBlocks--;
+
+            std::string word2;
+            if(fileToParse >> word2)
+            {
+                if(word2.front() == '{')
+                    innerBlocks++;
+                block += word2 + ' ';
+            }
+            else
+                break;
+
+        }
+        while(block.at(block.length() - 2) != '}' || innerBlocks > 0);
+
+        assert(block.at(block.length() - 2) == '}');
+
+        //pass block to right parser
+        if(word == "camera")
+            scene->addCamera(parseCamera(block));
+        else if(word == "light_source")
+            scene->addLight(parseLight(block));
+        else if(word == "sphere")
+            scene->addShape(parseSphere(block));
+        else if(word == "plane")
+            scene->addShape(parsePlane(block));
+    }
+    cout << "finished parsing" << filepath << endl;
+    return *scene;
+}
+
+
 
 

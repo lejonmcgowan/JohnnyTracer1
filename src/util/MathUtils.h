@@ -6,6 +6,7 @@
 #define RAYTRACER473_MATHUTILS_H
 
 #include <Eigen/Dense>
+#include "Constants.h"
 
 namespace MathHelper
 {
@@ -29,6 +30,21 @@ namespace MathHelper
                   mapCoords(coords[1],Eigen::Vector2f(src[2],src[3]),Eigen::Vector2f(dest[2],dest[3]));
 
         return result;
+    }
+
+    inline bool equalsEpsilon(float a, float b, float epsilon = Constants::EPSILON)
+    {
+        return std::abs(a - b) < epsilon;
+    }
+
+    inline bool equalsEpsilon(Eigen::Vector2f a, Eigen::Vector2f b, float epsilon = Constants::EPSILON)
+    {
+        return equalsEpsilon(a[0],b[0],epsilon) && equalsEpsilon(a[1],b[1],epsilon);
+    }
+
+    bool equalsEpsilon(Eigen::Vector3f a, Eigen::Vector3f b, float epsilon = Constants::EPSILON)
+    {
+        return equalsEpsilon(a[0],b[0],epsilon) && equalsEpsilon(a[1],b[1],epsilon) && equalsEpsilon(a[2],b[2],epsilon);
     }
 }
 #endif //RAYTRACER473_MATHUTILS_H

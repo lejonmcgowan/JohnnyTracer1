@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/fileparsing.dir/POVObject.cpp.o"
+  "CMakeFiles/fileparsing.dir/POVParser.cpp.o"
   "../../lib/libfileparsing.pdb"
   "../../lib/libfileparsing.a"
 )

@@ -5,4 +5,5 @@
 #include "SceneContext.h"
 
 Eigen::Vector2i SceneContext::windowDims = Eigen::Vector2i(-1,-1);
-Eigen::Vector3i SceneContext::backgroundColor = Eigen::Vector3i(0,0,0);
+Color SceneContext::backgroundColor = Color();
+float SceneContext::aspect = 0;

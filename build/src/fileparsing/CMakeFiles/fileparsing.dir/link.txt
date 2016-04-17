@@ -1,2 +1,2 @@
-/usr/bin/ar cq ../../lib/libfileparsing.a  CMakeFiles/fileparsing.dir/POVObject.cpp.o
+/usr/bin/ar cq ../../lib/libfileparsing.a  CMakeFiles/fileparsing.dir/POVObject.cpp.o CMakeFiles/fileparsing.dir/POVParser.cpp.o
 /usr/bin/ranlib ../../lib/libfileparsing.a

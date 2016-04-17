@@ -4,9 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/src/util/Constants.cpp" "/home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/util/CMakeFiles/util.dir/Constants.cpp.o"
-  "/home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/src/util/SceneContext.cpp" "/home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/util/CMakeFiles/util.dir/SceneContext.cpp.o"
-  "/home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/src/fileparsing/POVParser.cpp" "/home/lejonmcgowan/Dropbox/School/Spring2016/CPE473/RayTracer473/build/src/util/CMakeFiles/util.dir/__/fileparsing/POVParser.cpp.o"
+  "/home/lejonmcgowan/ClionProjects/RayTracer473/src/util/Constants.cpp" "/home/lejonmcgowan/ClionProjects/RayTracer473/build/src/util/CMakeFiles/util.dir/Constants.cpp.o"
+  "/home/lejonmcgowan/ClionProjects/RayTracer473/src/util/SceneContext.cpp" "/home/lejonmcgowan/ClionProjects/RayTracer473/build/src/util/CMakeFiles/util.dir/SceneContext.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

@@ -7,6 +7,7 @@
 
 
 #include <Eigen/Dense>
+#include "Color.h"
 
 struct HitData
 {
@@ -14,7 +15,7 @@ struct HitData
     float timeCollided;
     Eigen::Vector3f hitPoint;
     Eigen::Vector3f normal;
-    Eigen::Vector3f color;
+    Color color;
 };
 
 

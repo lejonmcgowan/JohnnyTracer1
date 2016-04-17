@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/util.dir/Constants.cpp.o"
-  "CMakeFiles/util.dir/__/fileparsing/POVParser.cpp.o"
   "CMakeFiles/util.dir/SceneContext.cpp.o"
   "../../lib/libutil.pdb"
   "../../lib/libutil.a"

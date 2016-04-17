@@ -7,12 +7,16 @@
 
 
 #include <Eigen/Dense>
+#include <geometry/Color.h>
 
 class SceneContext
 {
 public:
     static Eigen::Vector2i windowDims;
-    static Eigen::Vector3i backgroundColor;
+    static Color backgroundColor;
+    static float aspect;
+    static int width(){return windowDims[0];}
+    static int height(){return windowDims[1];}
 };
 
 

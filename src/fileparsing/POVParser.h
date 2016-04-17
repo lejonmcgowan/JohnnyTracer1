@@ -15,20 +15,21 @@ class POVParser
 private:
     static std::string parseComments(std::string& filepath);
 
-    static Eigen::Vector3f parseVector(std::string object);
+    static Eigen::VectorXf parseVector(std::string object, int size = 3);
 
     static std::shared_ptr<Camera> parseCamera(std::string object);
     static std::shared_ptr<Light>  parseLight(std::string object);
     static void parseTransform(std::string object);
-    static void parseBox(std::string object);
+    static std::shared_ptr<Shape> parseBox(std::string object);
     static std::shared_ptr<Shape> parseSphere(std::string object);
     static std::shared_ptr<Shape> parsePlane(std::string object);
-    static void parseTriangle(std::string object);
-    static void parsePigment(std::string object);
-    static void parseFinish(std::string object);
+    static std::shared_ptr<Shape> parseTriangle(std::string object);
 
+    static Shape& parseObjectModifiers(Shape& shape, std::string block);
 public:
     static Scene parseFile(const std::string filepath);
+
+    static Eigen::Vector3f parseMultVec(std::string numParse);
 };
 
 
