@@ -8,8 +8,10 @@
 
 #include <Eigen/Dense>
 #include "Color.h"
-#include "Material.h"
+#include "Ray.h"
 
+class Material;
+class Scene;
 struct HitData
 {
     bool hit;
@@ -18,6 +20,10 @@ struct HitData
     Eigen::Vector3f normal;
     Color color;
     Material *material = nullptr;
+    Ray ray;
+    const Scene* scene;
+
+    HitData(const Scene* scene):scene(scene){}
 };
 
 

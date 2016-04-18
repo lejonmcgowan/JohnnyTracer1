@@ -4,4 +4,8 @@ add_library(geometry Shape.h Shape.cpp
                     HitData.h
                     Plane.cpp Plane.h
                     Box.cpp Box.h
-                    Triangle.cpp Triangle.h Transform.cpp Transform.h Material.cpp Material.h Color.cpp Color.h)
+                    Triangle.cpp Triangle.h
+                    Transform.cpp Transform.h
+                    Material.cpp Material.h
+                    Color.cpp Color.h)
+target_link_libraries(geometry cameras)

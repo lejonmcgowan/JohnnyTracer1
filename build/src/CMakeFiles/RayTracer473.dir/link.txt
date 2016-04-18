@@ -1,1 +1,0 @@
-/usr/bin/c++    -std=c++11   CMakeFiles/RayTracer473.dir/main.cpp.o  -o ../bin/RayTracer473 -rdynamic ../lib/libfileparsing.a ../lib/libgeometry.a ../lib/libutil.a ../lib/liblights.a ../lib/libcameras.a 

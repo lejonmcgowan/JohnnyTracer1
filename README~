@@ -1,0 +1,1 @@
+simply run ./build.sh [ARGS] to have cmake make and run the program. The image will be output in the same directory you called your input file argumetn in

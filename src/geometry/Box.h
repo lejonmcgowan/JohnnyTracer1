@@ -13,6 +13,7 @@ class Box: public Shape
 
 public:
     Box(float legnth, float width, float depth);
+    virtual bool hit(const Ray& ray, float& t) override;
     virtual bool hit(const Ray& ray, HitData& hitData) override;
 };
 

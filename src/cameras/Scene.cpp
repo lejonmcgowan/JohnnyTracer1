@@ -56,8 +56,9 @@ void Scene::renderImage(const std::string& writePath)
 
 HitData Scene::castRay(const Ray &ray)  const
 {
-    HitData finalData;
-    HitData shadeData;
+    HitData finalData(this);
+    HitData shadeData(this);
+    finalData.ray = ray;
     bool firstTime = true;
 
     for(auto shape: objects)
@@ -70,6 +71,7 @@ HitData Scene::castRay(const Ray &ray)  const
             finalData.hit = true;
             finalData.hitPoint = shadeData.hitPoint;
             finalData.material = shadeData.material;
+            finalData.normal = shadeData.normal;
             firstTime = false;
         }
     }

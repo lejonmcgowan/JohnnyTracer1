@@ -9,6 +9,11 @@ bool Triangle::hit(const Ray& ray, HitData& hitData)
     return false;
 }
 
-Triangle::Triangle(Eigen::Vector3f a, Eigen::Vector3f b, Eigen::Vector3f c) {
+Triangle::Triangle(Eigen::Vector3f a, Eigen::Vector3f b, Eigen::Vector3f c)
+{
 
+}
+bool Triangle::hit(const Ray& ray, float& t)
+{
+    return false;
 }

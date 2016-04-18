@@ -22,7 +22,7 @@ foreach(src_library ${src_libraries})
 endforeach()
 
 
-MESSAGE(WARNING ${src_libraries})
+#MESSAGE(WARNING ${src_libraries})
 
 
 add_executable(RayTracer473 main.cpp)

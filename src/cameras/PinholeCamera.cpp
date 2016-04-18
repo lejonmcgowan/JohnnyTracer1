@@ -5,6 +5,7 @@
 #include <geometry/Ray.h>
 #include <util/SceneContext.h>
 #include <util/MathUtils.h>
+#include <geometry/HitData.h>
 #include "PinholeCamera.h"
 #include "Scene.h"
 
@@ -17,8 +18,8 @@ void PinholeCamera::renderScene(Scene& scene)
 
     ray.origin = position;
 
-    for (int r = 0; r < SceneContext::windowDims[0]; r++)
-        for (int c = 0; c < SceneContext::windowDims[1]; c++)
+    for (int r = 0; r < SceneContext::windowDims[1]; r++)
+        for (int c = 0; c < SceneContext::windowDims[0]; c++)
         {
             //calc direction
             Vector2f mappedCoords = MathHelper::mapCoords(Vector2f(c + 0.5f, r + 0.5f),
@@ -37,7 +38,7 @@ void PinholeCamera::renderScene(Scene& scene)
 
             auto data = scene.castRay(ray);
             if(data.hit)
-                color = data.color;
+                color = data.material->shade(data);
             else
                 color = SceneContext::backgroundColor;
 

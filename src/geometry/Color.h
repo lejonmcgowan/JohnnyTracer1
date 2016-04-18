@@ -16,6 +16,7 @@ public:
     Color(const Color& otherColor);
 
     void setRGB(float r, float g, float b);
+    void setRGB(Eigen::Vector3f rgb);
     void setRGBF(float r, float g, float b, float f);
     void setRGBT(float r, float g, float b, float t);
     void setRGBFT(float r, float g, float b, float f, float t);
@@ -27,6 +28,7 @@ public:
     Eigen::VectorXf getRGBFT();
 
     Color& operator=(Color otherColor);
+    void addColor(Eigen::Vector3f otherColor);
 };
 
 

@@ -14,5 +14,7 @@ bool Box::hit(const Ray& ray, HitData& hitData)
     return false;
 }
 
-
-
+bool Box::hit(const Ray& ray, float& t)
+{
+    return false;
+}

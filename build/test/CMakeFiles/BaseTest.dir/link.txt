@@ -1,1 +1,0 @@
-/usr/bin/c++    -std=c++11   CMakeFiles/BaseTest.dir/BaseTest.cpp.o  -o ../bin/BaseTest -rdynamic ../lib/libgtest.a ../lib/libgtest_main.a ../lib/libgeometry.a ../lib/libutil.a ../lib/libgtest.a -lpthread 

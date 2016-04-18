@@ -9,8 +9,6 @@
 #include <Eigen/Dense>
 
 class Scene;
-
-
 class Camera
 {
 protected:

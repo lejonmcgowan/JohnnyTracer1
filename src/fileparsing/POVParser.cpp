@@ -132,7 +132,7 @@ Eigen::Vector3f POVParser::parseMultVec(std::string parseNum)
 shared_ptr<Camera> POVParser::parseCamera(std::string block)
 {
     std::istringstream input(block);
-    cout << block << endl;
+    //cout << block << endl;
 
     std::string word;
     input >> word;
@@ -186,7 +186,7 @@ shared_ptr<Camera> POVParser::parseCamera(std::string block)
 std::shared_ptr<Light> POVParser::parseLight(std::string block)
 {
     std::istringstream input(block);
-    cout << block << endl;
+    //cout << block << endl;
     std::string word;
     input >> word;
     assert(word == "{");
@@ -250,7 +250,7 @@ shared_ptr<Shape> POVParser::parseBox(std::string block)
 shared_ptr<Shape> POVParser::parseSphere(std::string block)
 {
     std::istringstream input(block);
-    cout << block << endl;
+    //cout << block << endl;
     std::string word;
     input >> word;
     assert(word == "{");
@@ -291,7 +291,7 @@ shared_ptr<Shape> POVParser::parseSphere(std::string block)
 shared_ptr<Shape> POVParser::parsePlane(std::string block)
 {
     std::istringstream input(block);
-    cout << block << endl;
+    //cout << block << endl;
     std::string word;
     input >> word;
     assert(word == "{");
@@ -497,7 +497,7 @@ Shape &POVParser::parseObjectModifiers(Shape &shape, std::string block)
                 else if(word == "specular")
                 {
                     input >> word;
-                    shape.getMaterial().specular = stof(word);
+                    shape.getMaterial().specularPercent = stof(word);
                 }
                 else if(word == "roughness")
                 {
@@ -595,7 +595,7 @@ Scene POVParser::parseFile(const std::string filepath)
         else if(word == "plane")
             scene->addShape(parsePlane(block));
     }
-    cout << "finished parsing" << filepath << endl;
+    //cout << "finished parsing" << filepath << endl;
     return *scene;
 }
 

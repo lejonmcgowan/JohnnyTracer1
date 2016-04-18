@@ -20,5 +20,5 @@ add_subdirectory(test)
 #lastly, jam all the resources into whereever cmake build this to
 #todo, see if there is better way than globbing all the resrouces. Will have to rebuild everytime with current setup
 file(GLOB_RECURSE resources RELATIVE ${CMAKE_SOURCE_DIR} res/*)
-MESSAGE(WARNING ${resources})
+#MESSAGE(WARNING ${resources})
 file(COPY ${resources} DESTINATION ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/res)

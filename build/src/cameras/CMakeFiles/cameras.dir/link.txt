@@ -1,2 +1,0 @@
-/usr/bin/ar cq ../../lib/libcameras.a  CMakeFiles/cameras.dir/Camera.cpp.o CMakeFiles/cameras.dir/PinholeCamera.cpp.o CMakeFiles/cameras.dir/Scene.cpp.o
-/usr/bin/ranlib ../../lib/libcameras.a

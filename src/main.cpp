@@ -19,7 +19,13 @@ int main(int argc, char **argv)
         auto arg3 = argv[3];
         Scene scene = POVParser::parseFile(std::string(arg3));
         scene.render(scene.getCamera(0));
-        scene.renderImage("/home/lejonmcgowan/ClionProjects/RayTracer473/sample.tga");
+        std::string inputFilePath = argv[3];
+        inputFilePath = inputFilePath.substr(0,inputFilePath.find_last_of('/') + 1);
+        //inputFilePath = "/home/lejonmcgowan/ClionProjects/RayTracer473/";
+        scene.renderImage(inputFilePath + "sample.tga");
+
+        std::cout <<"image made in " << inputFilePath + "sample.tga" << std::endl;
+
     }
     return 0;
 }

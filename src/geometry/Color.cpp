@@ -5,8 +5,10 @@
 #include "Color.h"
 
 
-Eigen::Vector3f Color::getRGB() {
-    return Eigen::Vector3f(r,g,b);
+Eigen::Vector3f Color::getRGB()
+{
+    Eigen::Vector3f v(r,g,b);
+    return v;
 }
 
 Eigen::Vector4f Color::getRGBF()
@@ -27,22 +29,34 @@ Eigen::Vector4f Color::getRGBT() {
 
 void Color::setRGB(float r, float g, float b)
 {
-
+    this->r = r;
+    this->g = g;
+    this->b = b;
 }
 
 void Color::setRGBF(float r, float g, float b, float f)
 {
-
+    this->r = r;
+    this->g = g;
+    this->b = b;
+    this->f = f;
 }
 
 void Color::setRGBT(float r, float g, float b, float t)
 {
-
+    this->r = r;
+    this->g = g;
+    this->b = b;
+    this->t = t;
 }
 
 void Color::setRGBFT(float r, float g, float b, float f, float t)
 {
-
+    this->r = r;
+    this->g = g;
+    this->b = b;
+    this->f = f;
+    this->t = t;
 }
 Color& Color::operator=(Color otherColor)
 {
@@ -68,4 +82,18 @@ Color::Color()
 {
 
 }
+void Color::setRGB(Eigen::Vector3f rgb)
+{
+    setRGB(rgb[0],rgb[1],rgb[2]);
+}
+void Color::addColor(Eigen::Vector3f otherColor)
+{
+    r += otherColor[0];
+    g += otherColor[1];
+    b += otherColor[2];
+}
+
+
+
+
 

@@ -22,6 +22,8 @@ public:
     virtual bool hit(const Ray& ray, HitData& shadeData) override;
 
     float getRadius() const {return radius;}
+    virtual bool hit(const Ray& ray, float& t);
+
     void setRadius(float radius) {Sphere::radius = radius;}
     const Eigen::Vector3f &getCenter() const {return center;}
     void setCenter(const Eigen::Vector3f &center) {Sphere::center = center;}

@@ -1,5 +1,0 @@
-//this says hello world!
-Hello World! //test of an inline comment
-/* this is a test of
-a multiline comment //with comment stuff in for testing */
-I like pigs... //

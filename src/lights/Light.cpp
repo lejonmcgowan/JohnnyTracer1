@@ -3,9 +3,11 @@
 //
 #include <geometry/Color.h>
 #include <geometry/Transform.h>
+#include <geometry/HitData.h>
+#include <cameras/Scene.h>
 #include "Light.h"
 
-const Transform& Light::getTransform() const
+Transform& Light::getTransform()
 {
     return transform;
 }
@@ -13,7 +15,7 @@ void Light::setTransform(Transform& transform)
 {
     Light::transform = transform;
 }
-const Color& Light::getColor() const
+Color& Light::getColor()
 {
     return color;
 }
@@ -38,6 +40,24 @@ Eigen::Vector3f Light::getDirection(const HitData& hitdata)
 {
     return (transform.getTranslate() - hitdata.hitPoint).normalized();
 }
+
+bool Light::inShadow(Ray& ray, HitData& data)
+{
+    float t;
+    float distance = (transform.getTranslate() - ray.origin).norm();
+    const Scene* scene = data.scene;
+    for(auto shape: scene->getObjects())
+    {
+        if(shape->hit(ray,t) && t < distance)
+        {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+
 
 
 

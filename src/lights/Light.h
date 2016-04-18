@@ -7,13 +7,13 @@
 #include <geometry/Transform.h>
 #include <geometry/Color.h>
 #include <Eigen/Dense>
-#include <geometry/HitData.h>
-
+#include <geometry/Ray.h>
 /**
  * http://www.povray.org/documentation/view/3.6.0/308/
  * Point light implementation (Since that's the default type in POVRAY).
  * todo abstract this and make a proper point light implementation
  */
+class HitData;
 class Light
 {
 protected:
@@ -25,13 +25,15 @@ public:
     Light(Eigen::Vector3f location, Color color);
     Light();
 
-    const Transform& getTransform() const ;
-    const Color& getColor() const ;
+    Transform& getTransform();
+    Color& getColor();
 
     void setTransform(Transform& transform);
     void setColor(Color& color);
 
     Eigen::Vector3f getDirection(const HitData& hitdata);
+
+    bool inShadow(Ray& ray, HitData& data);
 };
 
 

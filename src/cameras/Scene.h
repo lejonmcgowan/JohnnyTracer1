@@ -29,6 +29,10 @@ public:
     Camera& getCamera(int index);
     Shape& getShape(int index);
     Light& getLight(int index);
+
+    std::vector<std::shared_ptr<Light>> getLights() const {return lights;}
+    std::vector<std::shared_ptr<Shape>> getObjects() const {return objects;}
+
     void pushPixel(char r, char g, char b);
     void pushPixelf(float r, float g, float b);
     void pushPixelf(Eigen::Vector3f rgb);

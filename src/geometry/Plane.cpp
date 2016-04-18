@@ -23,10 +23,15 @@ bool Plane::hit(const Ray& ray, HitData& shadeData)
     {
         shadeData.timeCollided = t;
         shadeData.normal = normal;
-        shadeData.hitPoint = ray.origin * t + ray.direction;
+        shadeData.hitPoint = ray.direction * t + ray.origin;
         shadeData.material = &material;
         return true;
     }
 
     return false;
+}
+bool Plane::hit(const Ray& ray, float& t)
+{
+    t = (center - ray.origin).dot(normal) / ray.direction.dot(normal);
+    return t > Constants::EPSILON;
 }
