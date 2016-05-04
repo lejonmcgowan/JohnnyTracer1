@@ -2,7 +2,7 @@
 // Created by lejonmcgowan on 4/10/16.
 //
 
-#include <geometry/Ray.h>
+
 #include <util/SceneContext.h>
 #include <util/MathUtils.h>
 #include <geometry/HitData.h>
@@ -13,7 +13,11 @@ using namespace Eigen;
 
 void PinholeCamera::renderScene(Scene& scene)
 {
-    computeBasis();
+    if (!initialized)
+    {
+        computeBasis();
+        initialized = true;
+    }
     Ray	ray;
 
     ray.origin = position;
@@ -36,11 +40,15 @@ void PinholeCamera::renderScene(Scene& scene)
 
             Color color;
 
-            auto data = scene.castRay(ray);
+            auto data = scene.castRay(ray, SceneContext::numReflections);
             if(data.hit)
+            {
                 color = data.material->shade(data);
+            }
             else
+            {
                 color = SceneContext::backgroundColor;
+            }
 
             scene.pushPixel(color);
         }
@@ -62,5 +70,27 @@ PinholeCamera::~PinholeCamera()
 {
 
 }
+
+Ray PinholeCamera::getProjRay(int r, int c)
+{
+    if (!initialized)
+    {
+        computeBasis();
+        initialized = true;
+    }
+    //calc direction
+    Vector2f mappedCoords = MathHelper::mapCoords(Vector2f(r + 0.5f, c + 0.5f),
+                                                  Vector4f(0, SceneContext::width(),
+                                                           0, SceneContext::height()),
+                                                  Vector4f(-SceneContext::aspect / 2.0f,
+                                                           SceneContext::aspect / 2.0f,
+                                                           -0.5, 0.5));
+
+    Vector3f finalResult =
+        -focalLength * wBasis + mappedCoords[0] * uBasis + mappedCoords[1] * vBasis;
+    return Ray(position, finalResult.normalized());
+}
+
+
 
 

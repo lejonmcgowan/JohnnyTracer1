@@ -7,6 +7,7 @@
 
 
 #include <Eigen/Dense>
+#include <geometry/Ray.h>
 
 class Scene;
 class Camera

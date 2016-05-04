@@ -21,6 +21,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/util/MathUtils.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/util/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/util/SceneContext.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/util/MathUtils.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/util/Constants.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/util/SceneContext.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/util/Constants.h" isTestSource="false" />
@@ -56,6 +57,7 @@
       <sourceFolder url="file://$MODULE_DIR$/ext/googletest/googletest/cmake/internal_utils.cmake" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/test/BaseTest.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/test/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/test/ShadeTest.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cmake/FindEigen.cmake" isTestSource="false" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />

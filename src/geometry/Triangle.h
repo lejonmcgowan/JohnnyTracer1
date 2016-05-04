@@ -11,7 +11,8 @@
 
 class Triangle: public Shape
 {
-
+private:
+    Eigen::Vector3f a, b, c;
 public:
     Triangle(Eigen::Vector3f a, Eigen::Vector3f b, Eigen::Vector3f c);
 

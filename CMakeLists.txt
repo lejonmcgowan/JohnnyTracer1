@@ -13,8 +13,10 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 find_package(Eigen REQUIRED)
 include_directories(${EIGEN_INCLUDE_DIRS})
 
+
 set(ext_libraries "")
 add_subdirectory(src)
+message(WARNING "parent view:  ${src_libraries}")
 add_subdirectory(test)
 
 #lastly, jam all the resources into whereever cmake build this to

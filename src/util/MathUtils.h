@@ -11,7 +11,7 @@
 namespace MathHelper
 {
 
-    float mapCoords(float num, Eigen::Vector2f src, Eigen::Vector2f dest)
+inline float mapCoords(float num, Eigen::Vector2f src, Eigen::Vector2f dest)
     {
         return (num - src[0]) / (src[1] - src[0]) * (dest[1] - dest[0]) + dest[0];
     }
@@ -23,7 +23,8 @@ namespace MathHelper
      *
      * coords is assumed to be a coordinate with in src's boundaries
      */
-    Eigen::Vector2f mapCoords(Eigen::Vector2f coords, Eigen::Vector4f src, Eigen::Vector4f dest)
+    inline Eigen::Vector2f mapCoords(Eigen::Vector2f coords, Eigen::Vector4f src, Eigen::Vector4f
+    dest)
     {
         Eigen::Vector2f result;
         result << mapCoords(coords[0],Eigen::Vector2f(src[0],src[1]),Eigen::Vector2f(dest[0],dest[1])),
@@ -42,9 +43,16 @@ namespace MathHelper
         return equalsEpsilon(a[0],b[0],epsilon) && equalsEpsilon(a[1],b[1],epsilon);
     }
 
-    bool equalsEpsilon(Eigen::Vector3f a, Eigen::Vector3f b, float epsilon = Constants::EPSILON)
+inline bool equalsEpsilon(Eigen::Vector3f a, Eigen::Vector3f b, float epsilon =
+Constants::EPSILON)
     {
         return equalsEpsilon(a[0],b[0],epsilon) && equalsEpsilon(a[1],b[1],epsilon) && equalsEpsilon(a[2],b[2],epsilon);
+    }
+
+template<typename T>
+T clamp(const T& n, const T& lower, const T& upper)
+{
+    return std::max(lower, std::min(n, upper));
     }
 }
 #endif //RAYTRACER473_MATHUTILS_H

@@ -21,6 +21,8 @@ bool Plane::hit(const Ray& ray, HitData& shadeData)
     float t = (center - ray.origin).dot(normal) / ray.direction.dot(normal);
     if(t > Constants::EPSILON)
     {
+        shadeData.hit = true;
+        shadeData.color = color;
         shadeData.timeCollided = t;
         shadeData.normal = normal;
         shadeData.hitPoint = ray.direction * t + ray.origin;

@@ -21,9 +21,12 @@ struct HitData
     Color color;
     Material *material = nullptr;
     Ray ray;
+    Ray shadowRay;
     const Scene* scene;
 
     HitData(const Scene* scene):scene(scene){}
+    int index = -1;
+    int depth = -1;
 };
 
 

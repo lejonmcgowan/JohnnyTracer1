@@ -4,6 +4,7 @@
 
 #include <lights/Light.h>
 #include <util/SceneContext.h>
+#include <util/MathUtils.h>
 #include "Scene.h"
 
 
@@ -36,9 +37,13 @@ void Scene::pushPixel(char r, char g, char b)
 
 void Scene::pushPixelf(float r, float g, float b)
 {
-    pixelBuffer.push_back((char) (r * 255));
-    pixelBuffer.push_back((char) (g * 255));
-    pixelBuffer.push_back((char) (b * 255));
+    r = MathHelper::clamp(r, 0.0f, 1.0f);
+    g = MathHelper::clamp(g, 0.0f, 1.0f);
+    b = MathHelper::clamp(b, 0.0f, 1.0f);
+
+    pixelBuffer.push_back((unsigned char) (r * 255));
+    pixelBuffer.push_back((unsigned char) (g * 255));
+    pixelBuffer.push_back((unsigned char) (b * 255));
 }
 
 void Scene::pushPixelf(Eigen::Vector3f rgb)
@@ -53,30 +58,34 @@ void Scene::renderImage(const std::string& writePath)
     pixelBuffer.clear();
 }
 
-
-HitData Scene::castRay(const Ray &ray)  const
+HitData Scene::castRay(const Ray& ray, int depth) const
 {
     HitData finalData(this);
     HitData shadeData(this);
+    finalData.hit = false;
     finalData.ray = ray;
+    finalData.depth = depth;
     bool firstTime = true;
-
+    int i = 0;
     for(auto shape: objects)
     {
         if (shape->hit(ray, shadeData)
             && (shadeData.timeCollided < finalData.timeCollided || firstTime))
         {
-            finalData.color = shape->getColor();
+            finalData.color = shadeData.color;
             finalData.timeCollided = shadeData.timeCollided;
             finalData.hit = true;
             finalData.hitPoint = shadeData.hitPoint;
             finalData.material = shadeData.material;
             finalData.normal = shadeData.normal;
+            finalData.index = i;
             firstTime = false;
         }
+        i++;
     }
     return finalData;
 }
+
 
 void Scene::pushPixel(Color rgb)
 {
@@ -93,9 +102,9 @@ void Scene::render(Camera &camera)
     camera.renderScene(*this);
 }
 
-Camera &Scene::getCamera(int index)
+std::shared_ptr<Camera> Scene::getCamera(int index)
 {
-    return *cameras[index];
+    return cameras[index];
 }
 
 void Scene::addLight(std::shared_ptr<Light> light)
@@ -110,6 +119,9 @@ Light& Scene::getLight(int index)
 {
     return *lights[index];
 }
+
+
+
 
 
 

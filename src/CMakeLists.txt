@@ -14,15 +14,15 @@ macro(MACRO_SUBDIRLIST result curdir)
     endforeach()
     set(${result} ${dirlist})
 endmacro()
-
+set(src_libraries "")
 MACRO_SUBDIRLIST(src_libraries ${CMAKE_CURRENT_SOURCE_DIR})
-
+set(src_libraries ${src_libraries} PARENT_SCOPE)
 foreach(src_library ${src_libraries})
     add_subdirectory(${src_library})
 endforeach()
 
 
-#MESSAGE(WARNING ${src_libraries})
+MESSAGE(WARNING "src view: ${src_libraries}")
 
 
 add_executable(RayTracer473 main.cpp)

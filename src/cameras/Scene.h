@@ -26,7 +26,7 @@ public:
     void init(const std::string& sceneDataPath);
     void render(Camera& camera);
 
-    Camera& getCamera(int index);
+    std::shared_ptr<Camera> getCamera(int index);
     Shape& getShape(int index);
     Light& getLight(int index);
 
@@ -37,14 +37,13 @@ public:
     void pushPixelf(float r, float g, float b);
     void pushPixelf(Eigen::Vector3f rgb);
     void renderImage(const std::string& writePath = "sample.tga");
-    HitData castRay(const Ray& ray) const;
+    HitData castRay(const Ray& ray, int depth = 0) const;
 
     void pushPixel(Color matrix);
 
     void addLight(std::shared_ptr<Light> light);
     void addShape(std::shared_ptr<Shape> shape);
     void addCamera(std::shared_ptr<Camera> camera);
-
 };
 
 

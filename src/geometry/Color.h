@@ -13,7 +13,10 @@ public:
     float r, g, b, f, t;
 
     Color();
+    Color(float r, float g, float b, float f = 0.0f, float t = 0.0f);
+    Color(unsigned char r, unsigned char g, unsigned char b, bool clamp);
     Color(const Color& otherColor);
+    Color(Eigen::VectorXf color);
 
     void setRGB(float r, float g, float b);
     void setRGB(Eigen::Vector3f rgb);
@@ -31,5 +34,6 @@ public:
     void addColor(Eigen::Vector3f otherColor);
 };
 
-
+bool operator==(const Color lhs, const Color rhs);
+std::ostream& operator<<(std::ostream& os, const Color& obj);
 #endif //RAYTRACER473_COLOR_H

@@ -48,10 +48,10 @@ Eigen::VectorXf POVParser::parseVector(std::string block, int size)
             scanNumber = false;
             num.clear();
             if(numDecs > 0)
-            {
                 numDecs--;
+            if (numNeg > 0)
                 numNeg--;
-            }
+
         }
 
         if(scanNumber)
@@ -304,6 +304,7 @@ shared_ptr<Shape> POVParser::parsePlane(std::string block)
         input >> word;
         currentBlock += word;
     }
+    //remove comma
     currentBlock.pop_back();
     normal = parseVector(currentBlock);
     //todo normalized?
@@ -328,13 +329,51 @@ shared_ptr<Shape> POVParser::parsePlane(std::string block)
 shared_ptr<Shape> POVParser::parseTriangle(std::string block)
 {
     std::istringstream input(block);
-    std::string word;
+    std::string word, currentBlock;
     input >> word;
     assert(word == "{");
     Eigen::Vector3f a,b,c;
-
+    //get a
+    while (currentBlock.length() < 2 || currentBlock.at(currentBlock.length() - 2) != '>')
+    {
+        input >> word;
+        currentBlock += word;
+    }
+    //remove comma
+    currentBlock.pop_back();
+    a = parseVector(currentBlock);
+    // get b
+    currentBlock.clear();
+    while (currentBlock.length() < 2 || currentBlock.at(currentBlock.length() - 2) != '>')
+    {
+        input >> word;
+        currentBlock += word;
+    }
+    //remove comma
+    currentBlock.pop_back();
+    b = parseVector(currentBlock);
+    //get c
+    currentBlock.clear();
+    while (currentBlock.length() < 2 || (currentBlock.at(currentBlock.length() - 2) != '>' &&
+        currentBlock.at(currentBlock.length() - 1) != '>'))
+    {
+        input >> word;
+        currentBlock += word;
+    }
+    //remove comma
+    if (currentBlock.back() != '>')
+        currentBlock.pop_back();
+    c = parseVector(currentBlock);
+    //get the rest for the modifiers
+    currentBlock.clear();
+    while (getline(input, word))
+    {
+        currentBlock += word;
+        currentBlock += '\n';
+    }
     shared_ptr<Triangle> triangle;
     triangle.reset(new Triangle(a, b, c));
+    parseObjectModifiers(*triangle, currentBlock);
     return triangle;
 }
 
@@ -487,7 +526,7 @@ Shape &POVParser::parseObjectModifiers(Shape &shape, std::string block)
                         float num = stof(word);
                         vec << num,num,num;
                     }
-                    shape.getMaterial().ambient = vec;
+                    shape.getMaterial().ambient.setRGB(vec);
                 }
                 else if(word == "diffuse")
                 {
@@ -504,11 +543,28 @@ Shape &POVParser::parseObjectModifiers(Shape &shape, std::string block)
                     input >> word;
                     shape.getMaterial().roughness = stof(word);
                 }
+                else if (word == "reflection")
+                {
+                    input >> word;
+                    shape.getMaterial().reflection = stof(word);
+                }
+                else if (word == "refraction")
+                {
+                    input >> word;
+                    shape.getMaterial().refraction = stof(word);
+                }
+                else if (word == "ior")
+                {
+                    input >> word;
+                    shape.getMaterial().ior = stof(word);
+                }
                 input >> word;
             }
             finishParse = false;
         }
     }
+    shape.getMaterial().ambient.setRGB(shape.getMaterial().ambient.getRGB().array() *
+        shape.getColor().getRGB().array());
     return shape;
 }
 
@@ -594,6 +650,8 @@ Scene POVParser::parseFile(const std::string filepath)
             scene->addShape(parseSphere(block));
         else if(word == "plane")
             scene->addShape(parsePlane(block));
+        else if (word == "triangle")
+            scene->addShape(parseTriangle(block));
     }
     //cout << "finished parsing" << filepath << endl;
     return *scene;
