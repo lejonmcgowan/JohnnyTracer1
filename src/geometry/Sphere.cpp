@@ -30,9 +30,6 @@ bool Sphere::hit(const Ray& ray, HitData& shadeData)
             shadeData.normal = (ray.direction * t + ray.origin - center) / radius;
             shadeData.material = &material;
 
-            //verification
-            float check = (shadeData.hitPoint - center).dot(shadeData.hitPoint - center) - radius
-                * radius;
             return true;
         }
         //small root wasn't within tracing range. Try long root

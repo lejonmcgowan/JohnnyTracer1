@@ -2,13 +2,16 @@
 #include <iostream>
 #include <cameras/Scene.h>
 #include <fileparsing/POVParser.h>
+#include <antialiasing/Jittered.h>
+#include <stdlib.h>
 
 int main(int argc, char **argv)
 {
     //parse resolution and filepath output
-    if(argc < 3)
+    if (argc < 4)
     {
-        std::cout << "Params: [picture width] [picture height] [input file name] " << std::endl;
+        std::cout << "Params: [picture width] [picture height] [input file name] [anti-aliasing (0 = off, 1 = on)" <<
+            std::endl;
     }
     else
     {
@@ -17,7 +20,14 @@ int main(int argc, char **argv)
         SceneContext::aspect = SceneContext::width() / (float) SceneContext::height();
 
         auto arg3 = argv[3];
+        if (argc > 4 && atoi(argv[4]) == 1)
+            SceneContext::numSamples = 9;
+
         Scene scene = POVParser::parseFile(std::string(arg3));
+        auto sampler = std::make_shared<Jittered>();
+        scene.getCamera(0)->setSampler(sampler);
+        scene.init();
+
         scene.render(*scene.getCamera(0));
         std::string inputFilePath = argv[3];
         inputFilePath = inputFilePath.substr(0,inputFilePath.find_last_of('/') + 1);

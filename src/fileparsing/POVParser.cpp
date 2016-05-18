@@ -59,8 +59,9 @@ Eigen::VectorXf POVParser::parseVector(std::string block, int size)
 
     }
     //parseLastNum
-    assert(scanNumber);
-    vec[veciter++] = stof(num);
+    assert(scanNumber || veciter == size);
+    if (scanNumber)
+        vec[veciter++] = stof(num);
     return vec;
 }
 
@@ -70,7 +71,7 @@ Eigen::Vector3f POVParser::parseMultVec(std::string parseNum)
     float num = 1;
     bool vecSet = false;
     bool divide = false;
-    for(int i = 0; i < parseNum.length(); i++)
+    for (unsigned int i = 0; i < parseNum.length(); i++)
     {
         if(parseNum[i] == '<')
         {
@@ -110,7 +111,7 @@ Eigen::Vector3f POVParser::parseMultVec(std::string parseNum)
         }
         else if(parseNum[i] == '/')
         {
-            assert(vecSet); //ensure that is is divided by a scalar, not vice versa
+            assert(vecSet); //ensure that this is is divided by a scalar, not vice versa
             divide = true;
         }
     }
@@ -241,7 +242,10 @@ shared_ptr<Shape> POVParser::parseBox(std::string block)
     input >> word;
     assert(word == "{");
 
-    float length,width,height;
+    float length = 0.0f;
+    float width = 0.0f;
+    float height = 0.0f;
+
     shared_ptr<Box> box;
     box.reset(new Box(length, width, height));
     return box;
@@ -383,9 +387,8 @@ std::string POVParser::parseComments(std::string &fileString) {
 
     bool inLineComment = false, inBlockComment = false;
     std::string finalString;
-    for(int i = 0; i < fileString.length(); i++)
+    for (unsigned int i = 0; i < fileString.length(); i++)
     {
-        char testChar = fileString[i];
         if(fileString[i] == '/' && (i + 1) < fileString.length())
         {
             if(fileString[i + 1] == '/' && !inBlockComment)
@@ -400,6 +403,11 @@ std::string POVParser::parseComments(std::string &fileString) {
         if(!inBlockComment && !inLineComment)
         {
             finalString += fileString[i];
+            if (finalString.back() == '}')
+            {
+                //finalString.insert(finalString.length() - 1," ");
+                finalString += " ";
+            }
         }
         if(fileString[i] == '\n' && inLineComment)
         {
@@ -438,6 +446,43 @@ Shape &POVParser::parseObjectModifiers(Shape &shape, std::string block)
     bool pigmentParse = false,finishParse = false;
     while(input >> word)
     {
+        std::string testin = input.str().substr(input.tellg());
+        if (word == "scale")
+        {
+            std::string vecstring;
+            while (vecstring.back() != '>')
+            {
+                input >> word;
+                vecstring += word;
+            }
+            Eigen::VectorXf vec = parseVector(vecstring, 3);
+            vec.resize(3);
+            shape.getTransform().addScale(vec);
+        }
+        if (word == "rotate")
+        {
+            std::string vecstring;
+            while (vecstring.back() != '>')
+            {
+                input >> word;
+                vecstring += word;
+            }
+            Eigen::VectorXf vec = parseVector(vecstring, 3);
+            vec.resize(3);
+            shape.getTransform().addRotate(vec);
+        }
+        if (word == "translate")
+        {
+            std::string vecstring;
+            while (vecstring.back() != '>')
+            {
+                input >> word;
+                vecstring += word;
+            }
+            Eigen::VectorXf vec = parseVector(vecstring, 3);
+            vec.resize(3);
+            shape.getTransform().addTranslate(vec);
+        }
         if(word == "pigment")
         {
             pigmentParse = true;
@@ -479,7 +524,7 @@ Shape &POVParser::parseObjectModifiers(Shape &shape, std::string block)
             vec = parseVector(block,colortype.size());
             //put color in
             std::transform(colortype.begin(), colortype.end(), colortype.begin(), ::tolower);
-            for(int i = 0; i < colortype.size(); i++)
+            for (unsigned int i = 0; i < colortype.size(); i++)
             {
                 char letter = colortype[i];
                 if(letter == 'r')
@@ -505,13 +550,15 @@ Shape &POVParser::parseObjectModifiers(Shape &shape, std::string block)
         {
             while(word != "}")
             {
+                std::string testin = input.str().substr(input.tellg());
                 if(word == "ambient")
                 {
-                    Vector3f vec;
+                    VectorXf vec;
                     input >> word;
                     //proper rgb style. Ambient doesn't use ft
                     if(word == "rgb")
                     {
+                        vec.resize(3);
                         string block;
                         while(block.empty() || block.back() != '>')
                         {
@@ -519,14 +566,29 @@ Shape &POVParser::parseObjectModifiers(Shape &shape, std::string block)
                             block += word;
                         }
                         vec = parseVector(block);
+                        shape.getMaterial().ambient.setRGB(Vector3f(vec.segment(0, 3)));
+                    }
+                    else if (word == "rgbf")
+                    {
+                        vec.resize(4);
+                        string block;
+                        while (block.empty() || block.back() != '>')
+                        {
+                            input >> word;
+                            block += word;
+                        }
+                        vec = parseVector(block);
+                        shape.getMaterial().ambient.setRGBF(Vector4f(vec.segment(0, 4)));
                     }
                     //short hand num statement
                     else
                     {
+                        vec.resize(3);
                         float num = stof(word);
                         vec << num,num,num;
+                        shape.getMaterial().ambient.setRGB(Vector3f(vec.segment(0, 3)));
                     }
-                    shape.getMaterial().ambient.setRGB(vec);
+
                 }
                 else if(word == "diffuse")
                 {
@@ -558,6 +620,9 @@ Shape &POVParser::parseObjectModifiers(Shape &shape, std::string block)
                     input >> word;
                     shape.getMaterial().ior = stof(word);
                 }
+                if (word.back() == '}')
+                    break;
+
                 input >> word;
             }
             finishParse = false;
@@ -565,6 +630,7 @@ Shape &POVParser::parseObjectModifiers(Shape &shape, std::string block)
     }
     shape.getMaterial().ambient.setRGB(shape.getMaterial().ambient.getRGB().array() *
         shape.getColor().getRGB().array());
+    shape.getMaterial().ambient.f = shape.getColor().f; //yeah.... fix this soon
     return shape;
 }
 
@@ -609,7 +675,6 @@ Scene POVParser::parseFile(const std::string filepath)
     //go word by word
     while(fileToParse >> word)
     {
-        std::string& tag = word;
         std::string block;
         fileToParse >> block;
         assert(block.front() == '{');
@@ -654,6 +719,8 @@ Scene POVParser::parseFile(const std::string filepath)
             scene->addShape(parseTriangle(block));
     }
     //cout << "finished parsing" << filepath << endl;
+    for (auto shape: scene->getObjects())
+        shape->initTransformation();
     return *scene;
 }
 

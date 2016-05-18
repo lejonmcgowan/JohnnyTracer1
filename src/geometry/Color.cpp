@@ -141,6 +141,30 @@ Color::Color(Eigen::VectorXf color)
     f = color.size() > 3 ? color[3] : 0.0f;
     t = color.size() > 4 ? color[4] : 0.0f;
 }
+void Color::setRGBF(Eigen::Vector4f rgbf)
+{
+    setRGBF(rgbf[0], rgbf[1], rgbf[2], rgbf[3]);
+}
+Color Color::averageColors(std::vector<Color>& colors)
+{
+    Color color;
+    float n = colors.size();
+    for (int i = 0; i < (int) n; i++)
+    {
+        Color currentColor = colors[i];
+        currentColor.clamp();
+        color.r += currentColor.r / n;
+        color.g += currentColor.g / n;
+        color.b += currentColor.b / n;
+    }
+    return color;
+}
+void Color::clamp()
+{
+    r = MathHelper::clamp(r, 0.0f, 1.0f);
+    g = MathHelper::clamp(g, 0.0f, 1.0f);
+    b = MathHelper::clamp(b, 0.0f, 1.0f);
+}
 
 std::ostream& operator<<(std::ostream& os, const Color& color)
 {

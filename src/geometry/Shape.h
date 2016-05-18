@@ -17,23 +17,26 @@ class Shape
 {
 protected:
     Color color;
-public:
-
-
 protected:
     Material material;
     Transform transform;
+    Eigen::Matrix4f inverseTransform;
 public:
     virtual bool hit(const Ray& ray, HitData& shadeData) = 0;
     virtual bool hit(const Ray& ray, float& t) = 0;
 
     Material& getMaterial();
-    const Transform& getTransform();
+    Transform& getTransform();
     Color& getColor();
     void setMaterial(const Material& material);
     void setTransform(const Transform& transform);
     void setColor(Color color);
+    void initTransformation();
+    bool isTransform() { return transform.isTransform(); }
+    const Eigen::Matrix4f& getInvMat() { return inverseTransform; }
     virtual ~Shape();
+
+    Ray toObjectSpace(const Ray& ray);
 };
 
 

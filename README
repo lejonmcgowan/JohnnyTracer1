@@ -11,3 +11,9 @@ In case the cmake build fails (chagning computers and the cache isn't cleared), 
 then run the shell with the program parameters
 
 Note that the Ray tracer relies on c++11, so it will not compile on gcc implementations that are older than 4.7
+
+currently wonky/broken:
+
+refractions are returning incorrect results
+Schlick's approximation not yet implemented
+Specular highlights are still slightly off

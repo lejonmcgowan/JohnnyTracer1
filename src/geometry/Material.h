@@ -22,6 +22,7 @@ public:
     float refraction = 0.0f;
     float ior = 1.0f;
     Color shade(HitData& data);
+    Eigen::Vector3f getReflectedColor(HitData& data);
     Eigen::Vector3f getRefractedColor(HitData& data);
 };
 

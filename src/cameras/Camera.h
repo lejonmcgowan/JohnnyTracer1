@@ -8,27 +8,31 @@
 
 #include <Eigen/Dense>
 #include <geometry/Ray.h>
+#include <antialiasing/Sampler.h>
+#include <memory>
 
 class Scene;
 class Camera
 {
 protected:
-    typedef Eigen::Vector3f vec3;
     // orthonormal basis vectors
-    vec3 uBasis, vBasis, wBasis;
-    vec3 position;
-    vec3 lookat;
-    vec3 up;
+    Eigen::Vector3f uBasis, vBasis, wBasis;
+    Eigen::Vector3f position;
+    Eigen::Vector3f lookat;
+    Eigen::Vector3f up;
     void computeBasis(void);
+    std::shared_ptr<Sampler> sampler;
 public:
-    Camera(vec3 position = vec3(),vec3 lookat = vec3(), vec3 up = vec3(0,1,0));
+    Camera(Eigen::Vector3f position = Eigen::Vector3f(0, 0, 0),
+           Eigen::Vector3f lookat = Eigen::Vector3f(0, 0, 0),
+           Eigen::Vector3f up = Eigen::Vector3f(0, 1, 0));
 
     //rule of 3
     Camera(const Camera& camera);
     virtual ~Camera(){};
-    //Camera operator=(const Camera& camera);
-
+    virtual void init();
     virtual void renderScene(Scene& scene) = 0;
+    void setSampler(std::shared_ptr<Sampler> sampler) { this->sampler = sampler; }
 };
 
 

@@ -15,7 +15,8 @@ public:
     static Eigen::Vector2i windowDims;
     static Color backgroundColor;
     static float aspect;
-    static int numReflections;
+    static int numBounces;
+    static int numSamples;
     static int width(){return windowDims[0];}
     static int height(){return windowDims[1];}
 };

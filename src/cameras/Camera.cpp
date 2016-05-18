@@ -11,7 +11,8 @@ Camera::Camera(const Camera &camera)
     up = camera.up;
 }
 
-Camera::Camera(Camera::vec3 position, Camera::vec3 lookat, Camera::vec3 up):
+Camera::Camera(Eigen::Vector3f position, Eigen::Vector3f lookat, Eigen::Vector3f up)
+    :
         position(position),
         lookat(lookat),
         up(up)
@@ -37,3 +38,8 @@ void Camera::computeBasis()
     vBasis *= -1;
 }
 
+void Camera::init()
+{
+    if (sampler)
+        sampler->makeSamples();
+}

@@ -1,0 +1,1 @@
+add_library(antialiasing Sampler.cpp Sampler.h Jittered.cpp Jittered.h)

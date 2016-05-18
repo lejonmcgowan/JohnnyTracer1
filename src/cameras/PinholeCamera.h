@@ -12,15 +12,15 @@ class PinholeCamera: public Camera
 {
 private:
     int focalLength;
-    bool initialized;
+    bool initialized = false;
 public:
     virtual void renderScene(Scene &scene) override;
 
-    PinholeCamera(Camera::vec3 position, Camera::vec3 lookat, Camera::vec3 up,int focalLength = 1);
+    PinholeCamera(Eigen::Vector3f position, Eigen::Vector3f lookat, Eigen::Vector3f up, int focalLength = 1);
 
     PinholeCamera(const PinholeCamera &camera);
 
-    Ray getProjRay(int r, int c);
+    Ray getProjRay(float r, float c);
 
     virtual ~PinholeCamera() override;
 

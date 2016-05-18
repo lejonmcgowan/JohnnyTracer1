@@ -53,6 +53,13 @@ template<typename T>
 T clamp(const T& n, const T& lower, const T& upper)
 {
     return std::max(lower, std::min(n, upper));
-    }
+
+}
+
+inline float toRadians(float degrees)
+{
+    float rads = degrees * Constants::PI / 180.0f;
+    return rads;
+}
 }
 #endif //RAYTRACER473_MATHUTILS_H

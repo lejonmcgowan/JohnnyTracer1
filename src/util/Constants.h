@@ -17,6 +17,7 @@ class Constants
 {
 public:
     static float EPSILON;
+    static float PI;
 };
 
 

@@ -21,6 +21,7 @@ public:
     void setRGB(float r, float g, float b);
     void setRGB(Eigen::Vector3f rgb);
     void setRGBF(float r, float g, float b, float f);
+    void setRGBF(Eigen::Vector4f rgbf);
     void setRGBT(float r, float g, float b, float t);
     void setRGBFT(float r, float g, float b, float f, float t);
 
@@ -32,6 +33,8 @@ public:
 
     Color& operator=(Color otherColor);
     void addColor(Eigen::Vector3f otherColor);
+    static Color averageColors(std::vector<Color>& colors);
+    void clamp();
 };
 
 bool operator==(const Color lhs, const Color rhs);

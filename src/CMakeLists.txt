@@ -21,10 +21,6 @@ foreach(src_library ${src_libraries})
     add_subdirectory(${src_library})
 endforeach()
 
-
-MESSAGE(WARNING "src view: ${src_libraries}")
-
-
 add_executable(RayTracer473 main.cpp)
 
 target_link_libraries(RayTracer473 ${ext_libraries} ${src_libraries})

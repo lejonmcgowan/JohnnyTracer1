@@ -4,6 +4,5 @@ include_directories(${gtest_SOURCE_DIR} ${gtest_SOURCE_DIR}/include)
 
 include_directories(${PROJECT_SOURCE_DIR}/src)
 
-add_executable(BaseTest BaseTest.cpp ShadeTest.cpp)
-message(WARNING ${src_libraries})
+add_executable(BaseTest BaseTest.cpp ShadeTest.cpp BounceTest.cpp)
 target_link_libraries(BaseTest gtest gtest_main ${src_libraries})

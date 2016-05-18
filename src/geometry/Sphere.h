@@ -12,8 +12,8 @@ class Sphere: public Shape
 {
 
 private:
-    Eigen::Vector3f center;
     float radius;
+    Eigen::Vector3f center;
 public:
     Sphere():radius(1.0f){}
     Sphere(float radius):radius(radius){}

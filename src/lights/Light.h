@@ -17,18 +17,18 @@ class HitData;
 class Light
 {
 protected:
-    Transform transform; //for position, and perhaps rotation. Only position is relevant for all
+    Eigen::Vector3f location;
     // lights
     Color color; //for RGB, FT are ignored
 public:
-    Light(Transform transform, Color color);
     Light(Eigen::Vector3f location, Color color);
     Light();
 
-    Transform& getTransform();
     Color& getColor();
 
-    void setTransform(Transform& transform);
+    void setLocation(const Eigen::Vector3f location);
+    Eigen::Vector3f& getLocation();
+
     void setColor(Color& color);
 
     Eigen::Vector3f getDirection(const HitData& hitdata);

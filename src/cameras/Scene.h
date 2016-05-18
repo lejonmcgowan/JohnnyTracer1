@@ -10,6 +10,7 @@
 #include <geometry/Shape.h>
 #include <lights/Light.h>
 #include <memory>
+#include <antialiasing/Sampler.h>
 #include "Camera.h"
 
 class Scene
@@ -23,7 +24,7 @@ private:
     Eigen::Vector3i backgroundColor;
 public:
     Scene();
-    void init(const std::string& sceneDataPath);
+    void init();
     void render(Camera& camera);
 
     std::shared_ptr<Camera> getCamera(int index);

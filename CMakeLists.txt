@@ -1,7 +1,33 @@
 cmake_minimum_required(VERSION 3.0.2)
+option(COMPILE_WITH_ICC "used to compile on the HPC machines, since they don't have gcc 4.7" OFF)
+if (COMPILE_WITH_ICC)
+    include(CMakeForceCompiler)
+    CMAKE_FORCE_C_COMPILER(icc "Intel C Compiler")
+    CMAKE_FORCE_CXX_COMPILER(icpc "Intel C++ Compiler")
+    CMAKE_FORCE_Fortran_COMPILER(ifort "Intel Fortran Compiler")
+
+    if (${CMAKE_Fortran_COMPILER_ID} STREQUAL "Intel")
+        if (NOT CMAKE_Fortran_FLAGS_RELEASE)
+            set(CMAKE_Fortran_FLAGS_RELEASE "-O2 -xhost" CACHE STRING "" FORCE)
+        endif ()
+        set(CMAKE_Fortran_FLAGS_DEBUG "${CMAKE_Fortran_FLAGS_DEBUG} -check noarg_temp_created
+    -C -traceback" CACHE STRING "" FORCE)
+        set(CMAKE_Fortran_FLAGS_DEBUGHEAVY "${CMAKE_Fortran_FLAGS_DEBUG} -check noarg_temp_created -fpe0 -warn align
+        ments -warn declarations -warn general -warn interfaces -warn truncated_source
+        -warn uncalled -warn uninitialized -warn usage -common_args -warn unused -fp-st
+        ack-check -check bounds -check uninit -check format" CACHE STRING "" FORCE)
+        mark_as_advanced(CMAKE_Fortran_FLAGS_DEBUGHEAVY)
+    endif ()
+endif ()
+
 project(RayTracer473)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wno-deprecated-declarations")
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pg -std=c++11")
+if (!COMPILE_WITH_ICC)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wno-deprecated-declarations")
+endif ()
+
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_SOURCE_DIR}/cmake)
 
 #general cmake output organization
@@ -16,7 +42,6 @@ include_directories(${EIGEN_INCLUDE_DIRS})
 
 set(ext_libraries "")
 add_subdirectory(src)
-message(WARNING "parent view:  ${src_libraries}")
 add_subdirectory(test)
 
 #lastly, jam all the resources into whereever cmake build this to

@@ -19,8 +19,10 @@ Scene::Scene():
 
 }
 
-void Scene::init(const std::string& sceneDataPath) {
-
+void Scene::init()
+{
+    for (auto camera: cameras)
+        camera->init();
 }
 
 void Scene::addShape(std::shared_ptr<Shape> shape)
@@ -53,7 +55,11 @@ void Scene::pushPixelf(Eigen::Vector3f rgb)
 
 void Scene::renderImage(const std::string& writePath)
 {
-    int result = stbi_write_tga(writePath.c_str(),width,height,3,&pixelBuffer[0]);
+    int result;
+    if (writePath.substr(writePath.length() - 3) == "tga")
+        result = stbi_write_tga(writePath.c_str(), width, height, 3, &pixelBuffer[0]);
+    else
+        result = stbi_write_png(writePath.c_str(), width, height, 3, &pixelBuffer[0], 0);
     assert(result);
     pixelBuffer.clear();
 }
@@ -69,7 +75,17 @@ HitData Scene::castRay(const Ray& ray, int depth) const
     int i = 0;
     for(auto shape: objects)
     {
-        if (shape->hit(ray, shadeData)
+        Ray intersectRay;
+        //transformation checks
+        if (shape->isTransform())
+        {
+            intersectRay = shape->toObjectSpace(ray);
+        }
+        else
+        {
+            intersectRay = ray;
+        }
+        if (shape->hit(intersectRay, shadeData)
             && (shadeData.timeCollided < finalData.timeCollided || firstTime))
         {
             finalData.color = shadeData.color;
@@ -80,6 +96,17 @@ HitData Scene::castRay(const Ray& ray, int depth) const
             finalData.normal = shadeData.normal;
             finalData.index = i;
             firstTime = false;
+            if (shape->isTransform())
+            {
+                //transform hit point
+                finalData.hitPoint = ray.origin + finalData.timeCollided * ray.direction;
+                //transform normal 
+                Eigen::Vector4f vector;
+                vector << finalData.normal[0], finalData.normal[1], finalData.normal[2], 1;
+                vector = shape->getInvMat().transpose() * vector;
+                finalData.normal << vector[0], vector[1], vector[2];
+                finalData.normal.normalize();
+            }
         }
         i++;
     }

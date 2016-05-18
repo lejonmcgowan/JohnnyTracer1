@@ -7,34 +7,27 @@
 
 
 #include <Eigen/Dense>
-
+#include <geometry/Ray.h>
 class Transform
 {
     //todo quaterions for the rotate variable
 private:
-    Eigen::Vector3f translate,rotate,scale;
     Eigen::Matrix4f transform;
+    bool identity = true;
+    bool dirty;
+    void setDirty();
+    std::vector<Eigen::Affine3f> transformations;
 public:
     Transform();
-    Transform(Eigen::Vector3f translate, Eigen::Vector3f rotate, Eigen::Vector3f scale);
 
-    const Eigen::Vector3f & getTranslate() const;
-    const Eigen::Vector3f & getRotate() const;
-    const Eigen::Vector3f & getScale() const;
+    void addTranslate(const Eigen::Vector3f& translate);
+    void addRotate(const Eigen::Vector3f& rotate);
+    void addScale(const Eigen::Vector3f& scale);
 
-    void setTranslate(const Eigen::Vector3f &translate);
-    void setRotate(const Eigen::Vector3f &rotate);
-    void setScale(const Eigen::Vector3f &scale);
-
-    void scaleBy(Eigen::Vector3f scale);
-    void scaleBy(float scale);
-    void scaleByMult(Eigen::Vector3f scale);
-    void scaleByMult(float scale);
-
-
-    void translateBy(Eigen::Vector3f position);
-    void rotateBy(Eigen::Vector3f scale);
-
+    bool isTransform() { return !identity; }
+    Eigen::Matrix4f getTransformMatrix();
+    Ray transformRay(const Ray& ray);
+    Eigen::Vector3f transformPoint(const Eigen::Vector3f& point);
 };
 
 
