@@ -15,20 +15,24 @@ class Material;
 class Scene;
 struct HitData
 {
-    bool hit;
+    bool hit = false;
     float timeCollided = -1.0f;
     Eigen::Vector3f hitPoint;
     Eigen::Vector3f normal;
     Color color;
     Material *material = nullptr;
+    Material *currentMaterial;
+    Material *previousMaterial = nullptr;
     Ray ray;
     Ray shadowRay;
     const Scene* scene;
-
-    HitData(const Scene* scene):scene(scene){}
+    HitData(const Scene *scene, Material *initMaterial);
+    HitData(const Scene *scene);
     int index = -1;
     int depth = -1;
     std::vector<BounceData> bounceInfo;
+    Ray transformedRay;
+    bool transformed = false;
 };
 
 

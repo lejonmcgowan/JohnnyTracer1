@@ -24,9 +24,7 @@ project(RayTracer473)
 
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pg -std=c++11")
-if (!COMPILE_WITH_ICC)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wno-deprecated-declarations")
-endif ()
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wno-deprecated-declarations -Wno-sign-compare")
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_SOURCE_DIR}/cmake)
 

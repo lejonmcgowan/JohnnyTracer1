@@ -11,11 +11,11 @@
 #include <lights/Light.h>
 #include <memory>
 #include <antialiasing/Sampler.h>
-#include "Camera.h"
+#include "cameras/Camera.h"
 
 class Scene
 {
-private:
+protected:
     std::vector<std::shared_ptr<Shape>> objects;
     std::vector<std::shared_ptr<Camera>> cameras;
     std::vector<std::shared_ptr<Light>> lights;
@@ -24,8 +24,8 @@ private:
     Eigen::Vector3i backgroundColor;
 public:
     Scene();
-    void init();
-    void render(Camera& camera);
+    virtual void init();
+    virtual void render(Camera& camera);
 
     std::shared_ptr<Camera> getCamera(int index);
     Shape& getShape(int index);
@@ -38,12 +38,13 @@ public:
     void pushPixelf(float r, float g, float b);
     void pushPixelf(Eigen::Vector3f rgb);
     void renderImage(const std::string& writePath = "sample.tga");
-    HitData castRay(const Ray& ray, int depth = 0) const;
+    virtual HitData castRay(const Ray& ray, int depth = 0) const;
+    virtual bool shadowHit(const Ray& ray, float currentMin) const;
 
     void pushPixel(Color matrix);
 
     void addLight(std::shared_ptr<Light> light);
-    void addShape(std::shared_ptr<Shape> shape);
+    virtual void addShape(std::shared_ptr<Shape> shape);
     void addCamera(std::shared_ptr<Camera> camera);
 };
 

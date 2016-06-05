@@ -2,7 +2,7 @@
 // Created by lejonmcgowan on 4/16/16.
 //
 #include <lights/Light.h>
-#include <cameras/Scene.h>
+#include <cameras/scenes/Scene.h>
 #include <util/Constants.h>
 #include <util/SceneContext.h>
 #include "Material.h"
@@ -40,40 +40,69 @@ Eigen::Vector3f Material::getReflectedColor(HitData& data)
     return color.getRGB();
 }
 
-Eigen::Vector3f Material::getRefractedColor(HitData& data)
+Eigen::Vector3f Material::getRefractedColor(HitData& data, bool& resultRefract)
 {
     Color color;
     bool stillRefract = data.material->refraction == 1;
     float influence = (data.material)->ambient.f;
     Ray recurseRay;
+    Material *inMat = data.currentMaterial;
+    Material *outMat = this;
+
+    //if we're in the same material, we exit it to the default space (should pop off some stack)
+    if (index == data.currentMaterial->index)
+    {
+        assert(data.previousMaterial);
+        inMat = this;
+        outMat = data.previousMaterial;
+    }
 
     recurseRay.origin = data.hitPoint;
-    Eigen::Vector3f incidentVector = data.timeCollided * data.ray.direction;
-    Eigen::Vector3f origin = data.material->ior * (incidentVector - data
-        .normal * (incidentVector.dot(data.normal))) / ior;
-    float root = std::sqrt(1 - ((data.material->ior) * (data.material->ior) * (1 -
-        std::pow(incidentVector.dot(data.normal), 2)) / (ior * ior)));
-    recurseRay.direction = (origin - data.normal * root).normalized();
-    auto recurseData = data.scene->castRay(recurseRay, data.depth - 1);
 
+    Eigen::Vector3f incidentVector = data.ray.direction.normalized();
+    Eigen::Vector3f origin = inMat->ior * (incidentVector - data
+        .normal * (incidentVector.dot(data.normal))) / outMat->ior;
+
+    float rootNumerator = inMat->ior * inMat->ior *
+        (1 - std::pow(incidentVector.dot(data.normal), 2));
+    float rootDenominator = outMat->ior * outMat->ior;
+    float root = std::sqrt(1 - rootNumerator / rootDenominator);
+    recurseRay.direction = (origin - data.normal * root).normalized();
+
+    //move the origin slight past hitpoint
+    recurseRay.origin += recurseRay.direction * 2 * Constants::EPSILON;
+    Ray slightlyOffsetRecurse(recurseRay.origin + recurseRay.direction * 2 * Constants::EPSILON, recurseRay.direction);
+    auto recurseData = data.scene->castRay(slightlyOffsetRecurse, data.depth - 1);
+
+    recurseData.previousMaterial = data.currentMaterial;
+    recurseData.currentMaterial = this;
     stillRefract = recurseData.hit;
+    //shade if the recurse ray hit anything
     if (stillRefract)
     {
         color.addColor(influence * recurseData.material->shade(recurseData).getRGB());
     }
+    //make sure any ray that is more than one level in is a refraction ray,
+    //and mult in the filter compliment to the the dffuse
     if (data.depth < SceneContext::numBounces)
+    {
         data.bounceInfo.back().type = "refraction";
+        data.bounceInfo.back().diffuse = Color((1 - ambient.f) * diffuse.getRGB());
+    }
+    //append result from recusive data to this one
     data.bounceInfo.insert(data.bounceInfo.end(), recurseData.bounceInfo.begin(), recurseData
         .bounceInfo.end());
+    //one last check for if the ray should continue to recurse
     if (recurseData.material)
-        influence *= recurseData.material->reflection;
-    stillRefract &= influence > 0;
-
+        influence *= recurseData.material->ambient.f;
+    stillRefract &= influence > Constants::EPSILON;
+    resultRefract = stillRefract;
     return color.getRGB();
 }
 
 Color Material::shade(HitData& data)
 {
+    assert(index != -1);
     Color totalColor,ambientColor;
     Eigen::Vector3f lightColor;
     lightColor.setZero();
@@ -86,14 +115,14 @@ Color Material::shade(HitData& data)
         bool shadowed = false;
         Ray lightDir(data.hitPoint, inAngle);
         data.shadowRay = lightDir;
-        shadowed = light->inShadow(lightDir, data);
+        shadowed = SceneContext::shadows ? light->inShadow(lightDir, data) : false;
         //current material
         if(!shadowed)
         {
             //specular stuff
             Eigen::Vector3f
-                halfVector = (data.ray.origin - data.hitPoint + light->getLocation() -
-                data.hitPoint).normalized();
+                halfVector = ((data.ray.origin - data.hitPoint).normalized() + (light->getLocation()
+                - data.hitPoint).normalized()).normalized();
             float hdotn = halfVector.dot(data.normal);
             hdotn = std::max(hdotn,0.0f);
             Eigen::Vector3f specRGB = specularPercent * (data.color.getRGB().array() *
@@ -120,7 +149,7 @@ Color Material::shade(HitData& data)
         bounceData.hitPoint = data.hitPoint;
         bounceData.ray = data.ray;
         bounceData.ambient = ambient;
-        bounceData.diffuse = diffuse;
+        bounceData.diffuse = Color(diffuse.getRGB() * (1 - ambient.f));
         bounceData.specular = specular;
         bounceData.type = "primary";
         data.bounceInfo.push_back(bounceData);
@@ -129,7 +158,7 @@ Color Material::shade(HitData& data)
         {
             lightColor += getReflectedColor(data);
         }
-        else if (data.material->reflection > Constants::EPSILON && data.depth == 0)
+        if (data.material->reflection > Constants::EPSILON && data.depth == 0)
         {
             lightColor = Color().getRGB();
             totalColor = Color();
@@ -137,12 +166,13 @@ Color Material::shade(HitData& data)
             data.bounceInfo.back().diffuse = Color((1 - reflection) * diffuse.getRGB());
         }
         //refractions
+        bool stillRefract;
         if (data.material->refraction == 1 && data.material->ambient.f > Constants::EPSILON && data
             .depth > 0)
         {
-            lightColor += getRefractedColor(data);
+            lightColor += getRefractedColor(data, stillRefract);
         }
-        else if (data.material->refraction == 1 && data.depth == 0)
+        else if (data.material->refraction == 1 && !stillRefract)
         {
             lightColor = Color().getRGB();
             totalColor = Color();

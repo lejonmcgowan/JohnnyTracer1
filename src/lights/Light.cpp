@@ -4,7 +4,7 @@
 #include <geometry/Color.h>
 #include <geometry/Transform.h>
 #include <geometry/HitData.h>
-#include <cameras/Scene.h>
+#include <cameras/scenes/Scene.h>
 #include "Light.h"
 
 Color& Light::getColor()
@@ -35,26 +35,7 @@ bool Light::inShadow(Ray& ray, HitData& data)
 {
     float t;
     float distance = (location - ray.origin).norm();
-    const Scene* scene = data.scene;
-    for(auto shape: scene->getObjects())
-    {
-        Ray timeRay;
-        //transformation checks
-        if (shape->isTransform())
-        {
-            timeRay = shape->toObjectSpace(ray);
-        }
-        else
-        {
-            timeRay = ray;
-        }
-        if (shape->hit(timeRay, t) && t < distance)
-        {
-            return true;
-        }
-    }
-
-    return false;
+    return data.scene->shadowHit(ray, distance);
 }
 
 void Light::setLocation(const Eigen::Vector3f location)

@@ -17,6 +17,9 @@ public:
     static float aspect;
     static int numBounces;
     static int numSamples;
+    static bool shadows;
+    static bool octreeAcceleration, bvhAcceleration;
+    static int octreeLevel;
     static int width(){return windowDims[0];}
     static int height(){return windowDims[1];}
 };

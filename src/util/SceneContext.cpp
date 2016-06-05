@@ -7,7 +7,13 @@
 Eigen::Vector2i SceneContext::windowDims = Eigen::Vector2i(-1,-1);
 Color SceneContext::backgroundColor = Color();
 float SceneContext::aspect = 0;
-
 int SceneContext::numSamples = 1;
-
 int SceneContext::numBounces = 5;
+
+bool SceneContext::octreeAcceleration = false;
+
+bool SceneContext::bvhAcceleration = false;
+
+int SceneContext::octreeLevel = 5;
+
+bool SceneContext::shadows = true;

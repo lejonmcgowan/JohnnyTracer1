@@ -34,7 +34,7 @@ bool Sphere::hit(const Ray& ray, HitData& shadeData)
         }
         //small root wasn't within tracing range. Try long root
         //TODO: DRY. can probably abstract these if's into a better utility to assign stugg with
-        t = (-b - std::sqrt(determinant)) / (2 * a);
+        t = (-b + std::sqrt(determinant)) / (2 * a);
         if (t > Constants::EPSILON)
         {
             shadeData.hit = true;
@@ -71,4 +71,16 @@ bool Sphere::hit(const Ray& ray, float& t)
         return true;
 
     return false;
+}
+std::shared_ptr<BoundingBox> Sphere::getBBox()
+{
+    if (bbox != nullptr)
+        return bbox;
+    else
+    {
+        bbox = std::make_shared<BoundingBox>(Eigen::Vector3f(-radius, -radius, -radius),
+                                             Eigen::Vector3f(radius, radius, radius));
+        return Shape::getBBox();
+    }
+
 }

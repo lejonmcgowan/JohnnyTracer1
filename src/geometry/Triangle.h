@@ -18,6 +18,7 @@ public:
 
     virtual bool hit(const Ray& ray, HitData& hitData) override;
     virtual bool hit(const Ray& ray, float& t) override;
+    virtual std::shared_ptr<BoundingBox> getBBox() override;
 
 };
 

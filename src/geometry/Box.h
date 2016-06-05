@@ -10,11 +10,15 @@
 
 class Box: public Shape
 {
-
+private:
+    Eigen::Vector3f min, max;
+    int tnearIndex, tfarIndex;
 public:
-    Box(float legnth, float width, float depth);
+    Box(Eigen::Vector3f min, Eigen::Vector3f max);
     virtual bool hit(const Ray& ray, float& t) override;
     virtual bool hit(const Ray& ray, HitData& hitData) override;
+    virtual std::shared_ptr<BoundingBox> getBBox() override;
+
 };
 
 

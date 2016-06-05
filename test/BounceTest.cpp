@@ -217,16 +217,23 @@ TEST(BounceTest, refract2_1)
 
     //refraction 1
     bounceData = data.bounceInfo[1];
-    EXPECT_TRUE(MathHelper::equalsEpsilon(bounceData.ray.origin, Eigen::Vector3f(-0.56727, 0.590426, 2.88609)));
-    EXPECT_TRUE(MathHelper::equalsEpsilon(bounceData.ray.direction, Eigen::Vector3f(0.0108705, -0.0113142, -0.999877)));
-    EXPECT_EQ(Color(0.2, 0, 0.2), bounceData.ambient);
+    EXPECT_TRUE(MathHelper::equalsEpsilon(bounceData.ray.origin, Eigen::Vector3f(-0.56727, 0.590426, 2.88609), 0.001f));
+    EXPECT_TRUE(MathHelper::equalsEpsilon(bounceData.ray.direction,
+                                          Eigen::Vector3f(0.0108705, -0.0113142, -0.999877),
+                                          0.001f));
+    EXPECT_EQ(Color(0.2f, 0.0f, 0.2f, 0.5f), bounceData.ambient);
     EXPECT_EQ(Color(), bounceData.diffuse);
     EXPECT_EQ(Color(), bounceData.specular);
     EXPECT_EQ("refraction", bounceData.type);
 
     //refraction 2
-    EXPECT_TRUE(MathHelper::equalsEpsilon(bounceData.ray.origin, Eigen::Vector3f(-0.504252, 0.524835, -2.91038)));
-    EXPECT_TRUE(MathHelper::equalsEpsilon(bounceData.ray.direction, Eigen::Vector3f(0.0725581, -0.0755198, -0.994501)));
+    bounceData = data.bounceInfo[2];
+    EXPECT_TRUE(MathHelper::equalsEpsilon(bounceData.ray.origin,
+                                          Eigen::Vector3f(-0.504252, 0.524835, -2.91038),
+                                          0.001f));
+    EXPECT_TRUE(MathHelper::equalsEpsilon(bounceData.ray.direction,
+                                          Eigen::Vector3f(0.0725581, -0.0755198, -0.994501),
+                                          0.001f));
     EXPECT_EQ(Color(0.08, 0.08, 0.32), bounceData.ambient);
     EXPECT_EQ(Color(0.113921, 0.113921, 0.455683), bounceData.diffuse);
     EXPECT_EQ(Color(), bounceData.specular);
@@ -275,23 +282,32 @@ TEST(BounceTest, refract2_2)
     EXPECT_TRUE(MathHelper::equalsEpsilon(bounceData.ray.origin, Eigen::Vector3f(0, 0, 14)));
     EXPECT_TRUE(MathHelper::equalsEpsilon(bounceData.ray.direction,
                                           Eigen::Vector3f(-0.00931474, -0.112812, -0.993573)));
-    EXPECT_EQ(Color(0.2, 0, 0.2), bounceData.ambient);
+    EXPECT_EQ(Color(0.2f, 0.0f, 0.2f, 0.5f), bounceData.ambient);
     EXPECT_EQ(Color(0.0838023, 0, 0.0838023), bounceData.diffuse);
     EXPECT_EQ(Color(), bounceData.specular);
     EXPECT_EQ("primary", bounceData.type);
 
     //refraction 1
     bounceData = data.bounceInfo[1];
-    EXPECT_TRUE(MathHelper::equalsEpsilon(bounceData.ray.origin, Eigen::Vector3f(-0.105841, -1.28185, 2.71028)));
-    EXPECT_TRUE(MathHelper::equalsEpsilon(bounceData.ray.direction, Eigen::Vector3f(0.0028512, 0.0345313, -0.9994)));
-    EXPECT_EQ(Color(0.2, 0, 0.2), bounceData.ambient);
+    EXPECT_TRUE(MathHelper::equalsEpsilon(bounceData.ray.origin,
+                                          Eigen::Vector3f(-0.105841, -1.28185, 2.71028),
+                                          0.001f));
+    EXPECT_TRUE(MathHelper::equalsEpsilon(bounceData.ray.direction,
+                                          Eigen::Vector3f(0.0028512, 0.0345313, -0.9994),
+                                          0.001f));
+    EXPECT_EQ(Color(0.2f, 0.0f, 0.2f, 0.5f), bounceData.ambient);
     EXPECT_EQ(Color(), bounceData.diffuse);
     EXPECT_EQ(Color(), bounceData.specular);
     EXPECT_EQ("refraction", bounceData.type);
 
     //refraction 2
-    EXPECT_TRUE(MathHelper::equalsEpsilon(bounceData.ray.origin, Eigen::Vector3f(-0.0901408, -1.09171, -2.79287)));
-    EXPECT_TRUE(MathHelper::equalsEpsilon(bounceData.ray.direction, Eigen::Vector3f(0.0149547, 0.181118, -0.983348)));
+    bounceData = data.bounceInfo[2];
+    EXPECT_TRUE(MathHelper::equalsEpsilon(bounceData.ray.origin,
+                                          Eigen::Vector3f(-0.0901408, -1.09171, -2.79287),
+                                          0.001f));
+    EXPECT_TRUE(MathHelper::equalsEpsilon(bounceData.ray.direction,
+                                          Eigen::Vector3f(0.0149547, 0.181118, -0.983348),
+                                          0.001f));
     EXPECT_EQ(bounceData.timeCollided, -1);
 }
 
@@ -327,7 +343,7 @@ TEST(BounceTest, refract2_3)
     Shape& sphere = scene.getShape(0);
     Shape& plane = scene.getShape(1);
     PinholeCamera *camera = dynamic_cast<PinholeCamera *>(scene.getCamera(0).get());
-    auto data = scene.castRay(camera->getProjRay(315, 320 - 265 - 1), SceneContext::numBounces);
+    auto data = scene.castRay(camera->getProjRay(315, 480 - 320 - 1), SceneContext::numBounces);
     Color finalColor = data.material->shade(data);
 
     EXPECT_EQ(3, data.bounceInfo.size());
@@ -338,25 +354,29 @@ TEST(BounceTest, refract2_3)
     //get primary ray information
     EXPECT_TRUE(MathHelper::equalsEpsilon(bounceData.ray.origin, Eigen::Vector3f(0, 0, 14)));
     EXPECT_TRUE(MathHelper::equalsEpsilon(bounceData.ray.direction, Eigen::Vector3f(-0.00924547, 0.165391, -0.986185)));
-    EXPECT_EQ(Color(0.2, 0, 0.2), bounceData.ambient);
+    EXPECT_EQ(Color(0.2f, 0.0f, 0.2f, 0.5f), bounceData.ambient);
     EXPECT_EQ(Color(0.24895, 0, 0.24895), bounceData.diffuse);
     EXPECT_EQ(Color(), bounceData.specular);
     EXPECT_EQ("primary", bounceData.type);
 
     //refraction 1
     bounceData = data.bounceInfo[1];
-    EXPECT_TRUE(MathHelper::equalsEpsilon(bounceData.ray.origin, Eigen::Vector3f(-0.110053, 1.96873, 2.26096)));
+    EXPECT_TRUE(MathHelper::equalsEpsilon(bounceData.ray.origin, Eigen::Vector3f(-0.110053, 1.96873, 2.26096), 0.001f));
     EXPECT_TRUE(MathHelper::equalsEpsilon(bounceData.ray.direction,
-                                          Eigen::Vector3f(0.00540285, -0.0966511, -0.995304)));
-    EXPECT_EQ(Color(0.2, 0, 0.2), bounceData.ambient);
+                                          Eigen::Vector3f(0.00540285, -0.0966511, -0.995304), 0.001f));
+    EXPECT_EQ(Color(0.2f, 0.0f, 0.2f, 0.5f), bounceData.ambient);
     EXPECT_EQ(Color(), bounceData.diffuse);
     EXPECT_EQ(Color(), bounceData.specular);
     EXPECT_EQ("refraction", bounceData.type);
 
     //refraction 2
-    EXPECT_TRUE(MathHelper::equalsEpsilon(bounceData.ray.origin, Eigen::Vector3f(-0.0836739, 1.49684, -2.59856)));
-    EXPECT_TRUE(MathHelper::equalsEpsilon(bounceData.ray.direction, Eigen::Vector3f(0.0196786, -0.352028, -0.935782)));
-    EXPECT_EQ(Color(0.152, 0.276, 0.16), bounceData.ambient);
+    EXPECT_TRUE(MathHelper::equalsEpsilon(bounceData.ray.origin,
+                                          Eigen::Vector3f(-0.0836739, 1.49684, -2.59856),
+                                          0.001f));
+    EXPECT_TRUE(MathHelper::equalsEpsilon(bounceData.ray.direction,
+                                          Eigen::Vector3f(0.0196786, -0.352028, -0.935782),
+                                          0.001f));
+    EXPECT_EQ(Color(0.152, 0.276, 0.16, 0.5f), bounceData.ambient);
     EXPECT_EQ(Color(0.382482, 0.694507, 0.402612), bounceData.diffuse);
     EXPECT_EQ(Color(), bounceData.specular);
     EXPECT_EQ("refraction", bounceData.type);
@@ -393,22 +413,22 @@ TEST(BounceTest, refract2_4)
     EXPECT_EQ(2, data.bounceInfo.size());
     auto bounceData = data.bounceInfo[0];
     EXPECT_EQ(Color(174, 62, 176, true), finalColor);
-    EXPECT_TRUE(MathHelper::equalsEpsilon(data.timeCollided, 11.9035));
+    EXPECT_TRUE(MathHelper::equalsEpsilon(data.timeCollided, 11.429));
 
     //get primary ray information
     EXPECT_TRUE(MathHelper::equalsEpsilon(bounceData.ray.origin, Eigen::Vector3f(0, 0, 14)));
     EXPECT_TRUE(MathHelper::equalsEpsilon(bounceData.ray.direction, Eigen::Vector3f(0.104422, 0.0630671, -0.992531)));
-    EXPECT_EQ(Color(0.2, 0, 0.2), bounceData.ambient);
+    EXPECT_EQ(Color(0.2, 0, 0.2, 0.5f), bounceData.ambient);
     EXPECT_EQ(Color(0.12175, 0, 0.12175), bounceData.diffuse);
     EXPECT_EQ(Color(), bounceData.specular);
     EXPECT_EQ("primary", bounceData.type);
 
     //refraction 1
     bounceData = data.bounceInfo[1];
-    EXPECT_TRUE(MathHelper::equalsEpsilon(bounceData.ray.origin, Eigen::Vector3f(1.19344, 0.720795, 2.5633)));
+    EXPECT_TRUE(MathHelper::equalsEpsilon(bounceData.ray.origin, Eigen::Vector3f(1.19344, 0.720795, 2.5633), 0.001f));
     EXPECT_TRUE(MathHelper::equalsEpsilon(bounceData.ray.direction,
-                                          Eigen::Vector3f(-0.0351077, -0.0212037, -0.999159)));
-    EXPECT_EQ(Color(0.152, 0.276, 016), bounceData.ambient);
+                                          Eigen::Vector3f(-0.0351077, -0.0212037, -0.999159), 0.001f));
+    EXPECT_EQ(Color(0.152f, 0.276f, 0.16f), bounceData.ambient);
     EXPECT_EQ(Color(), bounceData.diffuse);
     EXPECT_EQ(Color(), bounceData.specular);
     EXPECT_EQ("refraction", bounceData.type);

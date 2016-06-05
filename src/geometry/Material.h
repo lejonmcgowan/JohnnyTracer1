@@ -13,6 +13,7 @@ class HitData;
 class Material
 {
 public:
+    int index = -1;
     Color ambient, diffuse, specular;
     float diffusePercent = 0.6; //[0-1]
     float specularPercent = 0;
@@ -23,7 +24,7 @@ public:
     float ior = 1.0f;
     Color shade(HitData& data);
     Eigen::Vector3f getReflectedColor(HitData& data);
-    Eigen::Vector3f getRefractedColor(HitData& data);
+    Eigen::Vector3f getRefractedColor(HitData& data, bool& stillRefract);
 };
 
 

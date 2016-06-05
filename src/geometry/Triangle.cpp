@@ -90,3 +90,19 @@ bool Triangle::hit(const Ray& ray, float& t)
     t = e2.dot(s2) / s1DotE1;
     return t > Constants::EPSILON;
 }
+std::shared_ptr<BoundingBox> Triangle::getBBox()
+{
+    if (bbox == nullptr)
+    {
+        Eigen::Vector3f min, max;
+        for (int i = 0; i < 3; i++)
+        {
+            min[i] = std::min(std::min(a[i], b[i]), c[i]);
+            max[i] = std::max(std::max(a[i], b[i]), c[i]);
+        }
+        bbox.reset(new BoundingBox(min, max));
+        return Shape::getBBox();
+    }
+    else
+        return bbox;
+}

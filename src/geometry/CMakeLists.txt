@@ -7,5 +7,5 @@ add_library(geometry Shape.h Shape.cpp
                     Triangle.cpp Triangle.h
                     Transform.cpp Transform.h
                     Material.cpp Material.h
-        Color.cpp Color.h BounceData.h)
-target_link_libraries(geometry cameras)
+        Color.cpp Color.h BounceData.h HitData.cpp BoundingBox.cpp BoundingBox.h)
+target_link_libraries(geometry cameras partitioning)

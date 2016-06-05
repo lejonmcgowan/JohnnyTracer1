@@ -61,5 +61,8 @@ inline float toRadians(float degrees)
     float rads = degrees * Constants::PI / 180.0f;
     return rads;
 }
+
 }
+
+std::ostream& operator<<(std::ostream& ostream, const Eigen::Vector3f vec3);
 #endif //RAYTRACER473_MATHUTILS_H

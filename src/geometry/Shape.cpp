@@ -49,3 +49,45 @@ Ray Shape::toObjectSpace(const Ray& ray)
 
     return inverseRay;
 }
+/*general flow of this will be:
+ * 1. subclass will calculate the bounding box
+ * 2. sublass will call superclasses (this)'s objects method to account for transformations
+ * 3. this will return (untransformed) the same bounding box or (if transformed) a new bounding box around the
+ * assumedly non-AABB box
+ * */
+std::shared_ptr<BoundingBox> Shape::getBBox()
+{
+    assert(bbox != nullptr);
+    //if no transformations, simply return the bbox
+    if (!getTransform().isTransform())
+        return bbox;
+        //else, bound the bounding box
+    else
+    {
+        Eigen::Vector3f newMin, newMax, transMin, transMax;
+        Eigen::Vector4f bounds4Min, bounds4Max;
+        bounds4Min << bbox->getMin()[0], bbox->getMin()[1], bbox->getMin()[2], 1;
+        bounds4Max << bbox->getMax()[0], bbox->getMax()[1], bbox->getMax()[2], 1;
+        bounds4Min = getTransform().getTransformMatrix() * bounds4Min;
+        bounds4Max = getTransform().getTransformMatrix() * bounds4Max;
+
+        transMin << bounds4Min[0], bounds4Min[1], bounds4Min[2];
+        transMax << bounds4Max[0], bounds4Max[1], bounds4Max[2];
+
+        for (int i = 0; i < 3; i++)
+        {
+            if (transMin[i] < transMax[i])
+            {
+                newMin[i] = transMin[i];
+                newMax[i] = transMax[i];
+            }
+            else
+            {
+                newMin[i] = transMax[i];
+                newMax[i] = transMin[i];
+            }
+        }
+
+        return bbox;
+    }
+}

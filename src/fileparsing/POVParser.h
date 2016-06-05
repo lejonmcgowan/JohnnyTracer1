@@ -7,7 +7,7 @@
 
 
 #include <string>
-#include <cameras/Scene.h>
+#include <cameras/scenes/Scene.h>
 #include <lights/Light.h>
 
 class POVParser
@@ -27,7 +27,7 @@ private:
 
     static Shape& parseObjectModifiers(Shape& shape, std::string block);
 public:
-    static Scene parseFile(const std::string filepath);
+    static Scene *parseFile(const std::string filepath);
 
     static Eigen::Vector3f parseMultVec(std::string numParse);
 };

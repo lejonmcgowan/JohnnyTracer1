@@ -7,7 +7,7 @@
 #include <util/MathUtils.h>
 #include <geometry/HitData.h>
 #include "PinholeCamera.h"
-#include "Scene.h"
+#include "cameras/scenes/Scene.h"
 
 using namespace Eigen;
 

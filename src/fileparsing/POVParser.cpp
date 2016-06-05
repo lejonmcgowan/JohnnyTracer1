@@ -9,6 +9,9 @@
 #include <geometry/Plane.h>
 #include <geometry/Triangle.h>
 #include <iostream>
+#include <partitioning/Octree.h>
+#include <cameras/scenes/OctreeScene.h>
+#include <cameras/scenes/BVHScene.h>
 #include "POVParser.h"
 
 using namespace Eigen;
@@ -234,7 +237,14 @@ void POVParser::parseTransform(std::string block)
     input >> word;
     assert(word == "{");
 }
-
+/**
+ * box { <-2, -5, -5>, <2, 5, 5>
+  pigment { color rgbf <1.0, 0.2, 1.0, 0.6>}
+  finish {ambient 0.2 diffuse 0.8 reflection 0.2 refraction 1.0 ior 1.9}
+  rotate <0, -45, 0>
+  translate <3, 0, -5>
+}
+ */
 shared_ptr<Shape> POVParser::parseBox(std::string block)
 {
     std::istringstream input(block);
@@ -242,12 +252,35 @@ shared_ptr<Shape> POVParser::parseBox(std::string block)
     input >> word;
     assert(word == "{");
 
-    float length = 0.0f;
-    float width = 0.0f;
-    float height = 0.0f;
+    Eigen::Vector3f min, max;
 
     shared_ptr<Box> box;
-    box.reset(new Box(length, width, height));
+    std::string currentBlock;
+
+    //parse min vector
+    while (currentBlock.length() < 2 || currentBlock.at(currentBlock.length() - 2) != '>')
+    {
+        input >> word;
+        currentBlock += word;
+    }
+    currentBlock.pop_back();
+    min = parseVector(currentBlock);
+
+    currentBlock.clear();
+
+    //parse max vector
+    while (currentBlock.length() < 2 || currentBlock.at(currentBlock.length() - 2) != '>')
+    {
+        input >> word;
+        currentBlock += word;
+    }
+    currentBlock.pop_back();
+    max = parseVector(currentBlock);
+
+    box.reset(new Box(min, max));
+    while (getline(input, word))
+        currentBlock += word;
+    parseObjectModifiers(*box, currentBlock);
     return box;
 }
 
@@ -659,9 +692,16 @@ Shape &POVParser::parseObjectModifiers(Shape &shape, std::string block)
     o ior
  */
 
-Scene POVParser::parseFile(const std::string filepath)
+Scene *POVParser::parseFile(const std::string filepath)
 {
-    Scene* scene = new Scene();
+    Scene *scene;
+    if (SceneContext::octreeAcceleration)
+        scene = new OctreeScene(0);
+    else if (SceneContext::bvhAcceleration)
+        scene = new BVHScene();
+    else
+        scene = new Scene();
+
     //open the file
     std::ifstream testFile;
     testFile.open(filepath);
@@ -717,11 +757,13 @@ Scene POVParser::parseFile(const std::string filepath)
             scene->addShape(parsePlane(block));
         else if (word == "triangle")
             scene->addShape(parseTriangle(block));
+        else if (word == "box")
+            scene->addShape(parseBox(block));
     }
     //cout << "finished parsing" << filepath << endl;
     for (auto shape: scene->getObjects())
         shape->initTransformation();
-    return *scene;
+    return scene;
 }
 
 

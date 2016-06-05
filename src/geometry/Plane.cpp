@@ -37,3 +37,8 @@ bool Plane::hit(const Ray& ray, float& t)
     t = (center - ray.origin).dot(normal) / ray.direction.dot(normal);
     return t > Constants::EPSILON;
 }
+
+std::shared_ptr<BoundingBox> Plane::getBBox()
+{
+    return nullptr;
+}

@@ -27,6 +27,8 @@ public:
     void setRadius(float radius) {Sphere::radius = radius;}
     const Eigen::Vector3f &getCenter() const {return center;}
     void setCenter(const Eigen::Vector3f &center) {Sphere::center = center;}
+    virtual std::shared_ptr<BoundingBox> getBBox() override;
+
     virtual ~Sphere(){}
 };
 #endif //RAYTRACER473_SPHERE_H

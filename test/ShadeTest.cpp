@@ -6,7 +6,7 @@
 #include <util/MathUtils.h>
 #include <geometry/Plane.h>
 #include "../src/util/SceneContext.h"
-#include "../src/cameras/Scene.h"
+#include "cameras/scenes/Scene.h"
 #include "../src/fileparsing/POVParser.h"
 #include "../src/geometry/Sphere.h"
 #include "../src/cameras/PinholeCamera.h"

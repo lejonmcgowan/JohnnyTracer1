@@ -23,48 +23,62 @@
       <sourceFolder url="file://$MODULE_DIR$/src/cameras/Camera.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/cameras/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/cameras/PinholeCamera.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/cameras/Scene.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/cameras/Scene.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/cameras/PinholeCamera.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/cameras/Camera.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/cameras/scenes/BVHScene.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/cameras/scenes/Scene.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/cameras/scenes/BVHScene.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/cameras/scenes/OctreeScene.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/cameras/scenes/OctreeScene.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/cameras/scenes/Scene.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/antialiasing/Sampler.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/antialiasing/Jittered.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/antialiasing/Jittered.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/antialiasing/Sampler.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/antialiasing/CMakeLists.txt" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/util/SceneContext.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/util/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/util/MathUtils.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/util/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/util/SceneContext.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/util/MathUtils.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/util/Constants.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/util/SceneContext.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/util/Constants.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/CMakeLists.txt" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/geometry/Color.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/geometry/Transform.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/geometry/BounceData.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/geometry/BoundingBox.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/geometry/Box.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/geometry/Plane.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/geometry/Sphere.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/geometry/Sphere.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/geometry/Material.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/geometry/HitData.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/geometry/Triangle.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/geometry/Box.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/geometry/HitData.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/geometry/Shape.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/geometry/Shape.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/geometry/Transform.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/geometry/CMakeLists.txt" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/geometry/BounceData.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/geometry/Plane.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/geometry/Material.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/geometry/Transform.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/geometry/Triangle.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/geometry/Box.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/geometry/Material.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/geometry/Plane.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/geometry/BoundingBox.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/geometry/Color.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/geometry/Ray.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/geometry/Color.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/geometry/Shape.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/geometry/Ray.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/partitioning/Octree.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/partitioning/Octree.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/partitioning/BVHTree.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/partitioning/BVHTree.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/partitioning/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/test/TransformTest.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/test/BaseTest.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/test/CMakeLists.txt" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/test/ShadeTest.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/test/BounceTest.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/test/OctreeTest.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/test/ShadeTest.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cmake/FindEigen.cmake" isTestSource="false" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
