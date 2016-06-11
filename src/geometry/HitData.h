@@ -34,16 +34,6 @@ struct HitData
     Ray transformedRay;
     bool transformed;
 
-    HitData()
-    {
-         hit = false;
-         timeCollided = -1.0f;
-         material = nullptr;
-         previousMaterial = nullptr;
-         index = -1;
-         depth = -1;
-         transformed = false;
-    }
 };
 
 

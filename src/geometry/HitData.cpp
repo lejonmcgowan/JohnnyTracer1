@@ -12,6 +12,12 @@ HitData::HitData(const Scene *scene, Material *initMaterial)
     :
     scene(scene), currentMaterial(initMaterial)
 {
-
+    hit = false;
+    timeCollided = -1.0f;
+    material = NULL;
+    previousMaterial = NULL;
+    index = -1;
+    depth = -1;
+    transformed = false;
 }
 
