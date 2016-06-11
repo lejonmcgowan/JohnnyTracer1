@@ -1,0 +1,1 @@
+add_library(fileparsing POVObject.cpp POVObject.h POVParser.cpp POVParser.h)

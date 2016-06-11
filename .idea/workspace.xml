@@ -26,23 +26,10 @@
     </ADDITIONAL_GENERATION_ENVIRONMENT>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d93748ee-ba68-45d8-94f4-d3971541759f" name="Default" comment="working BVH, Octree needs work">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/bunnyplane.pov" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/cornell.pov" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drake.pov" />
+    <list default="true" id="d93748ee-ba68-45d8-94f4-d3971541759f" name="Default" comment="box and other fixes. As far as I'm going with this tracer (v1)">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/RayTracer473.iml" afterPath="$PROJECT_DIR$/.idea/RayTracer473.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README" afterPath="$PROJECT_DIR$/README" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/antialiasing/Jittered.cpp" afterPath="$PROJECT_DIR$/src/antialiasing/Jittered.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/antialiasing/Jittered.h" afterPath="$PROJECT_DIR$/src/antialiasing/Jittered.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/antialiasing/Sampler.h" afterPath="$PROJECT_DIR$/src/antialiasing/Sampler.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cameras/scenes/BVHScene.cpp" afterPath="$PROJECT_DIR$/src/cameras/scenes/BVHScene.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fileparsing/POVParser.cpp" afterPath="$PROJECT_DIR$/src/fileparsing/POVParser.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/geometry/Box.cpp" afterPath="$PROJECT_DIR$/src/geometry/Box.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/geometry/Material.cpp" afterPath="$PROJECT_DIR$/src/geometry/Material.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/geometry/Shape.cpp" afterPath="$PROJECT_DIR$/src/geometry/Shape.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main.cpp" afterPath="$PROJECT_DIR$/src/main.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/partitioning/BVHTree.cpp" afterPath="$PROJECT_DIR$/src/partitioning/BVHTree.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/SceneContext.cpp" afterPath="$PROJECT_DIR$/src/util/SceneContext.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CMakeLists.txt" afterPath="$PROJECT_DIR$/CMakeLists.txt" />
     </list>
     <ignored path="RayTracer473.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -106,8 +93,8 @@
       <file leaf-file-name="BVHTree.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/partitioning/BVHTree.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="148" column="20" selection-start-line="148" selection-start-column="20" selection-end-line="148" selection-end-column="20" />
+            <state relative-caret-position="172">
+              <caret line="138" column="38" selection-start-line="138" selection-start-column="38" selection-end-line="138" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -129,7 +116,7 @@
             <state relative-caret-position="6314">
               <caret line="287" column="0" selection-start-line="287" selection-start-column="0" selection-end-line="288" selection-end-column="0" />
               <folding>
-                <marker date="1465437999722" expanded="true" signature="6134:7133" ph="{...}" />
+                <marker date="1465617139656" expanded="true" signature="6135:7135" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -222,8 +209,8 @@
         <option value="$PROJECT_DIR$/src/cameras/scenes/BVHScene.cpp" />
         <option value="$PROJECT_DIR$/src/geometry/Box.cpp" />
         <option value="$PROJECT_DIR$/res/valTest.pov" />
-        <option value="$PROJECT_DIR$/src/partitioning/BVHTree.cpp" />
         <option value="$PROJECT_DIR$/src/util/SceneContext.cpp" />
+        <option value="$PROJECT_DIR$/src/partitioning/BVHTree.cpp" />
       </list>
     </option>
   </component>
@@ -716,7 +703,14 @@
       <option name="project" value="LOCAL" />
       <updated>1465110506682</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="box and other fixes. As far as I'm going with this tracer (v1)">
+      <created>1465617141617</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1465617141617</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -762,18 +756,18 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1985" y="304" width="1855" height="1084" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27830452" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991612" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47297296" sideWeight="0.47796988" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22747748" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.449095" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="LuaJ" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32961518" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45022625" sideWeight="0.15616286" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995495" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.8773006" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6877828" sideWeight="0.8773006" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2548801" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37330317" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2341629" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22211155" sideWeight="0.84383714" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -823,7 +817,8 @@
     <MESSAGE value="reflections in; refractions set up for structure. wish me luck" />
     <MESSAGE value="refractions are janked; anti-aliasing, and transformations are in. &#10;&#10;Also, more testing that I'm failing.  yay." />
     <MESSAGE value="working BVH, Octree needs work" />
-    <option name="LAST_COMMIT_MESSAGE" value="working BVH, Octree needs work" />
+    <MESSAGE value="box and other fixes. As far as I'm going with this tracer (v1)" />
+    <option name="LAST_COMMIT_MESSAGE" value="box and other fixes. As far as I'm going with this tracer (v1)" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -875,7 +870,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="394" />
+      <option name="time" value="395" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1059,6 +1054,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
           <caret line="14" column="43" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1087,6 +1083,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="15" column="36" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1094,6 +1091,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
           <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1101,6 +1099,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1221418">
           <caret line="55519" column="1" selection-start-line="55519" selection-start-column="1" selection-end-line="55519" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1115,6 +1114,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
           <caret line="12" column="50" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1129,6 +1129,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="223">
           <caret line="67" column="52" selection-start-line="67" selection-start-column="52" selection-end-line="67" selection-end-column="52" />
+          <folding>
+            <element signature="e#44#62#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1194,7 +1197,7 @@
         <state relative-caret-position="6314">
           <caret line="287" column="0" selection-start-line="287" selection-start-column="0" selection-end-line="288" selection-end-column="0" />
           <folding>
-            <marker date="1465437999722" expanded="true" signature="6134:7133" ph="{...}" />
+            <marker date="1465617139656" expanded="true" signature="6135:7135" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1241,8 +1244,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/partitioning/BVHTree.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="148" column="20" selection-start-line="148" selection-start-column="20" selection-end-line="148" selection-end-column="20" />
+        <state relative-caret-position="172">
+          <caret line="138" column="38" selection-start-line="138" selection-start-column="38" selection-end-line="138" selection-end-column="38" />
           <folding />
         </state>
       </provider>
