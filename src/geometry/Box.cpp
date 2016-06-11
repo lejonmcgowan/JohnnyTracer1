@@ -73,13 +73,14 @@ bool Box::hit(const Ray& ray, float& t)
     result &= tmaxs[2] > Constants::EPSILON;
 
     //since we're interested in the actual time, find the  smallest positive time and return it
+    //largest entering time or the smalles exiting time
     if (result)
     {
         t = -1;
         tnearIndex = 0;
         for (int i = 0; i < 3; i++)
         {
-            if (tmins[i] > Constants::EPSILON && (tmins[i] < t || t < 0))
+            if (tmins[i] > Constants::EPSILON && (t < 0 || tmins[i] > t))
             {
                 t = tmins[i];
                 tnearIndex = i;

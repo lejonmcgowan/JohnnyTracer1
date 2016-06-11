@@ -102,7 +102,7 @@ Eigen::Vector3f Material::getRefractedColor(HitData& data, bool& resultRefract)
 
 Color Material::shade(HitData& data)
 {
-    assert(index != -1);
+    //assert(index != -1);
     Color totalColor,ambientColor;
     Eigen::Vector3f lightColor;
     lightColor.setZero();

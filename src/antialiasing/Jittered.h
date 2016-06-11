@@ -12,6 +12,8 @@ class Jittered: public Sampler
 public:
 
     virtual void makeSamples() override;
+    virtual void mapToHemisphere() override;
+
 };
 
 

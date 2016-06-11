@@ -77,6 +77,7 @@ HitData BVHScene::castRay(const Ray& ray, int depth) const
         finalData.shadowRay = shadeData.shadowRay;
         finalData.depth = shadeData.depth;
         finalData.transformed = shadeData.transformed;
+
     }
     return finalData;
 }

@@ -2,6 +2,7 @@
 // Created by lejonmcgowan on 4/7/16.
 //
 #include "Shape.h"
+#include <iostream>
 
 Material& Shape::getMaterial()
 {
@@ -64,30 +65,32 @@ std::shared_ptr<BoundingBox> Shape::getBBox()
         //else, bound the bounding box
     else
     {
-        Eigen::Vector3f newMin, newMax, transMin, transMax;
-        Eigen::Vector4f bounds4Min, bounds4Max;
-        bounds4Min << bbox->getMin()[0], bbox->getMin()[1], bbox->getMin()[2], 1;
-        bounds4Max << bbox->getMax()[0], bbox->getMax()[1], bbox->getMax()[2], 1;
-        bounds4Min = getTransform().getTransformMatrix() * bounds4Min;
-        bounds4Max = getTransform().getTransformMatrix() * bounds4Max;
+        Eigen::Vector3f newMin(0, 0, 0), newMax(0, 0, 0), transMin, transMax;
+        Eigen::Vector3f points[8];
 
-        transMin << bounds4Min[0], bounds4Min[1], bounds4Min[2];
-        transMax << bounds4Max[0], bounds4Max[1], bounds4Max[2];
-
-        for (int i = 0; i < 3; i++)
+        Eigen::Vector3f min = bbox->getMin();
+        Eigen::Vector3f max = bbox->getMax();
+        for (int i = 0; i < 8; i++)
         {
-            if (transMin[i] < transMax[i])
+            points[i][0] = i & 0x1 ? min[0] : max[0];
+            points[i][1] = i & 0x2 ? min[1] : max[1];
+            points[i][2] = i & 0x4 ? min[2] : max[2];
+
+            points[i] = transform.transformPoint(points[i]);
+            //init the current min/max
+            if (i == 0)
             {
-                newMin[i] = transMin[i];
-                newMax[i] = transMax[i];
+                newMin = points[i];
+                newMax = points[i];
             }
-            else
-            {
-                newMin[i] = transMax[i];
-                newMax[i] = transMin[i];
-            }
+
+            newMin = newMin.cwiseMin(points[i]);
+            newMax = newMax.cwiseMax(points[i]);
         }
 
+        bbox.reset(new BoundingBox(newMin, newMax));
+        std::cout << "MIN: (" << newMin[0] << "," << newMin[1] << "," << newMin[2] << ")" << std::endl;
+        std::cout << "MAX: (" << newMax[0] << "," << newMax[1] << "," << newMax[2] << ")" << std::endl;
         return bbox;
     }
 }

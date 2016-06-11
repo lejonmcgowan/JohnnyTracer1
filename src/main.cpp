@@ -27,8 +27,11 @@ int main(int argc, char **argv)
 
         Scene *scene = POVParser::parseFile(std::string(arg3));
         auto sampler = std::make_shared<Jittered>();
+        sampler->makeSamples();
         scene->getCamera(0)->setSampler(sampler);
         scene->init();
+
+        std::cout << "INITIALIZED" << std::endl;
 
         auto start = std::chrono::system_clock::now();
         scene->render(*scene->getCamera(0));
@@ -42,7 +45,7 @@ int main(int argc, char **argv)
 
         std::string inputFilePath = argv[3];
         inputFilePath = inputFilePath.substr(0,inputFilePath.find_last_of('/') + 1);
-        inputFilePath = "/home/lejonmcgowan/ClionProjects/RayTracer473/";
+        //inputFilePath = "/home/lejonmcgowan/ClionProjects/RayTracer473/";
         scene->renderImage(inputFilePath + "sample.tga");
 
         std::cout <<"image made in " << inputFilePath + "sample.tga" << std::endl;

@@ -12,7 +12,7 @@ int SceneContext::numBounces = 5;
 
 bool SceneContext::octreeAcceleration = false;
 
-bool SceneContext::bvhAcceleration = false;
+bool SceneContext::bvhAcceleration = true;
 
 int SceneContext::octreeLevel = 5;
 

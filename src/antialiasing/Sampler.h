@@ -18,9 +18,11 @@ public:
     {
         return samplePoints[count++ % (NUM_SETS * SceneContext::numSamples)];
     }
+    virtual void mapToHemisphere() = 0;
 protected:
     static int NUM_SETS;
     std::vector<Eigen::Vector2f> samplePoints;
+    std::vector<Eigen::Vector3f> hemiPoints;
 
 };
 

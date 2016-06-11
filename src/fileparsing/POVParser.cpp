@@ -22,6 +22,8 @@ Eigen::VectorXf POVParser::parseVector(std::string block, int size)
 {
     //validation
     assert(block.front() == '<');
+    if (block.back() != '>')
+        block.pop_back();
     assert(block.back() == '>');
 
     VectorXf vec(size);
@@ -269,14 +271,16 @@ shared_ptr<Shape> POVParser::parseBox(std::string block)
     currentBlock.clear();
 
     //parse max vector
-    while (currentBlock.length() < 2 || currentBlock.at(currentBlock.length() - 2) != '>')
+    while (currentBlock.length() < 2 || (currentBlock.at(currentBlock.length() - 2) != '>' &&
+        currentBlock.at(currentBlock.length() - 1) != '>'))
     {
         input >> word;
         currentBlock += word;
     }
-    currentBlock.pop_back();
+    if (currentBlock.back() != '>')
+        currentBlock.pop_back();
     max = parseVector(currentBlock);
-
+    currentBlock.clear();
     box.reset(new Box(min, max));
     while (getline(input, word))
         currentBlock += word;
@@ -436,7 +440,7 @@ std::string POVParser::parseComments(std::string &fileString) {
         if(!inBlockComment && !inLineComment)
         {
             finalString += fileString[i];
-            if (finalString.back() == '}')
+            if (finalString.back() == '}' || finalString.back() == '>')
             {
                 //finalString.insert(finalString.length() - 1," ");
                 finalString += " ";

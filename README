@@ -16,4 +16,4 @@ currently wonky/broken:
 
 refractions are returning incorrect results
 Schlick's approximation not yet implemented
-Specular highlights are still slightly off
+GI is not yet implemented

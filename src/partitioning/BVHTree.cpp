@@ -131,7 +131,19 @@ bool BVHTree::getNearestShape(const Ray& ray, HitData& data, float currentMin) c
             else
                 intersectRay = ray;
             if (shape->getBBox()->hit(intersectRay))
+            {
                 finalHit = shape->hit(intersectRay, data);
+                if (shape->isTransform())
+                {
+                    //transform hit point
+                    //transform normal
+                    Eigen::Vector4f vector;
+                    vector << data.normal[0], data.normal[1], data.normal[2], 0;
+                    vector = shape->getInvMat().transpose() * vector;
+                    data.normal << vector[0], vector[1], vector[2];
+                    data.normal.normalize();
+                }
+            }
         }
     }
     return finalHit;
