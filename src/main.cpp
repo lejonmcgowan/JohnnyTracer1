@@ -45,7 +45,7 @@ int main(int argc, char **argv)
 
         std::string inputFilePath = argv[3];
         inputFilePath = inputFilePath.substr(0,inputFilePath.find_last_of('/') + 1);
-        //inputFilePath = "/home/lejonmcgowan/ClionProjects/RayTracer473/";
+        inputFilePath = "/home/lejonmcgowan/ClionProjects/RayTracer473/";
         scene->renderImage(inputFilePath + "sample.tga");
 
         std::cout <<"image made in " << inputFilePath + "sample.tga" << std::endl;

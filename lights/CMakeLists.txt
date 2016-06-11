@@ -1,1 +1,0 @@
-add_library(lights Light.cpp Light.h)
