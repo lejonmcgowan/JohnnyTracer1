@@ -1,3 +1,6 @@
+Original learning of ray tracing for Cal Poly's CPE 473 course. Now abandoned for work on a more scalable version (see [JohnnyTracer2](https://github.com/lejonmcgowan/JohnnyTracer2))
+
+
 simply run 
 
 ./run.sh [ARGS] 
@@ -16,4 +19,4 @@ currently wonky/broken:
 
 refractions are returning incorrect results
 Schlick's approximation not yet implemented
-GI is not yet implemented
+GI is not yet implemented)
